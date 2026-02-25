@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+dist
+build
+.env
+.env.local
+.env.*.local
+.vercel
+tmp
+stderr
+.user
+.htaccess
+cgi-bin
+htdocs
+.DS_Store
+*.log

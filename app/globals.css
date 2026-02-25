@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Core Foundation - Clean, Airy, High-Contrast */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.12 0.015 230);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.015 230);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.015 230);
+
+  /* Brand Green */
+  --primary: oklch(0.62 0.22 131);
+  /* #3CA200 */
+  --primary-foreground: oklch(1 0 0);
+
+  /* Brand Accent */
+  --accent: oklch(0.82 0.18 85);
+  /* #E8C600 */
+  --accent-foreground: oklch(0.12 0.015 230);
+
+  --secondary: oklch(0.96 0.01 131);
+  --secondary-foreground: oklch(0.42 0.18 131);
+
+  --muted: oklch(0.95 0.01 240);
+  --muted-foreground: oklch(0.5 0.02 240);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.92 0.01 240);
+  --input: oklch(0.92 0.01 240);
+  --ring: oklch(0.62 0.22 131);
+
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-body: var(--font-body, 'Outfit', sans-serif);
+  --font-heading: var(--font-heading, 'Parkinsans', sans-serif);
+  --font-mono: 'Courier New', monospace;
+
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --shadow-premium: 0 2px 10px -3px rgba(0, 0, 0, 0.04);
+  --shadow-heavy: 0 6px 15px -6px rgba(0, 0, 0, 0.06);
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/10 selection:text-primary;
+  }
+
+  html {
+    @apply overflow-x-hidden;
+    width: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-size: 14px;
+    font-style: normal !important;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight;
+    font-style: normal !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Line clamp utility for mobile */
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Reveal Animation - Safer Fallback */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* No-JS Fallback */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Mobile viewport fix */
+  @supports (-webkit-touch-callout: none) {
+    body {
+      min-height: -webkit-fill-available;
+    }
+  }
+}
