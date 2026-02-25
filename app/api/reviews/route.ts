@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
 import mysql from 'mysql2/promise';
 
-// আপনার দেওয়া ডাটাবেজ কনফিগ
 const dbConfig = {
-  host: 'localhost',
-  user: 'onlinebd_dubai_home',
-  password: 'onlinebd_dubai_home',
-  database: 'onlinebd_dubai_home',
+  // 'localhost' এর বদলে আপনার cPanel IP দিন
+  host: '37.27.232.161', 
+  user: 'mygovbd_dubai_home', // আপনার সঠিক ইউজার নাম
+  password: 'mygovbd_dubai_home', // আপনার সঠিক পাসওয়ার্ড
+  database: 'mygovbd_dubai_home', // আপনার সঠিক ডাটাবেজ নাম
+  port: 3306,
+  connectTimeout: 10000, // কানেকশন পেতে দেরি হলে ১০ সেকেন্ড ওয়েট করবে
 };
 
-// ডাটা নিয়ে আসা (GET)
 export async function GET() {
   let connection;
   try {
@@ -17,24 +18,31 @@ export async function GET() {
     const [rows] = await connection.execute('SELECT * FROM reviews ORDER BY created_at DESC');
     return NextResponse.json(rows);
   } catch (error: any) {
+    console.error('Database Error:', error.message); // এরর লগ দেখার জন্য
     return NextResponse.json({ error: error.message }, { status: 500 });
   } finally {
     if (connection) await connection.end();
   }
 }
 
-// ডাটা সেভ করা (POST)
 export async function POST(request: Request) {
   let connection;
   try {
     const { name, rating, comment } = await request.json();
+    
+    // ভ্যালিডেশন চেক
+    if (!name || !rating) {
+        return NextResponse.json({ error: 'Name and Rating are required' }, { status: 400 });
+    }
+
     connection = await mysql.createConnection(dbConfig);
     await connection.execute(
       'INSERT INTO reviews (name, rating, comment) VALUES (?, ?, ?)',
-      [name, rating, comment]
+      [name, Number(rating), comment] // রেটিং নাম্বার হিসেবে পাঠানো ভালো
     );
     return NextResponse.json({ message: 'Success' });
   } catch (error: any) {
+    console.error('Insert Error:', error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   } finally {
     if (connection) await connection.end();
