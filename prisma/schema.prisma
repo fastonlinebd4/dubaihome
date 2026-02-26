@@ -16,8 +16,9 @@ model Lead {
   phone     String
   email     String?
   service   String
+  address   String?  // <--- এই লাইনটি যোগ করুন
   message   String?
-  status    String   @default("NEW") // NEW, CONTACTED, COMPLETED
+  status    String   @default("NEW")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
