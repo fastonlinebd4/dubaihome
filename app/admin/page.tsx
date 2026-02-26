@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Shield, LogOut, Trash2, Calendar, Phone, Mail, User } from 'lucide-react';
+import { Shield, LogOut, Trash2, Calendar, Phone, Mail, User, MapPin, MessageSquare } from 'lucide-react';
 
 export default function AdminDashboard() {
     const [leads, setLeads] = useState<any[]>([]);
@@ -40,6 +40,7 @@ export default function AdminDashboard() {
         }
     };
 
+    // Login Screen
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gray-950 flex items-center justify-center p-4">
@@ -60,8 +61,11 @@ export default function AdminDashboard() {
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full h-12 bg-white/5 border border-white/10 rounded-xl px-4 text-sm font-bold text-white focus:outline-none focus:border-primary/50 transition-all text-center"
                         />
-                        <button className="w-full h-12 bg-primary hover:bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl transition-all shadow-lg active:scale-95">
-                            Login To Dashboard
+                        <button 
+                            disabled={loading}
+                            className="w-full h-12 bg-primary hover:bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl transition-all shadow-lg active:scale-95 disabled:opacity-50"
+                        >
+                            {loading ? 'Authenticating...' : 'Login To Dashboard'}
                         </button>
                     </form>
                 </div>
@@ -69,6 +73,7 @@ export default function AdminDashboard() {
         );
     }
 
+    // Dashboard Screen
     return (
         <div className="min-h-screen bg-gray-50 p-4 md:p-8">
             <div className="max-w-6xl mx-auto">
@@ -78,7 +83,10 @@ export default function AdminDashboard() {
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">Management Panel</p>
                     </div>
                     <button
-                        onClick={() => setIsLoggedIn(false)}
+                        onClick={() => {
+                            setIsLoggedIn(false);
+                            setPassword('');
+                        }}
                         className="inline-flex items-center gap-2 px-6 py-2 bg-gray-900 text-white rounded-full font-bold text-xs hover:bg-red-500 transition-all"
                     >
                         <LogOut className="w-4 h-4" />
@@ -97,43 +105,41 @@ export default function AdminDashboard() {
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
 
                                 <div className="grid md:grid-cols-4 gap-6 items-start relative z-10">
-                                    <div className="space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                                                <User className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Customer</p>
-                                                <h3 className="font-bold text-gray-900 leading-none">{lead.name}</h3>
-                                            </div>
+                                    {/* Customer */}
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                                            <User className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Customer</p>
+                                            <h3 className="font-bold text-gray-900 leading-none">{lead.name}</h3>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
-                                                <Phone className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact</p>
-                                                <h3 className="font-bold text-gray-900 leading-none">{lead.phone}</h3>
-                                            </div>
+                                    {/* Contact */}
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500">
+                                            <Phone className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Contact</p>
+                                            <h3 className="font-bold text-gray-900 leading-none">{lead.phone}</h3>
                                         </div>
                                     </div>
 
-                                    <div className="md:col-span-1 space-y-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
-                                                <Shield className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Service</p>
-                                                <h3 className="font-bold text-gray-900 leading-none">{lead.service}</h3>
-                                            </div>
+                                    {/* Service */}
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500">
+                                            <Shield className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Service</p>
+                                            <h3 className="font-bold text-gray-900 leading-none">{lead.service}</h3>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between md:justify-end gap-4 h-full">
+                                    {/* Actions */}
+                                    <div className="flex items-center justify-between md:justify-end gap-4">
                                         <div className="text-right">
                                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Received</p>
                                             <p className="text-xs font-bold text-gray-600">{new Date(lead.createdAt).toLocaleDateString()}</p>
@@ -147,13 +153,29 @@ export default function AdminDashboard() {
                                     </div>
                                 </div>
 
+                                {/* ADDRESS SECTION - নতুন যোগ করা হয়েছে */}
+                                {lead.address && (
+                                    <div className="mt-6 pt-6 border-t border-gray-50 flex items-start gap-3">
+                                        <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center text-green-600 shrink-0">
+                                            <MapPin className="w-4 h-4" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Service Location</p>
+                                            <p className="text-sm font-bold text-gray-700">{lead.address}</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* MESSAGE SECTION */}
                                 {lead.message && (
-                                    <div className="mt-6 pt-6 border-t border-gray-50">
+                                    <div className="mt-4 pt-4 border-t border-gray-50">
                                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-2">
-                                            <Mail className="w-3 h-3" />
-                                            Message
+                                            <MessageSquare className="w-3 h-3 text-primary" />
+                                            Special Instructions
                                         </p>
-                                        <p className="text-sm font-medium text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-2xl">{lead.message}</p>
+                                        <p className="text-sm font-medium text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                            {lead.message}
+                                        </p>
                                     </div>
                                 )}
                             </div>
