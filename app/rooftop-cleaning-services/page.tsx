@@ -49,7 +49,16 @@ export default function RooftopCleaningPage() {
                 Professional Rooftop Cleaning Services In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Protect your property with our professional rooftop cleaning services in Dubai. We remove accumulated dust, sand, leaves, debris, and mold growth from rooftops. Blocked drainage systems are cleared to prevent water damage and leakage. Regular rooftop cleaning extends structural durability and prevents costly repairs. Ideal for villas, commercial buildings, and warehouses. Our team uses safe access methods and proper safety equipment. We ensure thorough cleaning without damaging roofing materials. Maintain your roof’s performance and longevity with expert care.              </p>
+                Protect your property with our <strong>professional rooftop cleaning services in Dubai</strong>. We remove{' '}
+                <strong>accumulated dust, sand, leaves, debris, and mold growth</strong> from rooftops.{' '}
+                <strong>Blocked drainage systems are cleared</strong> to prevent water damage and leakage. Regular rooftop cleaning{' '}
+                <strong>extends structural durability and prevents costly repairs</strong>. Ideal for{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>,{' '}
+                commercial buildings, and{' '}
+                <Link href="/deep-cleaning-of-warehouse" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">warehouses</Link>.
+                {' '}Our team uses <strong>safe access methods and proper safety equipment</strong>. We ensure{' '}
+                <strong>thorough cleaning without damaging roofing materials</strong>. Maintain your roof's performance and longevity with expert care.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Rooftop Cleaning service"
@@ -133,33 +142,45 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Loose Debris & Leaf Removal',
-                  'Sand & Dust Extraction',
-                  'High-Pressure Tile Washing',
-                  'Gutter & Drain Clearing',
-                  'Algae & Moss Treatment',
+                  { label: 'Loose Debris & Leaf Removal', href: null },
+                  { label: 'Sand & Dust Extraction', href: null },
+                  { label: 'High-Pressure Tile Washing', href: '/outside-power-wash' },
+                  { label: 'Gutter & Drain Clearing', href: null },
+                  { label: 'Algae & Moss Treatment', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Stain & Bird Dropping Removal',
-                  'Solar Panel Dusting (Optional)',
-                  'AC Outdoor Unit Area Cleaning',
-                  'Edge & Parapet Wall Scrubbing',
-                  'Final Inspection for Leaks',
+                  { label: 'Stain & Bird Dropping Removal', href: null },
+                  { label: 'Solar Panel Dusting (Optional)', href: null },
+                  { label: 'AC Outdoor Unit Area Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Edge & Parapet Wall Scrubbing', href: '/villa-facade-cleaning-services' },
+                  { label: 'Final Inspection for Leaks', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -183,72 +204,90 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
             {[
               {
                 title: 'Debris Management',
+                href: null,
                 items: [
-                  'Large trash & debris removal',
-                  'Leaf & branch clearing',
-                  'Construction residue cleanup',
-                  'Bird nest removal (safe)',
-                  'Bagging and disposal',
+                  { label: 'Large trash & debris removal', href: null },
+                  { label: 'Leaf & branch clearing', href: null },
+                  { label: 'Construction residue cleanup', href: '/post-construction-cleaning-in-dubai' },
+                  { label: 'Bird nest removal (safe)', href: null },
+                  { label: 'Bagging and disposal', href: null },
                 ]
               },
               {
                 title: 'Surface Deep Clean',
+                href: '/outside-power-wash',
                 items: [
-                  'Jet pressure washing',
-                  'Tough stain treatment',
-                  'Grout & tile scrubbing',
-                  'Eco-friendly degreasing',
-                  'Parapet wall washing',
+                  { label: 'Jet pressure washing', href: null },
+                  { label: 'Tough stain treatment', href: null },
+                  { label: 'Grout & tile scrubbing', href: null },
+                  { label: 'Eco-friendly degreasing', href: null },
+                  { label: 'Parapet wall washing', href: '/villa-facade-cleaning-services' },
                 ]
               },
               {
                 title: 'Drainage Care',
+                href: null,
                 items: [
-                  'Drain pipe unclogging',
-                  'Gutter deep cleaning',
-                  'Water flow testing',
-                  'Silt & sand removal',
-                  'Outlet screen cleaning',
+                  { label: 'Drain pipe unclogging', href: null },
+                  { label: 'Gutter deep cleaning', href: null },
+                  { label: 'Water flow testing', href: null },
+                  { label: 'Silt & sand removal', href: null },
+                  { label: 'Outlet screen cleaning', href: null },
                 ]
               },
               {
                 title: 'Mechanical Areas',
+                href: null,
                 items: [
-                  'AC platform cleaning',
-                  'Exhaust fan exterior wiping',
-                  'Pipe insulation check',
-                  'Mechanical debris removal',
-                  'Vent cover dusting',
+                  { label: 'AC platform cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Exhaust fan exterior wiping', href: null },
+                  { label: 'Pipe insulation check', href: null },
+                  { label: 'Mechanical debris removal', href: null },
+                  { label: 'Vent cover dusting', href: '/ac-duct-cleaning' },
                 ]
               },
               {
                 title: 'Protection Treatment',
+                href: null,
                 items: [
-                  'Anti-fungal spray application',
-                  'Dust-repellent coating',
-                  'Mildew prevention',
-                  'Surface sanitization',
-                  'Tile inspection report',
+                  { label: 'Anti-fungal spray application', href: null },
+                  { label: 'Dust-repellent coating', href: null },
+                  { label: 'Mildew prevention', href: null },
+                  { label: 'Surface sanitization', href: null },
+                  { label: 'Tile inspection report', href: null },
                 ]
               },
               {
                 title: 'Finishing Touches',
+                href: null,
                 items: [
-                  'Staircase to roof cleaning',
-                  'Access door sanitization',
-                  'Skylight glass polishing',
-                  'Water tank exterior wipe',
-                  'Final site walkthrough',
+                  { label: 'Staircase to roof cleaning', href: null },
+                  { label: 'Access door sanitization', href: null },
+                  { label: 'Skylight glass polishing', href: '/outside-window-cleaning' },
+                  { label: 'Water tank exterior wipe', href: '/water-tank-cleaning-services' },
+                  { label: 'Final site walkthrough', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -270,23 +309,28 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
                 {[
                   {
                     title: 'Prevent Structural Damage',
-                    desc: 'Accumulated sand and water can lead to cracks and leakage, causing expensive repairs to your interior ceilings.'
+                    desc: 'Accumulated sand and water can lead to cracks and leakage, causing expensive repairs to your interior ceilings.',
+                    href: null,
                   },
                   {
                     title: 'Improve Energy Efficiency',
-                    desc: 'A clean, reflective roof absorbs less heat from the Dubai sun, lowering your AC energy consumption and bills.'
+                    desc: 'A clean, reflective roof absorbs less heat from the Dubai sun, lowering your AC energy consumption and bills.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Drainage Security',
-                    desc: 'Sandstorms often block roof drains. Regular cleaning ensures water flows freely during unexpected heavy rains.'
+                    desc: 'Sandstorms often block roof drains. Regular cleaning ensures water flows freely during unexpected heavy rains.',
+                    href: null,
                   },
                   {
                     title: 'Solar Panel Performance',
-                    desc: 'If you have solar panels, a clean rooftop reduces dust circulation, ensuring maximum sunlight absorption.'
+                    desc: 'If you have solar panels, a clean rooftop reduces dust circulation, ensuring maximum sunlight absorption.',
+                    href: null,
                   },
                   {
                     title: 'Pest Prevention',
-                    desc: 'Removing bird droppings and organic waste prevents pests and rodents from nesting on your property.'
+                    desc: 'Removing bird droppings and organic waste prevents pests and rodents from nesting on your property.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -294,7 +338,13 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -379,43 +429,25 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                icon: Shield,
-                title: 'Safety Compliant',
-                desc: 'Our cleaners are trained in high-altitude safety with proper harnesses and gear.'
-              },
-              {
-                icon: Star,
-                title: 'Deep Stain Removal',
-                desc: 'Expertise in removing stubborn desert stains and oil marks from outdoor units.'
-              },
-              {
-                icon: Clock,
-                title: 'Swift Execution',
-                desc: 'Efficient teams that complete even large rooftops within a single day.'
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Guaranteed Clarity',
-                desc: 'We guarantee a 100% sand-free and debris-free rooftop after our service.'
-              },
-              {
-                icon: Sparkles,
-                title: 'Eco-Cleaning',
-                desc: 'Biodegradable cleaning agents that won’t harm your property or the local ecology.'
-              },
-              {
-                icon: Warehouse,
-                title: 'Modern Jet Washers',
-                desc: 'Industrial-grade equipment for powerful yet controlled exterior cleaning.'
-              },
+              { icon: Shield, title: 'Safety Compliant', desc: 'Our cleaners are trained in high-altitude safety with proper harnesses and gear.', href: null },
+              { icon: Star, title: 'Deep Stain Removal', desc: 'Expertise in removing stubborn desert stains and oil marks from outdoor units.', href: null },
+              { icon: Clock, title: 'Swift Execution', desc: 'Efficient teams that complete even large rooftops within a single day.', href: null },
+              { icon: CheckCircle2, title: 'Guaranteed Clarity', desc: 'We guarantee a 100% sand-free and debris-free rooftop after our service.', href: null },
+              { icon: Sparkles, title: 'Eco-Cleaning', desc: 'Biodegradable cleaning agents that won\'t harm your property or the local ecology.', href: null },
+              { icon: Warehouse, title: 'Modern Jet Washers', desc: 'Industrial-grade equipment for powerful yet controlled exterior cleaning.', href: '/outside-power-wash' },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
                 <div className="w-12 h-12 bg-[#529e00]/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -454,8 +486,47 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Villa Facade Cleaning', href: '/villa-facade-cleaning-services' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Outside Deep Cleaning', href: '/outside-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Water Tank Cleaning', href: '/water-tank-cleaning-services' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -485,7 +556,7 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
                 a: 'Access to a water outlet is required. If not available, please inform us in advance so we can arrange solutions.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -502,7 +573,7 @@ Protect your property with our professional rooftop cleaning services in Dubai. 
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
