@@ -18,7 +18,7 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Layers // Floor relevant icon
+  Layers
 } from 'lucide-react';
 
 export default function FloorDeepCleaningPage() {
@@ -52,7 +52,21 @@ export default function FloorDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Dubai Home Cleaning Services provides professional floor deep cleaning services in Dubai designed to restore shine, hygiene, and durability to all types of flooring. Over time, floors collect stubborn stains, embedded dirt, bacteria, and discoloration that regular mopping cannot remove. Our expert team uses industrial-grade machines and specialized cleaning solutions to deeply clean marble, tile, ceramic, parquet, vinyl, and concrete floors. We focus on grout lines, corners, and high-traffic areas to eliminate hidden buildup and restore the original appearance. For marble and natural stone surfaces, we apply safe techniques to protect and enhance the finish. Our process not only improves cleanliness but also extends the lifespan of your flooring. Ideal for villas, apartments, offices, restaurants, and warehouses. Trust Dubai Home Cleaning Services to deliver spotless, polished, and professionally maintained floors with guaranteed quality results.              </p>
+                <strong>Dubai Home Cleaning Services</strong> provides professional{' '}
+                <strong>floor deep cleaning services in Dubai</strong> designed to restore shine, hygiene, and durability to all types of flooring. Over time, floors collect <strong>stubborn stains, embedded dirt, bacteria, and discoloration</strong> that regular mopping cannot remove. Our expert team uses{' '}
+                <strong>industrial-grade machines and specialized cleaning solutions</strong> to deeply clean{' '}
+                <Link href="/marble-polishing-services" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">marble</Link>,{' '}
+                tile, ceramic, parquet, vinyl, and concrete floors. We focus on{' '}
+                <strong>grout lines, corners, and high-traffic areas</strong> to eliminate hidden buildup and restore the original appearance. For{' '}
+                <Link href="/marble-polishing-services" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">marble and natural stone surfaces</Link>,
+                {' '}we apply safe techniques to protect and enhance the finish. Our process not only improves cleanliness but also <strong>extends the lifespan of your flooring</strong>. Ideal for{' '}
+                <Link href="/villa-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">villas</Link>,{' '}
+                <Link href="/apartment-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">apartments</Link>,{' '}
+                <Link href="/office-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">offices</Link>,{' '}
+                <Link href="/deep-cleaning-of-restaurant" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">restaurants</Link>, and{' '}
+                <Link href="/deep-cleaning-of-warehouse" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">warehouses</Link>.
+                {' '}Trust Dubai Home Cleaning Services to deliver <strong>spotless, polished, and professionally maintained floors</strong> with guaranteed quality results.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -141,34 +155,40 @@ Dubai Home Cleaning Services provides professional floor deep cleaning services 
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'Surface Dusting & Vacuuming',
-                  'Deep Scrubbing with Machines',
-                  'Tough Stain & Grout Cleaning',
-                  'Old Wax & Sealant Removal',
-                  'Hard-to-reach Corner Cleaning',
+                  { label: 'Surface Dusting & Vacuuming', href: null },
+                  { label: 'Deep Scrubbing with Machines', href: null },
+                  { label: 'Tough Stain & Grout Cleaning', href: null },
+                  { label: 'Old Wax & Sealant Removal', href: null },
+                  { label: 'Hard-to-reach Corner Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    <p className="text-[#091a33] font-bold text-base">{item.label}</p>
                   </div>
                 ))}
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'Marble Polishing & Buffing',
-                  'Tile Sanitization & Rinsing',
-                  'Anti-slip Coating Application',
-                  'Edge & Skirting Cleaning',
-                  'Final Gloss Inspection',
+                  { label: 'Marble Polishing & Buffing', href: '/marble-polishing-services' },
+                  { label: 'Tile Sanitization & Rinsing', href: null },
+                  { label: 'Anti-slip Coating Application', href: null },
+                  { label: 'Edge & Skirting Cleaning', href: null },
+                  { label: 'Final Gloss Inspection', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-blue-600 underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -193,43 +213,92 @@ Dubai Home Cleaning Services provides professional floor deep cleaning services 
             {[
               {
                 title: 'Marble Restoration',
-                items: ['Polishing of dull surfaces', 'Scratch removal treatment', 'Honing for smooth finish', 'Diamond pad buffing']
+                href: '/marble-polishing-services',
+                items: [
+                  { label: 'Polishing of dull surfaces', href: null },
+                  { label: 'Scratch removal treatment', href: null },
+                  { label: 'Honing for smooth finish', href: null },
+                  { label: 'Diamond pad buffing', href: null },
+                ]
               },
               {
                 title: 'Tile & Grout Care',
-                items: ['High-pressure scrubbing', 'Grout whitening/cleaning', 'Soap scum removal', 'Bacterial disinfection']
+                href: null,
+                items: [
+                  { label: 'High-pressure scrubbing', href: null },
+                  { label: 'Grout whitening/cleaning', href: null },
+                  { label: 'Soap scum removal', href: null },
+                  { label: 'Bacterial disinfection', href: null },
+                ]
               },
               {
                 title: 'Wood & Vinyl',
-                items: ['Gentle deep cleaning', 'Moisture-controlled wash', 'Vinyl floor buffing', 'Protective layer cleaning']
+                href: null,
+                items: [
+                  { label: 'Gentle deep cleaning', href: null },
+                  { label: 'Moisture-controlled wash', href: null },
+                  { label: 'Vinyl floor buffing', href: null },
+                  { label: 'Protective layer cleaning', href: null },
+                ]
               },
               {
                 title: 'Outdoor Flooring',
-                items: ['Interlock deep wash', 'Oil & grease removal', 'Moss & algae treatment', 'Pressure washing']
+                href: '/outside-deep-cleaning',
+                items: [
+                  { label: 'Interlock deep wash', href: null },
+                  { label: 'Oil & grease removal', href: null },
+                  { label: 'Moss & algae treatment', href: null },
+                  { label: 'Pressure washing', href: '/outside-power-wash' },
+                ]
               },
               {
                 title: 'Industrial Floors',
-                items: ['Epoxy floor cleaning', 'Warehouse floor scrubbing', 'Heavy dirt removal', 'Degreasing services']
+                href: '/deep-cleaning-of-warehouse',
+                items: [
+                  { label: 'Epoxy floor cleaning', href: null },
+                  { label: 'Warehouse floor scrubbing', href: '/deep-cleaning-of-warehouse' },
+                  { label: 'Heavy dirt removal', href: null },
+                  { label: 'Degreasing services', href: null },
+                ]
               },
               {
                 title: 'Sanitization',
-                items: ['Hospital-grade disinfectants', 'Safe for kids and pets', 'Odor neutralization', 'Fresh scent finish']
-              },
-			    {
-                title: 'Floor Deep Cleaning',
+                href: null,
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Hospital-grade disinfectants', href: null },
+                  { label: 'Safe for kids and pets', href: null },
+                  { label: 'Odor neutralization', href: null },
+                  { label: 'Fresh scent finish', href: null },
+                ]
+              },
+              {
+                title: 'Floor Deep Cleaning',
+                href: null,
+                items: [
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-blue-600 transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-blue-600 font-semibold underline underline-offset-2 hover:text-blue-800 transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -249,18 +318,24 @@ Dubai Home Cleaning Services provides professional floor deep cleaning services 
               </h2>
               <div className="space-y-6">
                 {[
-                  { title: 'Remove Stubborn Dirt', desc: 'Mopping only cleans the surface. Deep cleaning removes dirt trapped deep within the pores and grout lines.' },
-                  { title: 'Eliminate Bacteria', desc: 'Floors are high-traffic areas. Our sanitization process kills harmful pathogens and allergens.' },
-                  { title: 'Preserve Floor Life', desc: 'Regular professional cleaning prevents abrasive dirt from scratching and permanently damaging your floors.' },
-                  { title: 'Enhanced Aesthetics', desc: 'A clean, polished floor significantly improves the overall look and value of your home or office.' },
-                  { title: 'Safe & Non-Toxic', desc: 'We use eco-friendly chemicals that are completely safe for your family, especially crawling toddlers.' },
+                  { title: 'Remove Stubborn Dirt', desc: 'Mopping only cleans the surface. Deep cleaning removes dirt trapped deep within the pores and grout lines.', href: null },
+                  { title: 'Eliminate Bacteria', desc: 'Floors are high-traffic areas. Our sanitization process kills harmful pathogens and allergens.', href: null },
+                  { title: 'Preserve Floor Life', desc: 'Regular professional cleaning prevents abrasive dirt from scratching and permanently damaging your floors.', href: null },
+                  { title: 'Enhanced Aesthetics', desc: 'A clean, polished floor significantly improves the overall look and value of your home or office.', href: '/marble-polishing-services' },
+                  { title: 'Safe & Non-Toxic', desc: 'We use eco-friendly chemicals that are completely safe for your family, especially crawling toddlers.', href: null },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="w-8 h-8 bg-[#e8c600] rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-blue-600 transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -313,8 +388,47 @@ Dubai Home Cleaning Services provides professional floor deep cleaning services 
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-blue-600">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Outside Deep Cleaning', href: '/outside-deep-cleaning' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-[#fcfcfc] border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
