@@ -49,7 +49,18 @@ export default function PostConstructionCleaningPage() {
                 Professional Post Construction Cleaning In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-After renovation or construction, properties are often left covered in dust, debris, and residue. Our post-construction cleaning service removes cement stains, paint splashes, adhesives, and fine particles. We carefully clean floors, windows, walls, and fixtures to prepare the space for immediate use. Industrial equipment ensures deep cleaning of stubborn construction dirt. This service is ideal for new buildings, renovated villas, and commercial spaces. We focus on safety and precision during the cleaning process. Your property will be spotless and move-in ready. Professional finishing touches guaranteed.              </p>
+                After renovation or construction, properties are often left covered in{' '}
+                <strong>dust, debris, and residue</strong>. Our{' '}
+                <strong>post-construction cleaning service</strong> removes{' '}
+                <strong>cement stains, paint splashes, adhesives, and fine particles</strong>. We carefully clean{' '}
+                <Link href="/floor-deep-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">floors</Link>,{' '}
+                <Link href="/outside-window-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">windows</Link>,
+                {' '}walls, and fixtures to prepare the space for immediate use.{' '}
+                <strong>Industrial equipment ensures deep cleaning</strong> of stubborn construction dirt. This service is ideal for{' '}
+                <strong>new buildings, renovated{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors">villas</Link>, and commercial spaces</strong>.
+                {' '}We focus on <strong>safety and precision</strong> during the cleaning process. Your property will be <strong>spotless and move-in ready</strong>. Professional finishing touches guaranteed.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Post Construction Cleaning service"
@@ -133,33 +144,45 @@ After renovation or construction, properties are often left covered in dust, deb
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Fine Dust Removal (Walls & Ceilings)',
-                  'Paint & Adhesive Spot Removal',
-                  'Cabinet & Drawer Interior Cleaning',
-                  'Window Track & Glass Detailing',
-                  'Light Fixture & Switch Cleaning',
+                  { label: 'Fine Dust Removal (Walls & Ceilings)', href: null },
+                  { label: 'Paint & Adhesive Spot Removal', href: null },
+                  { label: 'Cabinet & Drawer Interior Cleaning', href: null },
+                  { label: 'Window Track & Glass Detailing', href: '/outside-window-cleaning' },
+                  { label: 'Light Fixture & Switch Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Deep Floor Scrubbing & Polishing',
-                  'Bathroom Sanitization & De-scaling',
-                  'Stainless Steel Polishing',
-                  'Debris & Garbage Removal',
-                  'Vent & AC Grill Dusting',
+                  { label: 'Deep Floor Scrubbing & Polishing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Bathroom Sanitization & De-scaling', href: '/bathroom-deep-cleaning' },
+                  { label: 'Stainless Steel Polishing', href: null },
+                  { label: 'Debris & Garbage Removal', href: null },
+                  { label: 'Vent & AC Grill Dusting', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -183,78 +206,97 @@ After renovation or construction, properties are often left covered in dust, deb
             {[
               {
                 title: 'Surface Restoration',
+                href: null,
                 items: [
-                  'HEPA vacuuming for fine dust',
-                  'Wall wiping & cobweb removal',
-                  'Paint splatter removal',
-                  'Baseboard & molding cleaning',
-                  'Door frame & knob polishing',
+                  { label: 'HEPA vacuuming for fine dust', href: null },
+                  { label: 'Wall wiping & cobweb removal', href: null },
+                  { label: 'Paint splatter removal', href: null },
+                  { label: 'Baseboard & molding cleaning', href: null },
+                  { label: 'Door frame & knob polishing', href: null },
                 ]
               },
               {
                 title: 'Kitchen & Cabinetry',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Inside/outside cabinet cleaning',
-                  'Countertop grout cleaning',
-                  'Appliance sticker removal',
-                  'Sink & faucet de-scaling',
-                  'Pantry shelf dusting',
+                  { label: 'Inside/outside cabinet cleaning', href: null },
+                  { label: 'Countertop grout cleaning', href: null },
+                  { label: 'Appliance sticker removal', href: null },
+                  { label: 'Sink & faucet de-scaling', href: null },
+                  { label: 'Pantry shelf dusting', href: null },
                 ]
               },
               {
                 title: 'Window Detailing',
+                href: '/outside-window-cleaning',
                 items: [
-                  'Sticker & tape removal',
-                  'Frame & track deep cleaning',
-                  'Glass polishing (Interior/Exterior)',
-                  'Sill wiping',
-                  'Screen dusting',
+                  { label: 'Sticker & tape removal', href: null },
+                  { label: 'Frame & track deep cleaning', href: null },
+                  { label: 'Glass polishing (Interior/Exterior)', href: null },
+                  { label: 'Sill wiping', href: null },
+                  { label: 'Screen dusting', href: null },
                 ]
               },
               {
                 title: 'Bathroom Deep Clean',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Post-construction tile scrub',
-                  'Grout haze removal',
-                  'Mirror & glass polishing',
-                  'Fixture & chrome shining',
-                  'Toilet & shower sanitization',
+                  { label: 'Post-construction tile scrub', href: null },
+                  { label: 'Grout haze removal', href: null },
+                  { label: 'Mirror & glass polishing', href: null },
+                  { label: 'Fixture & chrome shining', href: null },
+                  { label: 'Toilet & shower sanitization', href: null },
                 ]
               },
               {
                 title: 'Floor Care',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'Concrete dust extraction',
-                  'Tile & grout deep cleaning',
-                  'Marble/Stone polishing',
-                  'Edge & corner detailing',
+                  { label: 'Concrete dust extraction', href: null },
+                  { label: 'Tile & grout deep cleaning', href: null },
+                  { label: 'Marble/Stone polishing', href: '/marble-polishing-services' },
+                  { label: 'Edge & corner detailing', href: null },
                 ]
               },
               {
                 title: 'Safety & Air Quality',
+                href: null,
                 items: [
-                  'AC vent & filter cleaning',
-                  'Small debris removal',
-                  'Light bulb & fixture dusting',
-                  'Threshold cleaning',
-                  'Final fragrance treatment',
+                  { label: 'AC vent & filter cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Small debris removal', href: null },
+                  { label: 'Light bulb & fixture dusting', href: null },
+                  { label: 'Threshold cleaning', href: null },
+                  { label: 'Final fragrance treatment', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -276,23 +318,28 @@ After renovation or construction, properties are often left covered in dust, deb
                 {[
                   {
                     title: 'Fine Dust Hazard',
-                    desc: 'Construction dust is microscopic and can cause respiratory issues. Professional HEPA filtration is required to remove it completely.'
+                    desc: 'Construction dust is microscopic and can cause respiratory issues. Professional HEPA filtration is required to remove it completely.',
+                    href: null,
                   },
                   {
                     title: 'Specialized Tools',
-                    desc: 'Regular vacuum cleaners cannot handle heavy dust. We use industrial-grade scrubbers and extractors for the job.'
+                    desc: 'Regular vacuum cleaners cannot handle heavy dust. We use industrial-grade scrubbers and extractors for the job.',
+                    href: '/steam-deep-cleaning',
                   },
                   {
                     title: 'Paint & Glue Removal',
-                    desc: 'Removing paint drops or adhesive from floors and windows requires specific chemicals that won\'t damage your new surfaces.'
+                    desc: 'Removing paint drops or adhesive from floors and windows requires specific chemicals that won\'t damage your new surfaces.',
+                    href: null,
                   },
                   {
                     title: 'Protect Your Warranty',
-                    desc: 'Using the wrong cleaning methods on new fixtures can void warranties. Our team knows the safe techniques for all materials.'
+                    desc: 'Using the wrong cleaning methods on new fixtures can void warranties. Our team knows the safe techniques for all materials.',
+                    href: null,
                   },
                   {
                     title: 'Save Time & Stress',
-                    desc: 'Construction is tiring enough. Let us handle the massive cleanup so you can move in and relax immediately.'
+                    desc: 'Construction is tiring enough. Let us handle the massive cleanup so you can move in and relax immediately.',
+                    href: '/move-in-move-out-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -300,7 +347,13 @@ After renovation or construction, properties are often left covered in dust, deb
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -385,43 +438,25 @@ After renovation or construction, properties are often left covered in dust, deb
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                icon: Shield,
-                title: 'Insured & Secure',
-                desc: 'We are a fully licensed and insured cleaning company protecting your property investment.'
-              },
-              {
-                icon: Star,
-                title: 'Attention to Detail',
-                desc: 'We clean inside hinges, behind pipes, and in every corner where construction dust hides.'
-              },
-              {
-                icon: Clock,
-                title: 'Flexible Timing',
-                desc: 'We coordinate with your contractors to start as soon as they finish their work.'
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Move-In Guarantee',
-                desc: 'We guarantee a space so clean you can start moving your furniture in immediately.'
-              },
-              {
-                icon: Sparkles,
-                title: 'Eco-Friendly Options',
-                desc: 'Safe cleaning agents that remove industrial mess without leaving toxic fumes behind.'
-              },
-              {
-                icon: Home,
-                title: 'All-In-One Solution',
-                desc: 'From floor polishing to window cleaning, we handle every part of the post-build process.'
-              },
+              { icon: Shield, title: 'Insured & Secure', desc: 'We are a fully licensed and insured cleaning company protecting your property investment.', href: null },
+              { icon: Star, title: 'Attention to Detail', desc: 'We clean inside hinges, behind pipes, and in every corner where construction dust hides.', href: null },
+              { icon: Clock, title: 'Flexible Timing', desc: 'We coordinate with your contractors to start as soon as they finish their work.', href: null },
+              { icon: CheckCircle2, title: 'Move-In Guarantee', desc: 'We guarantee a space so clean you can start moving your furniture in immediately.', href: '/move-in-move-out-cleaning' },
+              { icon: Sparkles, title: 'Eco-Friendly Options', desc: 'Safe cleaning agents that remove industrial mess without leaving toxic fumes behind.', href: null },
+              { icon: Home, title: 'All-In-One Solution', desc: 'From floor polishing to window cleaning, we handle every part of the post-build process.', href: '/floor-deep-cleaning-services' },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
                 <div className="w-12 h-12 bg-[#529e00]/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -460,8 +495,47 @@ After renovation or construction, properties are often left covered in dust, deb
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -491,7 +565,7 @@ After renovation or construction, properties are often left covered in dust, deb
                 a: 'We clean external vents and filters. Deep AC duct cleaning is an additional specialized service we also provide.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -508,7 +582,7 @@ After renovation or construction, properties are often left covered in dust, deb
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
