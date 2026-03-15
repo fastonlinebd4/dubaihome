@@ -11,7 +11,7 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  TreePine, // Home এর পরিবর্তে Outdoor relevant icon
+  TreePine,
   ArrowRight,
   Phone,
   Mail,
@@ -48,7 +48,17 @@ export default function OutsideDeepCleaningPage() {
                 Premium Outside Deep Cleaning In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Dubai Home Cleaning Services provides professional outside deep cleaning services in Dubai to restore the cleanliness and appearance of your property’s exterior areas. Outdoor spaces often accumulate dust, sand, stains, algae, and environmental residue due to Dubai’s climate. Our expert team thoroughly cleans driveways, patios, garden areas, boundary walls, parking spaces, and exterior surfaces using advanced equipment and safe cleaning solutions. We remove stubborn dirt buildup, bird droppings, oil stains, and debris that regular washing cannot eliminate. Special attention is given to corners, drainage areas, and high-traffic outdoor zones. This service enhances curb appeal and maintains property value for villas, apartments, and commercial buildings. Regular outside deep cleaning also prevents long-term surface damage. Trust Dubai Home Cleaning Services to deliver spotless, refreshed, and professionally maintained outdoor spaces with guaranteed quality results.              </p>
+                <strong>Dubai Home Cleaning Services</strong> provides professional{' '}
+                <strong>outside deep cleaning services in Dubai</strong> to restore the cleanliness and appearance of your property's exterior areas. Outdoor spaces often accumulate{' '}
+                <strong>dust, sand, stains, algae, and environmental residue</strong> due to Dubai's climate. Our expert team thoroughly cleans{' '}
+                <strong>driveways, patios, garden areas, boundary walls, parking spaces, and exterior surfaces</strong> using advanced equipment and safe cleaning solutions. We remove{' '}
+                <strong>stubborn dirt buildup, bird droppings, oil stains, and debris</strong> that regular washing cannot eliminate. Special attention is given to{' '}
+                <strong>corners, drainage areas, and high-traffic outdoor zones</strong>. This service enhances curb appeal and maintains property value for{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>,{' '}
+                <Link href="/apartment-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">apartments</Link>, and commercial buildings. Regular outside deep cleaning also{' '}
+                <strong>prevents long-term surface damage</strong>. Trust Dubai Home Cleaning Services to deliver{' '}
+                <strong>spotless, refreshed, and professionally maintained outdoor spaces</strong> with guaranteed quality results.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Outside Deep Cleaning service"
@@ -134,34 +144,46 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Façade & Wall Washing',
-                  'Interlock & Driveway Pressure Wash',
-                  'Outdoor Patio & Deck Scrubbing',
-                  'Exterior Window Glass Cleaning',
-                  'Balcony & Terrace Deep Clean',
+                  { label: 'Façade & Wall Washing', href: '/villa-facade-cleaning-services' },
+                  { label: 'Interlock & Driveway Pressure Wash', href: '/outside-power-wash' },
+                  { label: 'Outdoor Patio & Deck Scrubbing', href: null },
+                  { label: 'Exterior Window Glass Cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Balcony & Terrace Deep Clean', href: '/balcony-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Boundary Wall Cleaning',
-                  'Parking Area Wash',
-                  'Swimming Pool Deck Detailing',
-                  'Removal of Sand & Desert Dust',
-                  'Exterior Light & Fixture Cleaning',
+                  { label: 'Boundary Wall Cleaning', href: null },
+                  { label: 'Parking Area Wash', href: null },
+                  { label: 'Swimming Pool Deck Detailing', href: '/swimming-pool-cleaning' },
+                  { label: 'Removal of Sand & Desert Dust', href: null },
+                  { label: 'Exterior Light & Fixture Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -185,77 +207,96 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
             {[
               {
                 title: 'High-Pressure Washing',
+                href: '/outside-power-wash',
                 items: [
-                  'Removing deep-seated dirt',
-                  'Interlock & tile cleaning',
-                  'Driveway oil stain removal',
-                  'Moss & algae treatment',
-                  'Brickwork restoration',
+                  { label: 'Removing deep-seated dirt', href: null },
+                  { label: 'Interlock & tile cleaning', href: null },
+                  { label: 'Driveway oil stain removal', href: null },
+                  { label: 'Moss & algae treatment', href: null },
+                  { label: 'Brickwork restoration', href: null },
                 ]
               },
               {
                 title: 'Outdoor Living Spaces',
+                href: null,
                 items: [
-                  'Gazebo & Pergola dusting',
-                  'Outdoor furniture cleaning',
-                  'Barbecue area degreasing',
-                  'Decorative stone cleaning',
+                  { label: 'Gazebo & Pergola dusting', href: null },
+                  { label: 'Outdoor furniture cleaning', href: null },
+                  { label: 'Barbecue area degreasing', href: null },
+                  { label: 'Decorative stone cleaning', href: '/marble-polishing-services' },
                 ]
               },
               {
                 title: 'Wall & Façade Care',
+                href: '/villa-facade-cleaning-services',
                 items: [
-                  'Dust removal from walls',
-                  'Spider web removal',
-                  'Paint-safe exterior wash',
-                  'Balcony railing polishing',
-                  'Cladding deep cleaning',
+                  { label: 'Dust removal from walls', href: null },
+                  { label: 'Spider web removal', href: null },
+                  { label: 'Paint-safe exterior wash', href: null },
+                  { label: 'Balcony railing polishing', href: '/balcony-deep-cleaning' },
+                  { label: 'Cladding deep cleaning', href: null },
                 ]
               },
               {
                 title: 'Glass & Window Detailing',
+                href: '/outside-window-cleaning',
                 items: [
-                  'Exterior pane cleaning',
-                  'Sill & frame wiping',
-                  'Screen mesh vacuuming',
-                  'Glass canopy washing',
-                  'Streak-free finishing',
+                  { label: 'Exterior pane cleaning', href: null },
+                  { label: 'Sill & frame wiping', href: null },
+                  { label: 'Screen mesh vacuuming', href: null },
+                  { label: 'Glass canopy washing', href: null },
+                  { label: 'Streak-free finishing', href: null },
                 ]
               },
               {
                 title: 'Parking & Perimeter',
+                href: null,
                 items: [
-                  'Gate & fence wiping',
-                  'Entrance way detailing',
-                  'Boundary wall pressure wash',
-                  'Pathway sweeping & wash',
+                  { label: 'Gate & fence wiping', href: null },
+                  { label: 'Entrance way detailing', href: null },
+                  { label: 'Boundary wall pressure wash', href: null },
+                  { label: 'Pathway sweeping & wash', href: null },
                 ]
               },
               {
                 title: 'Final Touches',
+                href: null,
                 items: [
-                  'Outdoor fixture wiping',
-                  'Drain cover cleaning',
-                  'Staircase pressure wash',
-                  'Debris & sand removal',
-                  'Final quality inspection',
+                  { label: 'Outdoor fixture wiping', href: null },
+                  { label: 'Drain cover cleaning', href: null },
+                  { label: 'Staircase pressure wash', href: null },
+                  { label: 'Debris & sand removal', href: null },
+                  { label: 'Final quality inspection', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -277,23 +318,28 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
                 {[
                   {
                     title: 'Extreme Sand & Dust',
-                    desc: 'Dubai\'s sandstorms leave thick layers of dust that damage paint and surfaces if not cleaned professionally.'
+                    desc: 'Dubai\'s sandstorms leave thick layers of dust that damage paint and surfaces if not cleaned professionally.',
+                    href: null,
                   },
                   {
                     title: 'Enhance First Impressions',
-                    desc: 'A clean exterior significantly increases the aesthetic value and curb appeal of your property.'
+                    desc: 'A clean exterior significantly increases the aesthetic value and curb appeal of your property.',
+                    href: '/villa-facade-cleaning-services',
                   },
                   {
                     title: 'Surface Longevity',
-                    desc: 'Removing salt and pollutants prevents the erosion of tiles, interlock, and exterior wall paint.'
+                    desc: 'Removing salt and pollutants prevents the erosion of tiles, interlock, and exterior wall paint.',
+                    href: null,
                   },
                   {
                     title: 'Healthier Outdoor Life',
-                    desc: 'Enjoy your garden and patio without the worry of allergens, pests, or accumulated desert grime.'
+                    desc: 'Enjoy your garden and patio without the worry of allergens, pests, or accumulated desert grime.',
+                    href: null,
                   },
                   {
                     title: 'Pre-Event Preparation',
-                    desc: 'The perfect way to prepare your home for garden parties, family gatherings, or outdoor events.'
+                    desc: 'The perfect way to prepare your home for garden parties, family gatherings, or outdoor events.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -301,7 +347,13 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -353,8 +405,47 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Villa Facade Cleaning', href: '/villa-facade-cleaning-services' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Rooftop Cleaning Services', href: '/rooftop-cleaning-services' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'Swimming Pool Cleaning', href: '/swimming-pool-cleaning' },
+              { label: 'Artificial Grass Cleaning', href: '/artificial-grass-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -380,7 +471,7 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
                 a: 'Yes, we typically require access to an external water connection point to run our pressure washing equipment.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -397,7 +488,7 @@ Dubai Home Cleaning Services provides professional outside deep cleaning service
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
