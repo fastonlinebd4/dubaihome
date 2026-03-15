@@ -11,7 +11,7 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  Building2, // Home থেকে Building2 এ পরিবর্তন করা হয়েছে ফ্যাসাডের জন্য
+  Building2,
   ArrowRight,
   Phone,
   Mail,
@@ -48,7 +48,15 @@ export default function VillaFacadeCleaningPage() {
                 Professional Villa <span className="text-[#529e00]">Facade Cleaning</span> In Dubai
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Restore your property’s exterior beauty with our villa facade cleaning services. We clean exterior walls, glass panels, cladding, and architectural finishes to remove pollution stains and sand buildup. Advanced pressure cleaning and safe detergents ensure effective results. Clean facades improve curb appeal and property value. This service protects surfaces from long-term environmental damage. Ideal for luxury villas and residential buildings. We handle delicate surfaces carefully to avoid damage. Keep your villa exterior fresh, clean, and impressive.              </p>
+                Restore your property's <strong>exterior beauty</strong> with our{' '}
+                <strong>villa facade cleaning services</strong>. We clean{' '}
+                <strong>exterior walls, glass panels, cladding, and architectural finishes</strong> to remove pollution stains and sand buildup.{' '}
+                <strong>Advanced pressure cleaning and safe detergents</strong> ensure effective results.{' '}
+                <strong>Clean facades improve curb appeal and property value</strong>. This service{' '}
+                <strong>protects surfaces from long-term environmental damage</strong>. Ideal for{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">luxury villas</Link>{' '}
+                and residential buildings. We handle <strong>delicate surfaces carefully to avoid damage</strong>. Keep your villa exterior fresh, clean, and impressive.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Villa Facade Cleaning service"
@@ -133,33 +141,45 @@ Restore your property’s exterior beauty with our villa facade cleaning service
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Exterior Wall Washing',
-                  'Window & Glass Cleaning',
-                  'Roof & Gutter Cleaning',
-                  'Stone & Marble Polishing',
-                  'Balcony & Terrace Cleaning',
+                  { label: 'Exterior Wall Washing', href: null },
+                  { label: 'Window & Glass Cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Roof & Gutter Cleaning', href: '/rooftop-cleaning-services' },
+                  { label: 'Stone & Marble Polishing', href: '/marble-polishing-services' },
+                  { label: 'Balcony & Terrace Cleaning', href: '/balcony-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Sand & Dust Removal',
-                  'High-Pressure Washing',
-                  'Spider Web & Nest Removal',
-                  'Pavement & Driveway Cleaning',
-                  'Gate & Fence Detailing',
+                  { label: 'Sand & Dust Removal', href: null },
+                  { label: 'High-Pressure Washing', href: '/outside-power-wash' },
+                  { label: 'Spider Web & Nest Removal', href: null },
+                  { label: 'Pavement & Driveway Cleaning', href: '/outside-deep-cleaning' },
+                  { label: 'Gate & Fence Detailing', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -183,73 +203,90 @@ Restore your property’s exterior beauty with our villa facade cleaning service
             {[
               {
                 title: 'High-Pressure Washing',
+                href: '/outside-power-wash',
                 items: [
-                  'Removes stubborn dirt & oil',
-                  'Deep cleans stone surfaces',
-                  'Safe for concrete walls',
-                  'Driveway restoration',
-                  'Fast & efficient cleaning',
+                  { label: 'Removes stubborn dirt & oil', href: null },
+                  { label: 'Deep cleans stone surfaces', href: null },
+                  { label: 'Safe for concrete walls', href: null },
+                  { label: 'Driveway restoration', href: '/outside-deep-cleaning' },
+                  { label: 'Fast & efficient cleaning', href: null },
                 ]
               },
               {
                 title: 'Glass & Window Detailing',
+                href: '/outside-window-cleaning',
                 items: [
-                  'Crystal clear finishing',
-                  'Streak-free cleaning',
-                  'Frame & sill wiping',
-                  'High-rise glass access',
-                  'Hard water spot removal',
+                  { label: 'Crystal clear finishing', href: null },
+                  { label: 'Streak-free cleaning', href: null },
+                  { label: 'Frame & sill wiping', href: null },
+                  { label: 'High-rise glass access', href: null },
+                  { label: 'Hard water spot removal', href: null },
                 ]
               },
               {
                 title: 'Soft Wash Technology',
+                href: null,
                 items: [
-                  'Safe for delicate paints',
-                  'Biodegradable solutions',
-                  'Algae & mold removal',
-                  'Long-lasting protection',
-                  'No damage to seals',
+                  { label: 'Safe for delicate paints', href: null },
+                  { label: 'Biodegradable solutions', href: null },
+                  { label: 'Algae & mold removal', href: null },
+                  { label: 'Long-lasting protection', href: null },
+                  { label: 'No damage to seals', href: null },
                 ]
               },
               {
                 title: 'Roof & Tiles Cleaning',
+                href: '/rooftop-cleaning-services',
                 items: [
-                  'Debris & sand removal',
-                  'Gutter clearing & washing',
-                  'Preventing water leaks',
-                  'Solar panel cleaning',
-                  'Roof tile sanitization',
+                  { label: 'Debris & sand removal', href: null },
+                  { label: 'Gutter clearing & washing', href: null },
+                  { label: 'Preventing water leaks', href: null },
+                  { label: 'Solar panel cleaning', href: null },
+                  { label: 'Roof tile sanitization', href: null },
                 ]
               },
               {
                 title: 'Architectural Details',
+                href: null,
                 items: [
-                  'Cladding & ACP cleaning',
-                  'Metal & glass railings',
-                  'Decorative stone care',
-                  'Lighting fixture dusting',
-                  'Column & pillar cleaning',
+                  { label: 'Cladding & ACP cleaning', href: null },
+                  { label: 'Metal & glass railings', href: null },
+                  { label: 'Decorative stone care', href: '/marble-polishing-services' },
+                  { label: 'Lighting fixture dusting', href: null },
+                  { label: 'Column & pillar cleaning', href: null },
                 ]
               },
               {
                 title: 'Boundary & Gates',
+                href: null,
                 items: [
-                  'Perimeter wall washing',
-                  'Iron gate restoration',
-                  'Interlock pressure wash',
-                  'Parking area cleaning',
-                  'Signage & letter cleaning',
+                  { label: 'Perimeter wall washing', href: null },
+                  { label: 'Iron gate restoration', href: null },
+                  { label: 'Interlock pressure wash', href: '/outside-power-wash' },
+                  { label: 'Parking area cleaning', href: '/outside-deep-cleaning' },
+                  { label: 'Signage & letter cleaning', href: null },
                 ]
               },
-			
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -271,23 +308,28 @@ Restore your property’s exterior beauty with our villa facade cleaning service
                 {[
                   {
                     title: 'Fight Sand & Dust Build-up',
-                    desc: 'Frequent sandstorms in Dubai leave a thick layer of dust that can damage your villa\'s paint and stone over time.'
+                    desc: 'Frequent sandstorms in Dubai leave a thick layer of dust that can damage your villa\'s paint and stone over time.',
+                    href: null,
                   },
                   {
                     title: 'Prevent Permanent Staining',
-                    desc: 'High humidity and bird droppings can create acidic reactions, leading to permanent stains on luxury facades if not cleaned regularly.'
+                    desc: 'High humidity and bird droppings can create acidic reactions, leading to permanent stains on luxury facades if not cleaned regularly.',
+                    href: null,
                   },
                   {
                     title: 'Increase Curb Appeal',
-                    desc: 'The exterior is the first thing people see. A clean facade significantly increases the prestige and value of your property.'
+                    desc: 'The exterior is the first thing people see. A clean facade significantly increases the prestige and value of your property.',
+                    href: null,
                   },
                   {
                     title: 'Extend Paint Life',
-                    desc: 'Removing pollutants and salt deposits helps preserve the quality of exterior coatings, saving you from expensive repainting.'
+                    desc: 'Removing pollutants and salt deposits helps preserve the quality of exterior coatings, saving you from expensive repainting.',
+                    href: null,
                   },
                   {
                     title: 'Healthier Environment',
-                    desc: 'Eliminating mold, bird nests, and dust from the outside prevents them from entering your home through vents and windows.'
+                    desc: 'Eliminating mold, bird nests, and dust from the outside prevents them from entering your home through vents and windows.',
+                    href: '/ac-duct-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -295,7 +337,13 @@ Restore your property’s exterior beauty with our villa facade cleaning service
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -389,32 +437,38 @@ Restore your property’s exterior beauty with our villa facade cleaning service
               {
                 icon: Shield,
                 title: 'Fully Insured',
-                desc: 'Our cleaning services are backed by insurance, protecting your property against any accidental damage.'
+                desc: 'Our cleaning services are backed by insurance, protecting your property against any accidental damage.',
+                href: null,
               },
               {
                 icon: Star,
                 title: '10+ Years Experience',
-                desc: 'A decade of experience cleaning luxury villas across Dubai, from Palm Jumeirah to Arabian Ranches.'
+                desc: 'A decade of experience cleaning luxury villas across Dubai, from Palm Jumeirah to Arabian Ranches.',
+                href: null,
               },
               {
                 icon: Clock,
                 title: 'Swift Execution',
-                desc: 'Efficient workflows that minimize disruption to your daily life while delivering maximum results.'
+                desc: 'Efficient workflows that minimize disruption to your daily life while delivering maximum results.',
+                href: null,
               },
               {
                 icon: CheckCircle2,
                 title: '100% Satisfaction',
-                desc: 'We perform a final walkthrough with you. If you\'re not happy, we re-clean it immediately.'
+                desc: 'We perform a final walkthrough with you. If you\'re not happy, we re-clean it immediately.',
+                href: null,
               },
               {
                 icon: Sparkles,
                 title: 'Eco-Friendly Chemicals',
-                desc: 'We use premium biodegradable cleaning agents that are safe for your garden plants and pets.'
+                desc: 'We use premium biodegradable cleaning agents that are safe for your garden plants and pets.',
+                href: null,
               },
               {
                 icon: Building2,
                 title: 'All-Surface Expertise',
-                desc: 'Whether it is limestone, paint, glass, or ACP, we know the exact pressure and chemical to use.'
+                desc: 'Whether it is limestone, paint, glass, or ACP, we know the exact pressure and chemical to use.',
+                href: '/marble-polishing-services',
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
@@ -422,7 +476,13 @@ Restore your property’s exterior beauty with our villa facade cleaning service
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -461,8 +521,47 @@ Restore your property’s exterior beauty with our villa facade cleaning service
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Outside Deep Cleaning', href: '/outside-deep-cleaning' },
+              { label: 'Rooftop Cleaning Services', href: '/rooftop-cleaning-services' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -492,7 +591,7 @@ Restore your property’s exterior beauty with our villa facade cleaning service
                 a: 'For a standard 4-bedroom villa, it usually takes 4-6 hours depending on the level of cleaning required.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -509,7 +608,7 @@ Restore your property’s exterior beauty with our villa facade cleaning service
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -537,6 +636,7 @@ Restore your property’s exterior beauty with our villa facade cleaning service
           </div>
         </div>
       </section>
+
       <Footer />
       <FloatingWhatsApp />
     </main>
