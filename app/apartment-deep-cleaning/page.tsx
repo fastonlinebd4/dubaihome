@@ -51,7 +51,16 @@ export default function ApartmentDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-               Dubai Home Cleaning Service provides comprehensive apartment deep cleaning in Dubai designed to eliminate hidden dirt, bacteria, allergens, and stubborn stains from every corner of your home. Our trained professionals clean kitchens, bathrooms, bedrooms, balconies, wardrobes, and appliances with precision and care. We use advanced cleaning equipment and eco-friendly disinfectants to ensure a safe and healthy environment. From tile scrubbing and grout cleaning to window washing and floor polishing, no detail is overlooked. This service is ideal for move-in, move-out, tenant handovers, or seasonal deep refresh. We focus on high-touch surfaces and hard-to-reach areas that regular cleaning often misses. Our goal is to restore freshness, hygiene, and comfort to your apartment. With reliable scheduling and affordable pricing, we guarantee satisfaction every time.
+                <span className="font-extrabold">Dubai Home Cleaning Service</span> provides comprehensive{' '}
+                <strong>apartment deep cleaning in Dubai</strong> designed to eliminate hidden dirt, bacteria, allergens, and stubborn stains from every corner of your home. Our trained professionals clean{' '}
+                <strong>kitchens, bathrooms, bedrooms,{' '}
+                <Link href="/balcony-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors">balconies</Link>,
+                {' '}wardrobes, and appliances</strong> with precision and care. We use{' '}
+                <strong>advanced cleaning equipment and eco-friendly disinfectants</strong> to ensure a safe and healthy environment. From{' '}
+                <strong>tile scrubbing and grout cleaning</strong> to{' '}
+                <strong>window washing and floor polishing</strong>, no detail is overlooked. This service is ideal for{' '}
+                <Link href="/move-in-move-out-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">move-in, move-out</Link>,{' '}
+                tenant handovers, or seasonal deep refresh. We focus on <strong>high-touch surfaces and hard-to-reach areas</strong> that regular cleaning often misses. Our goal is to restore freshness, hygiene, and comfort to your apartment. With reliable scheduling and affordable pricing, we guarantee satisfaction every time.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -144,18 +153,24 @@ export default function ApartmentDeepCleaningPage() {
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Kitchen Degreasing & Sanitization',
-                  'Cabinet Interior & Exterior Cleaning',
-                  'Window Track & Glass Polishing',
-                  'Tile Grout Scrubbing',
-                  'Door Frame & Skirting Detailing',
-                  'AC Vent Exterior Dusting',
+                  { label: 'Kitchen Degreasing & Sanitization', href: '/kitchen-deep-cleaning' },
+                  { label: 'Cabinet Interior & Exterior Cleaning', href: null },
+                  { label: 'Window Track & Glass Polishing', href: '/outside-window-cleaning' },
+                  { label: 'Tile Grout Scrubbing', href: null },
+                  { label: 'Door Frame & Skirting Detailing', href: null },
+                  { label: 'AC Vent Exterior Dusting', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -163,18 +178,24 @@ export default function ApartmentDeepCleaningPage() {
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Full Bathroom Disinfection',
-                  'Limescale Removal from Faucets',
-                  'Balcony & Railing Cleaning',
-                  'Wall Dusting & Spot Removal',
-                  'Floor Deep Scrubbing & Mopping',
-                  'Light Switch & Socket Cleaning',
+                  { label: 'Full Bathroom Disinfection', href: '/bathroom-deep-cleaning' },
+                  { label: 'Limescale Removal from Faucets', href: null },
+                  { label: 'Balcony & Railing Cleaning', href: '/balcony-deep-cleaning' },
+                  { label: 'Wall Dusting & Spot Removal', href: null },
+                  { label: 'Floor Deep Scrubbing & Mopping', href: '/floor-deep-cleaning-services' },
+                  { label: 'Light Switch & Socket Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -199,50 +220,66 @@ export default function ApartmentDeepCleaningPage() {
             {[
               {
                 title: 'Living & Bedrooms',
+                href: null,
                 items: [
-                  'Ceiling fan & fixture cleaning',
-                  'Wall dusting & cobweb removal',
-                  'Window tracks & sills',
-                  'Skirting boards & door frames',
-                  'Mirror & glass polishing',
+                  { label: 'Ceiling fan & fixture cleaning', href: null },
+                  { label: 'Wall dusting & cobweb removal', href: null },
+                  { label: 'Window tracks & sills', href: '/outside-window-cleaning' },
+                  { label: 'Skirting boards & door frames', href: null },
+                  { label: 'Mirror & glass polishing', href: null },
                 ]
               },
               {
                 title: 'Kitchen Excellence',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Heavy degreasing of stove/hood',
-                  'Countertop & sink sanitization',
-                  'Appliance exterior cleaning',
-                  'Inside/outside cupboard wash',
-                  'Tile backsplash scrubbing',
+                  { label: 'Heavy degreasing of stove/hood', href: null },
+                  { label: 'Countertop & sink sanitization', href: null },
+                  { label: 'Appliance exterior cleaning', href: null },
+                  { label: 'Inside/outside cupboard wash', href: null },
+                  { label: 'Tile backsplash scrubbing', href: null },
                 ]
               },
               {
                 title: 'Hygienic Bathrooms',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Sanitizing toilet & shower',
-                  'Removing limescale from taps',
-                  'Tile & grout deep scrubbing',
-                  'Mirror & glass cleaning',
-                  'Exhaust fan dusting',
-                  'Cabinet & shelf cleaning'
+                  { label: 'Sanitizing toilet & shower', href: null },
+                  { label: 'Removing limescale from taps', href: null },
+                  { label: 'Tile & grout deep scrubbing', href: null },
+                  { label: 'Mirror & glass cleaning', href: null },
+                  { label: 'Exhaust fan dusting', href: null },
+                  { label: 'Cabinet & shelf cleaning', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -266,32 +303,38 @@ export default function ApartmentDeepCleaningPage() {
               {
                 icon: Shield,
                 title: 'Secure & Verified',
-                desc: 'All our cleaners are background-checked and fully insured for your peace of mind.'
+                desc: 'All our cleaners are background-checked and fully insured for your peace of mind.',
+                href: null,
               },
               {
                 icon: Sparkles,
                 title: 'German Equipment',
-                desc: 'We use industrial-grade steam machines and floor scrubbers for the best results.'
+                desc: 'We use industrial-grade steam machines and floor scrubbers for the best results.',
+                href: '/steam-deep-cleaning',
               },
               {
                 icon: CheckCircle2,
                 title: 'Eco-Friendly Chemicals',
-                desc: 'DM-approved, non-toxic cleaning agents that are safe for your family and pets.'
+                desc: 'DM-approved, non-toxic cleaning agents that are safe for your family and pets.',
+                href: null,
               },
               {
                 icon: Clock,
                 title: 'Same Day Service',
-                desc: 'Need an urgent move-in clean? We offer flexible scheduling and emergency bookings.'
+                desc: 'Need an urgent move-in clean? We offer flexible scheduling and emergency bookings.',
+                href: '/move-in-move-out-cleaning',
               },
               {
                 icon: Star,
                 title: 'Quality Guaranteed',
-                desc: "Not satisfied? We'll come back and re-clean any area within 24 hours for free."
+                desc: "Not satisfied? We'll come back and re-clean any area within 24 hours for free.",
+                href: null,
               },
               {
                 icon: Home,
                 title: 'Move-in/out Ready',
-                desc: 'Specialized deep cleaning to help you get your full security deposit back.'
+                desc: 'Specialized deep cleaning to help you get your full security deposit back.',
+                href: '/move-in-move-out-cleaning',
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
@@ -299,7 +342,13 @@ export default function ApartmentDeepCleaningPage() {
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -308,8 +357,47 @@ export default function ApartmentDeepCleaningPage() {
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Sofa Shampooing', href: '/sofa-shampooing' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -332,7 +420,7 @@ export default function ApartmentDeepCleaningPage() {
                 a: 'A 1-bedroom apartment typically takes 4-5 hours, while a 3-bedroom can take 7-8 hours depending on the condition.'
               }
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -349,7 +437,7 @@ export default function ApartmentDeepCleaningPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
