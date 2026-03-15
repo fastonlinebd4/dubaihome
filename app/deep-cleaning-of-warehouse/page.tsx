@@ -11,13 +11,13 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  Building2, // Warehouse এর জন্য Building2 আইকন বেশি মানানসই
+  Building2,
   ArrowRight,
   Phone,
   Mail,
   MapPin,
   CheckCircle2,
-  Factory // ইন্ডাস্ট্রিয়াল ভাইব দেওয়ার জন্য
+  Factory
 } from 'lucide-react';
 
 export default function WarehouseDeepCleaningPage() {
@@ -49,7 +49,16 @@ export default function WarehouseDeepCleaningPage() {
                 Top Warehouse <span className="text-[#529e00]">Deep Cleaning</span> In Dubai
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our warehouse deep cleaning service is designed to handle large industrial spaces with heavy dust and debris buildup. We clean storage racks, floors, loading areas, machinery surroundings, and ventilation systems. Oil stains, industrial dirt, and accumulated grime are removed using professional equipment. A clean warehouse improves operational efficiency and workplace safety. This service reduces hazards caused by dust and slippery floors. Ideal for logistics centers, factories, and storage facilities. We follow strict safety procedures during the cleaning process. Keep your warehouse clean, organized, and compliant with professional standards.              </p>
+                Our <strong>warehouse deep cleaning service</strong> is designed to handle{' '}
+                <strong>large industrial spaces with heavy dust and debris buildup</strong>. We clean{' '}
+                <strong>storage racks, floors, loading areas, machinery surroundings, and ventilation systems</strong>.{' '}
+                <strong>Oil stains, industrial dirt, and accumulated grime</strong> are removed using professional equipment. A{' '}
+                <strong>clean warehouse improves operational efficiency and workplace safety</strong>. This service{' '}
+                <strong>reduces hazards caused by dust and slippery floors</strong>. Ideal for{' '}
+                <Link href="/floor-deep-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">logistics centers</Link>,
+                {' '}factories, and storage facilities. We follow{' '}
+                <strong>strict safety procedures</strong> during the cleaning process. Keep your warehouse clean, organized, and compliant with professional standards.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Warehouse Deep Cleaning service"
@@ -133,34 +142,46 @@ Our warehouse deep cleaning service is designed to handle large industrial space
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Ceiling & High-Level Dusting',
-                  'Floor Degreasing & Scrubbing',
-                  'Racking & Shelving Cleaning',
-                  'Loading Bay Sanitization',
-                  'Ventilation & Duct Wiping',
+                  { label: 'Ceiling & High-Level Dusting', href: null },
+                  { label: 'Floor Degreasing & Scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Racking & Shelving Cleaning', href: null },
+                  { label: 'Loading Bay Sanitization', href: null },
+                  { label: 'Ventilation & Duct Wiping', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Forklift Mark Removal',
-                  'Office & Mezzanine Cleaning',
-                  'Industrial Waste Removal',
-                  'Window & Skylight Detailing',
-                  'Wall & Steel Beam Cleaning',
+                  { label: 'Forklift Mark Removal', href: null },
+                  { label: 'Office & Mezzanine Cleaning', href: '/office-deep-cleaning' },
+                  { label: 'Industrial Waste Removal', href: null },
+                  { label: 'Window & Skylight Detailing', href: '/outside-window-cleaning' },
+                  { label: 'Wall & Steel Beam Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -184,68 +205,86 @@ Our warehouse deep cleaning service is designed to handle large industrial space
             {[
               {
                 title: 'Structural Cleaning',
+                href: null,
                 items: [
-                  'Steel beam & pillar dusting',
-                  'High-ceiling cobweb removal',
-                  'Ductwork exterior cleaning',
-                  'Wall washing & degreasing',
-                  'Skylight glass cleaning',
+                  { label: 'Steel beam & pillar dusting', href: null },
+                  { label: 'High-ceiling cobweb removal', href: null },
+                  { label: 'Ductwork exterior cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Wall washing & degreasing', href: null },
+                  { label: 'Skylight glass cleaning', href: '/outside-window-cleaning' },
                 ]
               },
               {
                 title: 'Storage & Racking',
+                href: null,
                 items: [
-                  'Pallet rack dusting',
-                  'Safe chemical wiping',
-                  'Inventory area clearing',
-                  'Vertical surface detailing',
-                  'Label residue removal',
+                  { label: 'Pallet rack dusting', href: null },
+                  { label: 'Safe chemical wiping', href: null },
+                  { label: 'Inventory area clearing', href: null },
+                  { label: 'Vertical surface detailing', href: null },
+                  { label: 'Label residue removal', href: null },
                 ]
               },
               {
                 title: 'Loading Bays',
+                href: null,
                 items: [
-                  'Dock leveler cleaning',
-                  'Shutter door washing',
-                  'External ramp scrubbing',
-                  'Safety barrier wiping',
-                  'Waste management area',
+                  { label: 'Dock leveler cleaning', href: null },
+                  { label: 'Shutter door washing', href: null },
+                  { label: 'External ramp scrubbing', href: '/outside-power-wash' },
+                  { label: 'Safety barrier wiping', href: null },
+                  { label: 'Waste management area', href: null },
                 ]
               },
               {
                 title: 'Office & Staff Areas',
+                href: '/office-deep-cleaning',
                 items: [
-                  'Staff pantry sanitization',
-                  'Restroom deep cleaning',
-                  'Partition glass wiping',
-                  'Furniture & desk dusting',
+                  { label: 'Staff pantry sanitization', href: '/kitchen-deep-cleaning' },
+                  { label: 'Restroom deep cleaning', href: '/bathroom-deep-cleaning' },
+                  { label: 'Partition glass wiping', href: null },
+                  { label: 'Furniture & desk dusting', href: null },
                 ]
               },
               {
                 title: 'Safety Compliance',
+                href: null,
                 items: [
-                  'Fire extinguisher dusting',
-                  'Safety sign cleaning',
-                  'Emergency exit clearing',
-                  'Ventilation grill cleaning',
-                  'HSE standard inspection',
+                  { label: 'Fire extinguisher dusting', href: null },
+                  { label: 'Safety sign cleaning', href: null },
+                  { label: 'Emergency exit clearing', href: null },
+                  { label: 'Ventilation grill cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'HSE standard inspection', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -267,23 +306,28 @@ Our warehouse deep cleaning service is designed to handle large industrial space
                 {[
                   {
                     title: 'Dust Control for Inventory',
-                    desc: 'Dubai\'s desert environment causes rapid dust buildup, which can damage sensitive stock and electronics.'
+                    desc: 'Dubai\'s desert environment causes rapid dust buildup, which can damage sensitive stock and electronics.',
+                    href: null,
                   },
                   {
                     title: 'Operational Safety',
-                    desc: 'Clean floors prevent slips and forklift skidding, significantly reducing workplace accidents.'
+                    desc: 'Clean floors prevent slips and forklift skidding, significantly reducing workplace accidents.',
+                    href: '/floor-deep-cleaning-services',
                   },
                   {
                     title: 'Regulatory Compliance',
-                    desc: 'Maintain Municipality and HSE standards to avoid fines and ensure a healthy workspace for staff.'
+                    desc: 'Maintain Municipality and HSE standards to avoid fines and ensure a healthy workspace for staff.',
+                    href: null,
                   },
                   {
                     title: 'Pest Prevention',
-                    desc: 'Deep cleaning removes potential nesting grounds for pests that can ruin stored goods.'
+                    desc: 'Deep cleaning removes potential nesting grounds for pests that can ruin stored goods.',
+                    href: null,
                   },
                   {
                     title: 'Professional Image',
-                    desc: 'A pristine warehouse impresses clients and partners during site visits and audits.'
+                    desc: 'A pristine warehouse impresses clients and partners during site visits and audits.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -291,7 +335,13 @@ Our warehouse deep cleaning service is designed to handle large industrial space
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -382,43 +432,25 @@ Our warehouse deep cleaning service is designed to handle large industrial space
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                icon: Shield,
-                title: 'Insured & Licensed',
-                desc: 'Fully insured for industrial work, giving you complete peace of mind during the cleaning.'
-              },
-              {
-                icon: Star,
-                title: 'Scale Experts',
-                desc: 'Whether it\'s 5,000 or 500,000 sq.ft, we have the manpower to handle any facility size.'
-              },
-              {
-                icon: Clock,
-                title: 'Punctual Delivery',
-                desc: 'We strictly adhere to project timelines to get your warehouse back in action quickly.'
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Standardized Quality',
-                desc: 'Follows international cleaning standards for industrial and logistics hubs.'
-              },
-              {
-                icon: Sparkles,
-                title: 'Tailored Solutions',
-                desc: 'Custom cleaning plans based on your specific industry (F&B, Logistics, Pharma).'
-              },
-              {
-                icon: Factory,
-                title: 'Advanced Tech',
-                desc: 'Utilizing the latest steam cleaning and degreasing technology for superior results.'
-              },
+              { icon: Shield, title: 'Insured & Licensed', desc: 'Fully insured for industrial work, giving you complete peace of mind during the cleaning.', href: null },
+              { icon: Star, title: 'Scale Experts', desc: 'Whether it\'s 5,000 or 500,000 sq.ft, we have the manpower to handle any facility size.', href: null },
+              { icon: Clock, title: 'Punctual Delivery', desc: 'We strictly adhere to project timelines to get your warehouse back in action quickly.', href: null },
+              { icon: CheckCircle2, title: 'Standardized Quality', desc: 'Follows international cleaning standards for industrial and logistics hubs.', href: null },
+              { icon: Sparkles, title: 'Tailored Solutions', desc: 'Custom cleaning plans based on your specific industry (F&B, Logistics, Pharma).', href: null },
+              { icon: Factory, title: 'Advanced Tech', desc: 'Utilizing the latest steam cleaning and degreasing technology for superior results.', href: '/steam-deep-cleaning' },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
                 <div className="w-12 h-12 bg-[#529e00]/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -457,8 +489,47 @@ Our warehouse deep cleaning service is designed to handle large industrial space
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Deep Cleaning of Restaurant', href: '/deep-cleaning-of-restaurant' },
+              { label: 'Deep Cleaning of Shops', href: '/deep-cleaning-of-shops' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Rooftop Cleaning Services', href: '/rooftop-cleaning-services' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -488,7 +559,7 @@ Our warehouse deep cleaning service is designed to handle large industrial space
                 a: 'Yes, we specialize in removing construction dust and debris from new industrial units before handover.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -505,7 +576,7 @@ Our warehouse deep cleaning service is designed to handle large industrial space
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -533,6 +604,7 @@ Our warehouse deep cleaning service is designed to handle large industrial space
           </div>
         </div>
       </section>
+
       <Footer />
       <FloatingWhatsApp />
     </main>
