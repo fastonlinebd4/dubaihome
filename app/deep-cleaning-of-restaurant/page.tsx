@@ -11,7 +11,7 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  UtensilsCrossed, // রেস্টুরেন্টের জন্য আইকন পরিবর্তন
+  UtensilsCrossed,
   ArrowRight,
   Phone,
   Mail,
@@ -48,7 +48,14 @@ export default function RestaurantDeepCleaningPage() {
                 Top Restaurant Deep Cleaning In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Maintain strict hygiene standards with our professional restaurant deep cleaning services in Dubai. We thoroughly clean commercial kitchens, dining areas, grease traps, exhaust systems, storage rooms, and food preparation surfaces. Our team removes grease buildup, bacteria, and food residue that can compromise safety compliance. We use food-safe disinfectants and industrial equipment for maximum efficiency. This service helps meet Dubai Municipality hygiene requirements. Clean restaurants create better customer impressions and safer environments for staff. We work during flexible hours to avoid business disruption. Ensure a spotless and inspection-ready restaurant with our expert cleaning solutions.              </p>
+                Maintain <strong>strict hygiene standards</strong> with our professional{' '}
+                <strong>restaurant deep cleaning services in Dubai</strong>. We thoroughly clean{' '}
+                <strong>commercial kitchens, dining areas, grease traps, exhaust systems, storage rooms, and food preparation surfaces</strong>. Our team removes{' '}
+                <strong>grease buildup, bacteria, and food residue</strong> that can compromise safety compliance. We use{' '}
+                <strong>food-safe disinfectants and industrial equipment</strong> for maximum efficiency. This service helps meet{' '}
+                <strong>Dubai Municipality hygiene requirements</strong>. Clean restaurants create better customer impressions and safer environments for staff. We work during{' '}
+                <strong>flexible hours to avoid business disruption</strong>. Ensure a <strong>spotless and inspection-ready restaurant</strong> with our expert cleaning solutions.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Restaurant Deep Cleaning service"
@@ -134,34 +141,46 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Kitchen Hood & Duct Cleaning',
-                  'Cooking Range Degreasing',
-                  'Deep Fryer & Oven Cleaning',
-                  'Chiller & Freezer Sanitization',
-                  'Food Prep Table Disinfection',
+                  { label: 'Kitchen Hood & Duct Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Cooking Range Degreasing', href: '/kitchen-deep-cleaning' },
+                  { label: 'Deep Fryer & Oven Cleaning', href: null },
+                  { label: 'Chiller & Freezer Sanitization', href: null },
+                  { label: 'Food Prep Table Disinfection', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Dining Area Floor Scrubbing',
-                  'Wall & Ceiling Degreasing',
-                  'Furniture & Booth Cleaning',
-                  'Kitchen Drain & Trap Cleaning',
-                  'Exhaust Fan Deep Clean',
+                  { label: 'Dining Area Floor Scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Wall & Ceiling Degreasing', href: null },
+                  { label: 'Furniture & Booth Cleaning', href: '/sofa-shampooing' },
+                  { label: 'Kitchen Drain & Trap Cleaning', href: null },
+                  { label: 'Exhaust Fan Deep Clean', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -185,75 +204,94 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
             {[
               {
                 title: 'Commercial Kitchen',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Heavy-duty stove degreasing',
-                  'Stainless steel polishing',
-                  'Wall tiles & grout scrubbing',
-                  'Exhaust filter cleaning',
-                  'Sink & faucet disinfection',
+                  { label: 'Heavy-duty stove degreasing', href: null },
+                  { label: 'Stainless steel polishing', href: null },
+                  { label: 'Wall tiles & grout scrubbing', href: null },
+                  { label: 'Exhaust filter cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Sink & faucet disinfection', href: null },
                 ]
               },
               {
                 title: 'Dining & Front House',
+                href: null,
                 items: [
-                  'Table & chair sanitization',
-                  'Glass & window polishing',
-                  'Light fixture dusting',
-                  'Entrance area detailing',
+                  { label: 'Table & chair sanitization', href: null },
+                  { label: 'Glass & window polishing', href: '/outside-window-cleaning' },
+                  { label: 'Light fixture dusting', href: null },
+                  { label: 'Entrance area detailing', href: null },
                 ]
               },
               {
                 title: 'Storage & Cold Rooms',
+                href: null,
                 items: [
-                  'Shelving unit cleaning',
-                  'Walk-in chiller scrubbing',
-                  'Dry store organization',
-                  'Condenser coil dusting',
+                  { label: 'Shelving unit cleaning', href: null },
+                  { label: 'Walk-in chiller scrubbing', href: null },
+                  { label: 'Dry store organization', href: null },
+                  { label: 'Condenser coil dusting', href: '/ac-duct-cleaning' },
                 ]
               },
               {
                 title: 'Washroom Hygiene',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Toilet & Urinal deep clean',
-                  'Mirror & glass treatment',
-                  'Odor control & freshness',
-                  'Dispenser sanitization',
+                  { label: 'Toilet & Urinal deep clean', href: null },
+                  { label: 'Mirror & glass treatment', href: null },
+                  { label: 'Odor control & freshness', href: null },
+                  { label: 'Dispenser sanitization', href: null },
                 ]
               },
               {
                 title: 'Grease Management',
+                href: null,
                 items: [
-                  'Grease trap surface clean',
-                  'Back-of-house wall wash',
-                  'High-level shelf dusting',
-                  'Equipment base cleaning',
+                  { label: 'Grease trap surface clean', href: null },
+                  { label: 'Back-of-house wall wash', href: null },
+                  { label: 'High-level shelf dusting', href: null },
+                  { label: 'Equipment base cleaning', href: null },
                 ]
               },
               {
                 title: 'Final Touches',
+                href: null,
                 items: [
-                  'Door handle sanitization',
-                  'AC vent cover cleaning',
-                  'Trash bin disinfection',
-                  'Pest-entry point check',
-                  'Supervisor walkthrough',
+                  { label: 'Door handle sanitization', href: null },
+                  { label: 'AC vent cover cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Trash bin disinfection', href: null },
+                  { label: 'Pest-entry point check', href: null },
+                  { label: 'Supervisor walkthrough', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -275,23 +313,28 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
                 {[
                   {
                     title: 'Food Safety Compliance',
-                    desc: 'Stay ahead of Dubai Municipality inspections with cleaning that meets international HACCP standards.'
+                    desc: 'Stay ahead of Dubai Municipality inspections with cleaning that meets international HACCP standards.',
+                    href: null,
                   },
                   {
                     title: 'Fire Risk Prevention',
-                    desc: 'Removing grease buildup from hoods and ducts significantly reduces the risk of kitchen fires.'
+                    desc: 'Removing grease buildup from hoods and ducts significantly reduces the risk of kitchen fires.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Customer Trust',
-                    desc: 'A spotless dining area and a clean-smelling kitchen enhance your brand reputation and guest loyalty.'
+                    desc: 'A spotless dining area and a clean-smelling kitchen enhance your brand reputation and guest loyalty.',
+                    href: null,
                   },
                   {
                     title: 'Equipment Longevity',
-                    desc: 'Regular deep cleaning prevents machinery from overheating and breaking down due to grease accumulation.'
+                    desc: 'Regular deep cleaning prevents machinery from overheating and breaking down due to grease accumulation.',
+                    href: '/kitchen-deep-cleaning',
                   },
                   {
                     title: 'Healthy Staff Environment',
-                    desc: 'A clean kitchen reduces slips, falls, and respiratory issues, keeping your team motivated and safe.'
+                    desc: 'A clean kitchen reduces slips, falls, and respiratory issues, keeping your team motivated and safe.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -299,7 +342,13 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -351,8 +400,47 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+              { label: 'Deep Cleaning of Shops', href: '/deep-cleaning-of-shops' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Water Tank Cleaning', href: '/water-tank-cleaning-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -378,7 +466,7 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
                 a: 'Depending on size, it usually takes 6-10 hours. Large commercial kitchens may require multiple shifts.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -395,7 +483,7 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -423,6 +511,7 @@ Maintain strict hygiene standards with our professional restaurant deep cleaning
           </div>
         </div>
       </section>
+
       <Footer />
       <FloatingWhatsApp />
     </main>
