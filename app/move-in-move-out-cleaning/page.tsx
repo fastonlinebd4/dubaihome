@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import FloatingWhatsApp from '@/components/floating-whatsapp';
@@ -45,7 +46,16 @@ export default function MoveInMoveOutCleaningPage() {
                 Premium Move-In & Move-Out <span className="text-[#529e00]">Cleaning Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Dubai Home Cleaning Services offers professional move in move out cleaning services in Dubai to ensure your property is spotless, sanitized, and inspection-ready. Whether you are relocating, handing over keys, or preparing a property for new tenants, our expert team provides a complete top-to-bottom deep clean. We thoroughly clean kitchens, bathrooms, wardrobes, cabinets, appliances, floors, windows, and high-touch surfaces to remove dirt, stains, and hidden bacteria. Special attention is given to areas often missed during regular cleaning, including grout lines, skirting, light fixtures, and ventilation covers. Our eco-friendly cleaning solutions are safe for families and pets while delivering powerful results. This service helps tenants secure full deposit returns and allows landlords to present properties in perfect condition. We work efficiently and on schedule to support your moving timeline. Trust Dubai Home Cleaning Services for a smooth, stress-free move with guaranteed professional cleaning results.              </p>
+                <strong>Dubai Home Cleaning Services</strong> offers professional{' '}
+                <strong>move in move out cleaning services in Dubai</strong> to ensure your property is spotless, sanitized, and inspection-ready. Whether you are relocating, handing over keys, or preparing a property for new tenants, our expert team provides a <strong>complete top-to-bottom deep clean</strong>. We thoroughly clean{' '}
+                <Link href="/kitchen-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">kitchens</Link>,{' '}
+                <Link href="/bathroom-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">bathrooms</Link>,
+                {' '}wardrobes, cabinets, appliances,{' '}
+                <Link href="/floor-deep-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">floors</Link>,{' '}
+                <Link href="/outside-window-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">windows</Link>,
+                {' '}and high-touch surfaces to remove dirt, stains, and hidden bacteria. Special attention is given to areas often missed during regular cleaning, including{' '}
+                <strong>grout lines, skirting, light fixtures, and ventilation covers</strong>. Our <strong>eco-friendly cleaning solutions</strong> are safe for families and pets while delivering powerful results. This service helps <strong>tenants secure full deposit returns</strong> and allows landlords to present properties in perfect condition. We work efficiently and on schedule to support your moving timeline. Trust Dubai Home Cleaning Services for a <strong>smooth, stress-free move with guaranteed professional cleaning results</strong>.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Move-In/Move-Out Cleaning service"
@@ -129,33 +139,45 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Deep cleaning of empty cabinets',
-                  'Wall spot cleaning & dusting',
-                  'Window tracks & balcony cleaning',
-                  'Floor scrubbing & machine polishing',
-                  'Sanitizing light switches & handles',
+                  { label: 'Deep cleaning of empty cabinets', href: null },
+                  { label: 'Wall spot cleaning & dusting', href: null },
+                  { label: 'Window tracks & balcony cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Floor scrubbing & machine polishing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Sanitizing light switches & handles', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Kitchen appliance deep cleaning',
-                  'Bathroom tile grout scrubbing',
-                  'AC Vent dusting & cleaning',
-                  'Removal of previous tenant dust',
-                  'Full home disinfection',
+                  { label: 'Kitchen appliance deep cleaning', href: '/kitchen-deep-cleaning' },
+                  { label: 'Bathroom tile grout scrubbing', href: '/bathroom-deep-cleaning' },
+                  { label: 'AC Vent dusting & cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Removal of previous tenant dust', href: null },
+                  { label: 'Full home disinfection', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -179,78 +201,97 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
             {[
               {
                 title: 'Move-In Ready Kitchen',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Inside/outside cabinet cleaning',
-                  'Deep cleaning of ovens & hobs',
-                  'Exhaust fan degreasing',
-                  'Sink and tap sanitization',
-                  'Countertop & backsplash cleaning',
+                  { label: 'Inside/outside cabinet cleaning', href: null },
+                  { label: 'Deep cleaning of ovens & hobs', href: null },
+                  { label: 'Exhaust fan degreasing', href: null },
+                  { label: 'Sink and tap sanitization', href: null },
+                  { label: 'Countertop & backsplash cleaning', href: null },
                 ]
               },
               {
                 title: 'Sanitized Bathrooms',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Full wall tile scrubbing',
-                  'Sanitary ware disinfection',
-                  'Shower glass scale removal',
-                  'Exhaust fan & vent cleaning',
-                  'Mirror & cabinet detailing',
+                  { label: 'Full wall tile scrubbing', href: null },
+                  { label: 'Sanitary ware disinfection', href: null },
+                  { label: 'Shower glass scale removal', href: null },
+                  { label: 'Exhaust fan & vent cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Mirror & cabinet detailing', href: null },
                 ]
               },
               {
                 title: 'Living & Bedroom Care',
+                href: null,
                 items: [
-                  'Wardrobe interior cleaning',
-                  'Floor machine scrubbing',
-                  'Wall dusting & cobweb removal',
-                  'Baseboard & door wiping',
-                  'Window & track detailing',
+                  { label: 'Wardrobe interior cleaning', href: null },
+                  { label: 'Floor machine scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Wall dusting & cobweb removal', href: null },
+                  { label: 'Baseboard & door wiping', href: null },
+                  { label: 'Window & track detailing', href: '/outside-window-cleaning' },
                 ]
               },
               {
                 title: 'Move-Out Handover',
+                href: null,
                 items: [
-                  'Complete dust removal',
-                  'Grease & stain treatment',
-                  'Balcony & patio wash',
-                  'Storage room cleaning',
-                  'Trash & debris removal',
+                  { label: 'Complete dust removal', href: null },
+                  { label: 'Grease & stain treatment', href: null },
+                  { label: 'Balcony & patio wash', href: '/balcony-deep-cleaning' },
+                  { label: 'Storage room cleaning', href: null },
+                  { label: 'Trash & debris removal', href: null },
                 ]
               },
               {
                 title: 'Exterior & Windows',
+                href: '/outside-window-cleaning',
                 items: [
-                  'Glass polishing inside/out',
-                  'Window frame deep cleaning',
-                  'Balcony railing wiping',
-                  'Main entrance detailing',
-                  'Exterior light fixtures',
+                  { label: 'Glass polishing inside/out', href: null },
+                  { label: 'Window frame deep cleaning', href: null },
+                  { label: 'Balcony railing wiping', href: '/balcony-deep-cleaning' },
+                  { label: 'Main entrance detailing', href: null },
+                  { label: 'Exterior light fixtures', href: null },
                 ]
               },
               {
                 title: 'Hygienic Finishing',
+                href: null,
                 items: [
-                  'Air freshening treatment',
-                  'Final quality walkthrough',
-                  'Disinfection of high-touch areas',
-                  'Ready-for-occupancy check',
+                  { label: 'Air freshening treatment', href: null },
+                  { label: 'Final quality walkthrough', href: null },
+                  { label: 'Disinfection of high-touch areas', href: null },
+                  { label: 'Ready-for-occupancy check', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -272,23 +313,28 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
                 {[
                   {
                     title: 'Security Deposit Refund',
-                    desc: 'A professionally cleaned home ensures you get your full security deposit back from the landlord.'
+                    desc: 'A professionally cleaned home ensures you get your full security deposit back from the landlord.',
+                    href: null,
                   },
                   {
                     title: 'Fresh Start in New Home',
-                    desc: 'Move into a space that is not just "surface clean" but deep-sanitized and free from previous occupants\' germs.'
+                    desc: 'Move into a space that is not just "surface clean" but deep-sanitized and free from previous occupants\' germs.',
+                    href: null,
                   },
                   {
                     title: 'Saves Time & Energy',
-                    desc: 'Moving is exhausting. Let our professional team handle the heavy scrubbing while you manage the logistics.'
+                    desc: 'Moving is exhausting. Let our professional team handle the heavy scrubbing while you manage the logistics.',
+                    href: null,
                   },
                   {
                     title: 'Healthier Environment',
-                    desc: 'We eliminate deep-seated dust, allergens, and bacteria that often hide in empty properties.'
+                    desc: 'We eliminate deep-seated dust, allergens, and bacteria that often hide in empty properties.',
+                    href: null,
                   },
                   {
                     title: 'Professional Equipment',
-                    desc: 'We use industrial scrubbers and high-grade chemicals that provide results a regular mop cannot achieve.'
+                    desc: 'We use industrial scrubbers and high-grade chemicals that provide results a regular mop cannot achieve.',
+                    href: '/steam-deep-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -296,7 +342,13 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -320,7 +372,6 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
 
       {/* Benefits Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
           <svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60 10C40 30 20 60 20 90C20 110 35 130 60 130C85 130 100 110 100 90C100 60 80 30 60 10Z" fill="#529e00" opacity="0.3"/>
@@ -407,8 +458,47 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -434,7 +524,7 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
                 a: 'We recommend booking 2-3 days in advance, but we also accommodate same-day requests when possible.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -451,7 +541,7 @@ Dubai Home Cleaning Services offers professional move in move out cleaning servi
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
