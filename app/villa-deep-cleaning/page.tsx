@@ -51,7 +51,18 @@ export default function VillaDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanitization solution tailored for luxury homes. We clean high ceilings, chandeliers, marble floors, kitchens, bathrooms, AC vents, glass panels, and outdoor spaces thoroughly. Using industrial-grade machines and safe cleaning solutions, we remove deep dust, stains, mold, and allergens. Every room is disinfected to ensure a healthier living environment for your family. This service is perfect for move-in, move-out, post-renovation, or seasonal cleaning. We pay attention to fine details including cabinet interiors, skirting, light fixtures, and upholstery. Our professional team works efficiently without disrupting your routine. Experience a sparkling clean villa with long-lasting freshness and guaranteed quality results.              </p>
+                Our <strong>villa deep cleaning service in Dubai</strong> delivers a complete top-to-bottom sanitization solution tailored for luxury homes. We clean{' '}
+                <strong>high ceilings, chandeliers,{' '}
+                <Link href="/marble-polishing-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors">marble floors</Link>,
+                {' '}kitchens, bathrooms,{' '}
+                <Link href="/ac-duct-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors">AC vents</Link>,
+                {' '}glass panels, and outdoor spaces</strong> thoroughly. Using{' '}
+                <strong>industrial-grade machines and safe cleaning solutions</strong>, we remove deep dust, stains, mold, and allergens. Every room is <strong>disinfected</strong> to ensure a healthier living environment for your family. This service is perfect for{' '}
+                <Link href="/move-in-move-out-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">move-in, move-out</Link>,{' '}
+                <Link href="/post-construction-cleaning-in-dubai" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">post-renovation</Link>,
+                {' '}or seasonal cleaning. We pay attention to fine details including{' '}
+                <strong>cabinet interiors, skirting, light fixtures, and upholstery</strong>. Our professional team works efficiently without disrupting your routine. Experience a sparkling clean villa with <strong>long-lasting freshness and guaranteed quality results</strong>.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -143,17 +154,23 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Living Areas & Bedrooms',
-                  'Kitchen',
-                  'Bathrooms',
-                  'Windows Inside & Outside',
-                  'Window Track & Frame Care',
+                  { label: 'Living Areas & Bedrooms', href: null },
+                  { label: 'Kitchen', href: '/kitchen-deep-cleaning' },
+                  { label: 'Bathrooms', href: '/bathroom-deep-cleaning' },
+                  { label: 'Windows Inside & Outside', href: '/outside-window-cleaning' },
+                  { label: 'Window Track & Frame Care', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -161,17 +178,23 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Scrubbing floors',
-                  'Mopping & vacuuming floors',
-                  'Upholstery Dry Vaccuming',
-                  'Garbage removal',
-                  'Normal Spot and stain removal',
+                  { label: 'Scrubbing floors', href: '/floor-deep-cleaning-services' },
+                  { label: 'Mopping & vacuuming floors', href: null },
+                  { label: 'Upholstery Dry Vaccuming', href: '/sofa-shampooing' },
+                  { label: 'Garbage removal', href: null },
+                  { label: 'Normal Spot and stain removal', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -196,76 +219,95 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
             {[
               {
                 title: 'Living Room Deep Clean',
+                href: null,
                 items: [
-                  'Sofa & upholstery vacuuming',
-                  'TV unit & shelves dusting',
-                  'Window tracks cleaning',
-                  'Light fixture cleaning',
+                  { label: 'Sofa & upholstery vacuuming', href: '/sofa-shampooing' },
+                  { label: 'TV unit & shelves dusting', href: null },
+                  { label: 'Window tracks cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Light fixture cleaning', href: null },
                 ]
               },
               {
                 title: 'Kitchen Sanitization',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Cabinet exterior wiping',
-                  'Countertop deep cleaning',
-                  'Appliance surface cleaning',
-                  'Sink scrubbing & disinfection',
+                  { label: 'Cabinet exterior wiping', href: null },
+                  { label: 'Countertop deep cleaning', href: null },
+                  { label: 'Appliance surface cleaning', href: null },
+                  { label: 'Sink scrubbing & disinfection', href: null },
                 ]
               },
               {
                 title: 'Bedroom Detailing',
+                href: null,
                 items: [
-                  'Wardrobe exterior cleaning',
-                  'Bed frame wiping',
-                  'Nightstand cleaning',
-                  'Mirror & glass polishing',
+                  { label: 'Wardrobe exterior cleaning', href: null },
+                  { label: 'Bed frame wiping', href: null },
+                  { label: 'Nightstand cleaning', href: null },
+                  { label: 'Mirror & glass polishing', href: null },
                 ]
               },
               {
                 title: 'Bathroom Complete Care',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Toilet deep scrubbing',
-                  'Shower & bathtub cleaning',
-                  'Sink & faucet polishing',
-                  'Tile & grout cleaning',
-                  'Mirror shine treatment',
+                  { label: 'Toilet deep scrubbing', href: null },
+                  { label: 'Shower & bathtub cleaning', href: null },
+                  { label: 'Sink & faucet polishing', href: null },
+                  { label: 'Tile & grout cleaning', href: null },
+                  { label: 'Mirror shine treatment', href: null },
                 ]
               },
               {
                 title: 'Common Areas',
+                href: null,
                 items: [
-                  'Hallway & corridor cleaning',
-                  'Staircase wiping',
-                  'Entrance area detailing',
-                  'Balcony sweeping & mopping',
-                  'Door & frame cleaning',
+                  { label: 'Hallway & corridor cleaning', href: null },
+                  { label: 'Staircase wiping', href: null },
+                  { label: 'Entrance area detailing', href: null },
+                  { label: 'Balcony sweeping & mopping', href: '/balcony-deep-cleaning' },
+                  { label: 'Door & frame cleaning', href: null },
                 ]
               },
               {
                 title: 'Finishing Touches',
+                href: null,
                 items: [
-                  'Baseboard wiping',
-                  'Switch plate cleaning',
-                  'Vent cover dusting',
-                  'Ceiling fan cleaning',
-                  'Final inspection',
+                  { label: 'Baseboard wiping', href: null },
+                  { label: 'Switch plate cleaning', href: null },
+                  { label: 'Vent cover dusting', href: '/ac-duct-cleaning' },
+                  { label: 'Ceiling fan cleaning', href: null },
+                  { label: 'Final inspection', href: null },
                 ]
               },
-			  {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -287,23 +329,28 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
                 {[
                   {
                     title: 'Dubai\'s Harsh Climate',
-                    desc: 'Desert dust and sand accumulate quickly, requiring professional deep cleaning to maintain a healthy living environment.'
+                    desc: 'Desert dust and sand accumulate quickly, requiring professional deep cleaning to maintain a healthy living environment.',
+                    href: null,
                   },
                   {
                     title: 'Maintain Property Value',
-                    desc: 'Regular deep cleaning preserves your villa\'s condition and protects your investment in Dubai\'s competitive real estate market.'
+                    desc: 'Regular deep cleaning preserves your villa\'s condition and protects your investment in Dubai\'s competitive real estate market.',
+                    href: null,
                   },
                   {
                     title: 'Health & Hygiene',
-                    desc: 'Remove allergens, bacteria, and hidden contaminants that regular cleaning misses, ensuring your family\'s wellbeing.'
+                    desc: 'Remove allergens, bacteria, and hidden contaminants that regular cleaning misses, ensuring your family\'s wellbeing.',
+                    href: null,
                   },
                   {
                     title: 'Time-Saving Solution',
-                    desc: 'Let professionals handle the intensive cleaning while you focus on what matters most to you and your family.'
+                    desc: 'Let professionals handle the intensive cleaning while you focus on what matters most to you and your family.',
+                    href: null,
                   },
                   {
                     title: 'Post-Renovation Clean-up',
-                    desc: 'Essential after any construction or renovation work to remove construction dust and debris completely.'
+                    desc: 'Essential after any construction or renovation work to remove construction dust and debris completely.',
+                    href: '/post-construction-cleaning-in-dubai',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -311,7 +358,13 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -421,32 +474,38 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
               {
                 icon: Shield,
                 title: 'Insured & Licensed',
-                desc: 'Fully licensed cleaning company with comprehensive insurance coverage for your peace of mind.'
+                desc: 'Fully licensed cleaning company with comprehensive insurance coverage for your peace of mind.',
+                href: null,
               },
               {
                 icon: Star,
                 title: 'Experienced Professionals',
-                desc: 'Trained cleaning experts with years of experience in luxury villa cleaning services.'
+                desc: 'Trained cleaning experts with years of experience in luxury villa cleaning services.',
+                href: null,
               },
               {
                 icon: Clock,
                 title: 'Flexible Scheduling',
-                desc: 'We work around your schedule with convenient booking options and punctual service.'
+                desc: 'We work around your schedule with convenient booking options and punctual service.',
+                href: null,
               },
               {
                 icon: CheckCircle2,
                 title: 'Quality Guarantee',
-                desc: '100% satisfaction guaranteed. We re-clean for free if you\'re not completely satisfied.'
+                desc: '100% satisfaction guaranteed. We re-clean for free if you\'re not completely satisfied.',
+                href: null,
               },
               {
                 icon: Sparkles,
                 title: 'Eco-Friendly Products',
-                desc: 'Safe, non-toxic cleaning solutions that are gentle on your family and the environment.'
+                desc: 'Safe, non-toxic cleaning solutions that are gentle on your family and the environment.',
+                href: null,
               },
               {
                 icon: Home,
                 title: 'Modern Equipment',
-                desc: 'Latest cleaning technology and equipment for superior results and efficiency.'
+                desc: 'Latest cleaning technology and equipment for superior results and efficiency.',
+                href: '/steam-deep-cleaning',
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
@@ -454,7 +513,13 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
                   <item.icon className="w-6 h-6 text-[#529e00]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -494,8 +559,47 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Villa Facade Cleaning', href: '/villa-facade-cleaning-services' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -526,7 +630,7 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
                 a: 'Yes, subject to availability. Contact us directly for urgent cleaning requirements.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -543,7 +647,7 @@ Our villa deep cleaning service in Dubai delivers a complete top-to-bottom sanit
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
