@@ -11,7 +11,7 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  Layout, // Window এর জন্য মানানসই আইকন
+  Layout,
   ArrowRight,
   Phone,
   Mail,
@@ -48,7 +48,17 @@ export default function OutsideWindowCleaningPage() {
                 Top Outside Window Cleaning In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our outside window cleaning service ensures crystal-clear, streak-free glass for residential and commercial buildings. We remove dust, water stains, sand residue, and environmental pollutants. Professional tools and safe techniques guarantee effective cleaning at heights. Clean windows enhance natural light and overall building appearance. Ideal for villas, apartments, offices, and high-rise properties. We prioritize safety and precision during every project. Regular window cleaning maintains property value. Enjoy bright, spotless windows with professional results.              </p>
+                Our <strong>outside window cleaning service</strong> ensures{' '}
+                <strong>crystal-clear, streak-free glass</strong> for residential and commercial buildings. We remove{' '}
+                <strong>dust, water stains, sand residue, and environmental pollutants</strong>.{' '}
+                <strong>Professional tools and safe techniques</strong> guarantee effective cleaning at heights.{' '}
+                <strong>Clean windows enhance natural light</strong> and overall building appearance. Ideal for{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>,{' '}
+                <Link href="/apartment-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">apartments</Link>,{' '}
+                <Link href="/office-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">offices</Link>, and high-rise properties. We prioritize{' '}
+                <strong>safety and precision</strong> during every project. Regular window cleaning{' '}
+                <strong>maintains property value</strong>. Enjoy bright, spotless windows with professional results.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Outside Window Cleaning service"
@@ -133,33 +143,39 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Exterior Glass Scrubbing',
-                  'Water Spot & Stain Removal',
-                  'Window Frame Deep Cleaning',
-                  'Window Track & Sill Detailing',
-                  'Fly Screen Mesh Cleaning',
+                  { label: 'Exterior Glass Scrubbing', href: null },
+                  { label: 'Water Spot & Stain Removal', href: null },
+                  { label: 'Window Frame Deep Cleaning', href: null },
+                  { label: 'Window Track & Sill Detailing', href: null },
+                  { label: 'Fly Screen Mesh Cleaning', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    <p className="text-[#091a33] font-bold text-base">{item.label}</p>
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Skylight Cleaning',
-                  'Glass Balustrade Detailing',
-                  'Spider Web Removal',
-                  'Streak-Free Squeegee Finish',
-                  'Hard-to-Reach Area Access',
+                  { label: 'Skylight Cleaning', href: '/rooftop-cleaning-services' },
+                  { label: 'Glass Balustrade Detailing', href: '/balcony-deep-cleaning' },
+                  { label: 'Spider Web Removal', href: null },
+                  { label: 'Streak-Free Squeegee Finish', href: null },
+                  { label: 'Hard-to-Reach Area Access', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -183,72 +199,90 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
             {[
               {
                 title: 'Villa Exterior Windows',
+                href: '/villa-facade-cleaning-services',
                 items: [
-                  'Ground & First-floor windows',
-                  'Sliding glass doors',
-                  'High-access glass panes',
-                  'Entrance glass cleaning',
-                  'Dust-repellent treatment',
+                  { label: 'Ground & First-floor windows', href: null },
+                  { label: 'Sliding glass doors', href: null },
+                  { label: 'High-access glass panes', href: null },
+                  { label: 'Entrance glass cleaning', href: null },
+                  { label: 'Dust-repellent treatment', href: null },
                 ]
               },
               {
                 title: 'Frame & Track Detailing',
+                href: null,
                 items: [
-                  'Aluminium frame wiping',
-                  'Rubber seal inspection',
-                  'Track sand & debris removal',
-                  'Bottom sill scrubbing',
-                  'Lock & handle cleaning',
+                  { label: 'Aluminium frame wiping', href: null },
+                  { label: 'Rubber seal inspection', href: null },
+                  { label: 'Track sand & debris removal', href: null },
+                  { label: 'Bottom sill scrubbing', href: null },
+                  { label: 'Lock & handle cleaning', href: null },
                 ]
               },
               {
                 title: 'Screen & Mesh Care',
+                href: null,
                 items: [
-                  'Mesh screen vacuuming',
-                  'Washable screen rinsing',
-                  'Frame slot cleaning',
-                  'Re-installation of screens',
-                  'Edge-to-edge dusting',
+                  { label: 'Mesh screen vacuuming', href: null },
+                  { label: 'Washable screen rinsing', href: null },
+                  { label: 'Frame slot cleaning', href: null },
+                  { label: 'Re-installation of screens', href: null },
+                  { label: 'Edge-to-edge dusting', href: null },
                 ]
               },
               {
                 title: 'Stain Management',
+                href: null,
                 items: [
-                  'Hard water mark removal',
-                  'Bird dropping cleaning',
-                  'Paint speck removal',
-                  'Sticky residue cleaning',
-                  'Acid-free chemical use',
+                  { label: 'Hard water mark removal', href: null },
+                  { label: 'Bird dropping cleaning', href: null },
+                  { label: 'Paint speck removal', href: null },
+                  { label: 'Sticky residue cleaning', href: null },
+                  { label: 'Acid-free chemical use', href: null },
                 ]
               },
               {
                 title: 'Glass Balconies',
+                href: '/balcony-deep-cleaning',
                 items: [
-                  'Balustrade glass washing',
-                  'Handrail polishing',
-                  'Corner detailing',
-                  'Two-sided glass wipe',
-                  'Safety check of panels',
+                  { label: 'Balustrade glass washing', href: null },
+                  { label: 'Handrail polishing', href: null },
+                  { label: 'Corner detailing', href: null },
+                  { label: 'Two-sided glass wipe', href: null },
+                  { label: 'Safety check of panels', href: null },
                 ]
               },
               {
                 title: 'Specialty Glass',
+                href: null,
                 items: [
-                  'Skylight deep washing',
-                  'Glass canopy cleaning',
-                  'Decorative glass care',
-                  'Conservatory roof wash',
-                  'Solar panel dusting',
+                  { label: 'Skylight deep washing', href: '/rooftop-cleaning-services' },
+                  { label: 'Glass canopy cleaning', href: null },
+                  { label: 'Decorative glass care', href: null },
+                  { label: 'Conservatory roof wash', href: null },
+                  { label: 'Solar panel dusting', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -270,23 +304,28 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
                 {[
                   {
                     title: 'Combat Desert Dust',
-                    desc: 'Dubai\'s sandstorms create a film on glass that can cause permanent scratching if not professionally removed.'
+                    desc: 'Dubai\'s sandstorms create a film on glass that can cause permanent scratching if not professionally removed.',
+                    href: null,
                   },
                   {
                     title: 'Remove Water Spots',
-                    desc: 'A/C drips and irrigation water leave mineral deposits that make glass look cloudy and dull.'
+                    desc: 'A/C drips and irrigation water leave mineral deposits that make glass look cloudy and dull.',
+                    href: null,
                   },
                   {
                     title: 'Safety First',
-                    desc: 'Our team uses professional ladders and safety gear to reach high windows that are dangerous for DIY cleaning.'
+                    desc: 'Our team uses professional ladders and safety gear to reach high windows that are dangerous for DIY cleaning.',
+                    href: null,
                   },
                   {
                     title: 'Enhance Natural Light',
-                    desc: 'Clean exterior windows allow 20% more natural light into your home, improving your indoor atmosphere.'
+                    desc: 'Clean exterior windows allow 20% more natural light into your home, improving your indoor atmosphere.',
+                    href: null,
                   },
                   {
                     title: 'Maintain Window Health',
-                    desc: 'Regular cleaning prevents track clogging and seal degradation, saving you money on future repairs.'
+                    desc: 'Regular cleaning prevents track clogging and seal degradation, saving you money on future repairs.',
+                    href: '/villa-facade-cleaning-services',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -294,7 +333,13 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -346,8 +391,47 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Villa Facade Cleaning', href: '/villa-facade-cleaning-services' },
+              { label: 'Outside Deep Cleaning', href: '/outside-deep-cleaning' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Rooftop Cleaning Services', href: '/rooftop-cleaning-services' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -373,7 +457,7 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
                 a: 'Yes, we use ammonia-free, pH-neutral solutions that are 100% safe for all types of window tints and coatings.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -390,7 +474,7 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -418,6 +502,7 @@ Our outside window cleaning service ensures crystal-clear, streak-free glass for
           </div>
         </div>
       </section>
+
       <Footer />
       <FloatingWhatsApp />
     </main>
