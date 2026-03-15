@@ -48,7 +48,17 @@ export default function OfficeDeepCleaningPage() {
                 Premium Office Deep Cleaning Services In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Maintain a spotless, hygienic, and professional workspace with our expert office deep cleaning services in Dubai. Over time, offices accumulate dust, bacteria, and hidden contaminants that regular cleaning cannot fully remove. Our trained cleaning specialists thoroughly sanitize workstations, meeting rooms, reception areas, restrooms, pantry spaces, and high-touch surfaces such as desks, keyboards, door handles, and switches. We use advanced equipment and eco-friendly disinfectants to ensure deep cleaning without disrupting daily operations. Carpets, floors, glass partitions, and office furniture are cleaned and restored to a fresh, polished condition. This service helps reduce the spread of germs and creates a healthier environment for employees and clients. Ideal for corporate offices, co-working spaces, and commercial buildings seeking high hygiene standards. Boost productivity, improve air quality, and leave a lasting professional impression with our reliable office deep cleaning solutions.              </p>
+                Maintain a <strong>spotless, hygienic, and professional workspace</strong> with our expert{' '}
+                <strong>office deep cleaning services in Dubai</strong>. Over time, offices accumulate dust, bacteria, and hidden contaminants that regular cleaning cannot fully remove. Our trained cleaning specialists thoroughly sanitize{' '}
+                <strong>workstations, meeting rooms, reception areas, restrooms, pantry spaces</strong>, and high-touch surfaces such as{' '}
+                <strong>desks, keyboards, door handles, and switches</strong>. We use{' '}
+                <strong>advanced equipment and eco-friendly disinfectants</strong> to ensure deep cleaning without disrupting daily operations.{' '}
+                <Link href="/carpet-shampooing" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">Carpets</Link>,{' '}
+                <Link href="/floor-deep-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">floors</Link>,{' '}
+                glass partitions, and office furniture are cleaned and restored to a fresh, polished condition. This service helps{' '}
+                <strong>reduce the spread of germs</strong> and creates a healthier environment for employees and clients. Ideal for{' '}
+                <strong>corporate offices, co-working spaces, and commercial buildings</strong> seeking high hygiene standards. Boost productivity, improve air quality, and leave a lasting professional impression with our reliable office deep cleaning solutions.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Office Deep Cleaning service"
@@ -133,33 +143,45 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Workstations & Desks',
-                  'Reception & Waiting Areas',
-                  'Conference Rooms',
-                  'High-Touch Point Sanitization',
-                  'IT Equipment Dusting',
+                  { label: 'Workstations & Desks', href: null },
+                  { label: 'Reception & Waiting Areas', href: null },
+                  { label: 'Conference Rooms', href: null },
+                  { label: 'High-Touch Point Sanitization', href: null },
+                  { label: 'IT Equipment Dusting', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Industrial Carpet Vacuuming',
-                  'Hard Floor Scrubbing',
-                  'AC Vent Cleaning',
-                  'Office Pantry Deep Clean',
-                  'Window & Glass Partitioning',
+                  { label: 'Industrial Carpet Vacuuming', href: '/carpet-shampooing' },
+                  { label: 'Hard Floor Scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'AC Vent Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Office Pantry Deep Clean', href: '/kitchen-deep-cleaning' },
+                  { label: 'Window & Glass Partitioning', href: '/outside-window-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -183,76 +205,95 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
             {[
               {
                 title: 'Workstation Sanitization',
+                href: null,
                 items: [
-                  'Desktop & monitor dusting',
-                  'Keyboard & mouse disinfection',
-                  'Chair vacuuming & wiping',
-                  'Under-desk cable cleaning',
-                  'Phone system sanitization',
+                  { label: 'Desktop & monitor dusting', href: null },
+                  { label: 'Keyboard & mouse disinfection', href: null },
+                  { label: 'Chair vacuuming & wiping', href: null },
+                  { label: 'Under-desk cable cleaning', href: null },
+                  { label: 'Phone system sanitization', href: null },
                 ]
               },
               {
                 title: 'Pantry & Breakroom',
+                href: '/kitchen-deep-cleaning',
                 items: [
-                  'Cabinet interior & exterior',
-                  'Microwave & fridge cleaning',
-                  'Sink & countertop scrubbing',
-                  'Trash bin disinfection',
+                  { label: 'Cabinet interior & exterior', href: null },
+                  { label: 'Microwave & fridge cleaning', href: null },
+                  { label: 'Sink & countertop scrubbing', href: null },
+                  { label: 'Trash bin disinfection', href: null },
                 ]
               },
               {
                 title: 'Meeting & Boardrooms',
+                href: null,
                 items: [
-                  'Table surface polishing',
-                  'Glass wall cleaning',
-                  'Upholstery steam cleaning',
-                  'Projector & screen dusting',
-                  'Air vent vacuuming',
+                  { label: 'Table surface polishing', href: null },
+                  { label: 'Glass wall cleaning', href: null },
+                  { label: 'Upholstery steam cleaning', href: '/steam-deep-cleaning' },
+                  { label: 'Projector & screen dusting', href: null },
+                  { label: 'Air vent vacuuming', href: '/ac-duct-cleaning' },
                 ]
               },
               {
                 title: 'Commercial Bathrooms',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Stall & door sanitization',
-                  'Urinal & toilet deep scrub',
-                  'Mirror & fixture polishing',
-                  'Tile grout cleaning',
+                  { label: 'Stall & door sanitization', href: null },
+                  { label: 'Urinal & toilet deep scrub', href: null },
+                  { label: 'Mirror & fixture polishing', href: null },
+                  { label: 'Tile grout cleaning', href: null },
                 ]
               },
               {
                 title: 'Flooring & Carpets',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'HEPA filter vacuuming',
-                  'Stain spot treatment',
-                  'Baseboard detailing',
-                  'Corner & edge cleaning',
+                  { label: 'HEPA filter vacuuming', href: null },
+                  { label: 'Stain spot treatment', href: null },
+                  { label: 'Carpet shampooing', href: '/carpet-shampooing' },
+                  { label: 'Corner & edge cleaning', href: null },
                 ]
               },
               {
                 title: 'General Facilities',
+                href: null,
                 items: [
-                  'Light switch & handle sanitizing',
-                  'Ceiling fan/AC grill dusting',
-                  'Window track cleaning',
-                  'Reception desk polishing',
-                  'Final quality walkthrough',
+                  { label: 'Light switch & handle sanitizing', href: null },
+                  { label: 'Ceiling fan/AC grill dusting', href: '/ac-duct-cleaning' },
+                  { label: 'Window track cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Reception desk polishing', href: null },
+                  { label: 'Final quality walkthrough', href: null },
                 ]
               },
-			  {
-                title: 'Office Deep Cleaning',
+              {
+                title: 'Office Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of ceramic tiles  concrete tiles, using a scrubbing machine, / and wooden floors will be cleane by vacuum & mopping . ( Carpet dry vacuum )',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum & mopping.',
+                  { label: 'Deep Cleaning of ceramic tiles, concrete tiles using a scrubbing machine, and wooden floors will be cleaned by vacuum & mopping. (Carpet dry vacuum)', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum & mopping.', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -274,23 +315,28 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
                 {[
                   {
                     title: 'Employee Health & Wellbeing',
-                    desc: 'Reduce sick leaves by eliminating bacteria and viruses from high-traffic office areas.'
+                    desc: 'Reduce sick leaves by eliminating bacteria and viruses from high-traffic office areas.',
+                    href: null,
                   },
                   {
                     title: 'Boost Productivity',
-                    desc: 'A clean, organized environment improves focus and employee morale significantly.'
+                    desc: 'A clean, organized environment improves focus and employee morale significantly.',
+                    href: null,
                   },
                   {
                     title: 'Professional Brand Image',
-                    desc: 'Impress clients and visitors with a pristine office that reflects your business standards.'
+                    desc: 'Impress clients and visitors with a pristine office that reflects your business standards.',
+                    href: null,
                   },
                   {
                     title: 'Protect Office Assets',
-                    desc: 'Regular deep cleaning prevents dust buildup in electronics and extends the life of office furniture.'
+                    desc: 'Regular deep cleaning prevents dust buildup in electronics and extends the life of office furniture.',
+                    href: null,
                   },
                   {
                     title: 'Improved Air Quality',
-                    desc: 'Professional AC vent and carpet cleaning removes indoor pollutants for fresher breathing air.'
+                    desc: 'Professional AC vent and carpet cleaning removes indoor pollutants for fresher breathing air.',
+                    href: '/ac-duct-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -298,7 +344,13 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -395,8 +447,47 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -422,7 +513,7 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
                 a: 'For most offices in Dubai, we recommend a professional deep clean every 3 to 6 months.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -439,7 +530,7 @@ Maintain a spotless, hygienic, and professional workspace with our expert office
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
