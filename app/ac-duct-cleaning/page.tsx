@@ -12,7 +12,7 @@ import {
   Shield, 
   Star, 
   Sparkles, 
-  Wind, // Changed Home to Wind for AC context
+  Wind,
   ArrowRight,
   Phone,
   Mail,
@@ -51,7 +51,17 @@ export default function ACDuctCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Improve indoor air quality with our professional AC duct cleaning services in Dubai. Over time, dust, mold, and allergens accumulate inside ducts, affecting airflow and health. Our technicians use advanced vacuum and sanitization equipment to remove deep contamination. Clean ducts improve cooling efficiency and reduce electricity consumption. This service is essential for villas, apartments, and offices in Dubai’s dusty climate. We ensure thorough cleaning without damaging your HVAC system. Regular AC duct cleaning helps prevent allergies and respiratory issues. Breathe cleaner, healthier air with our expert service.              </p>
+                Improve <strong>indoor air quality</strong> with our professional{' '}
+                <strong>AC duct cleaning services in Dubai</strong>. Over time,{' '}
+                <strong>dust, mold, and allergens</strong> accumulate inside ducts, affecting airflow and health. Our technicians use{' '}
+                <strong>advanced vacuum and sanitization equipment</strong> to remove deep contamination.{' '}
+                <strong>Clean ducts improve cooling efficiency</strong> and reduce electricity consumption. This service is essential for{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>,{' '}
+                <Link href="/apartment-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">apartments</Link>, and{' '}
+                <Link href="/office-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">offices</Link>{' '}
+                in Dubai's dusty climate. We ensure <strong>thorough cleaning without damaging your HVAC system</strong>. Regular AC duct cleaning helps{' '}
+                <strong>prevent allergies and respiratory issues</strong>. Breathe cleaner, healthier air with our expert service.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -129,7 +139,6 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
       <section className="py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-[#529e00] to-[#3d7700] rounded-[60px] p-8 md:p-12 text-white shadow-2xl overflow-hidden">
-            {/* Top Icon Badge */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-[#c5e899] to-[#a8d96e] rounded-[28px] border-8 border-white shadow-xl flex items-center justify-center z-10">
               <Wind className="w-12 h-12 text-[#529e00]" />
             </div>
@@ -143,17 +152,17 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Internal Duct Inspection',
-                  'Supply & Return Vent Cleaning',
-                  'Main Duct Line Scrubbing',
-                  'Filter Deep Cleaning',
-                  'Blower Fan Sanitization',
+                  { label: 'Internal Duct Inspection', href: null },
+                  { label: 'Supply & Return Vent Cleaning', href: null },
+                  { label: 'Main Duct Line Scrubbing', href: null },
+                  { label: 'Filter Deep Cleaning', href: null },
+                  { label: 'Blower Fan Sanitization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    <p className="text-[#091a33] font-bold text-base">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -161,17 +170,17 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Cooling Coil Sterilization',
-                  'Drain Pan & Pipe Cleaning',
-                  'Anti-Bacterial Fogging',
-                  'Mold & Mildew Removal',
-                  'Air Flow Performance Test',
+                  { label: 'Cooling Coil Sterilization', href: null },
+                  { label: 'Drain Pan & Pipe Cleaning', href: null },
+                  { label: 'Anti-Bacterial Fogging', href: null },
+                  { label: 'Mold & Mildew Removal', href: null },
+                  { label: 'Air Flow Performance Test', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    <p className="text-[#091a33] font-bold text-base">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -196,71 +205,89 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
             {[
               {
                 title: 'Inspection & Setup',
+                href: null,
                 items: [
-                  'Full system diagnostic',
-                  'Video inspection of ducts',
-                  'System pressure check',
-                  'Equipment calibration',
+                  { label: 'Full system diagnostic', href: null },
+                  { label: 'Video inspection of ducts', href: null },
+                  { label: 'System pressure check', href: null },
+                  { label: 'Equipment calibration', href: null },
                 ]
               },
               {
                 title: 'Vent & Grill Cleaning',
+                href: null,
                 items: [
-                  'Removal of all vent covers',
-                  'High-pressure vent washing',
-                  'Diffuser sanitization',
-                  'Manual scrubbing of slots',
-                  'Polishing of external grills',
+                  { label: 'Removal of all vent covers', href: null },
+                  { label: 'High-pressure vent washing', href: null },
+                  { label: 'Diffuser sanitization', href: null },
+                  { label: 'Manual scrubbing of slots', href: null },
+                  { label: 'Polishing of external grills', href: null },
                 ]
               },
               {
                 title: 'Mechanical Component',
+                href: null,
                 items: [
-                  'Blower motor cleaning',
-                  'Cooling coil deep wash',
-                  'Condensation tray clearing',
-                  'Belt and pulley check',
-                  'Electrical connection dust-off',
+                  { label: 'Blower motor cleaning', href: null },
+                  { label: 'Cooling coil deep wash', href: null },
+                  { label: 'Condensation tray clearing', href: null },
+                  { label: 'Belt and pulley check', href: null },
+                  { label: 'Electrical connection dust-off', href: null },
                 ]
               },
               {
                 title: 'Deep Duct Scrubbing',
+                href: null,
                 items: [
-                  'Rotary brush technology',
-                  'HEPA vacuum extraction',
-                  'Removing debris & dust',
-                  'Corner & joint detailing',
-                  'Negative air pressure cleaning',
+                  { label: 'Rotary brush technology', href: null },
+                  { label: 'HEPA vacuum extraction', href: null },
+                  { label: 'Removing debris & dust', href: null },
+                  { label: 'Corner & joint detailing', href: null },
+                  { label: 'Negative air pressure cleaning', href: null },
                 ]
               },
               {
                 title: 'Sanitization & Fogging',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'Hospital-grade disinfectant',
-                  'Anti-fungal treatment',
-                  'Odor neutralization',
-                  'Bio-sanitizer application',
-                  'Long-lasting germ protection',
+                  { label: 'Hospital-grade disinfectant', href: null },
+                  { label: 'Anti-fungal treatment', href: null },
+                  { label: 'Odor neutralization', href: null },
+                  { label: 'Bio-sanitizer application', href: null },
+                  { label: 'Long-lasting germ protection', href: null },
                 ]
               },
               {
                 title: 'Post-Clean Support',
+                href: null,
                 items: [
-                  'Final airflow verification',
-                  'System re-assembly',
-                  'Before & After report',
-                  'Work area cleanup',
-                  'Maintenance tips session',
+                  { label: 'Final airflow verification', href: null },
+                  { label: 'System re-assembly', href: null },
+                  { label: 'Before & After report', href: null },
+                  { label: 'Work area cleanup', href: null },
+                  { label: 'Maintenance tips session', href: null },
                 ]
               },
-		      ].map((service, idx) => (
+            ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -282,23 +309,28 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
                 {[
                   {
                     title: 'Eliminate Allergens',
-                    desc: 'Ducts are breeding grounds for mold and bacteria. Our cleaning helps prevent asthma, allergies, and respiratory issues.'
+                    desc: 'Ducts are breeding grounds for mold and bacteria. Our cleaning helps prevent asthma, allergies, and respiratory issues.',
+                    href: null,
                   },
                   {
                     title: 'Reduce Electricity Bills',
-                    desc: 'Clean ducts allow your AC to work efficiently, significantly reducing energy consumption and monthly bills.'
+                    desc: 'Clean ducts allow your AC to work efficiently, significantly reducing energy consumption and monthly bills.',
+                    href: null,
                   },
                   {
                     title: 'Remove Desert Dust',
-                    desc: 'Dubai\'s fine sand penetrates AC systems easily. We remove years of accumulated sand and grit from your ductwork.'
+                    desc: 'Dubai\'s fine sand penetrates AC systems easily. We remove years of accumulated sand and grit from your ductwork.',
+                    href: null,
                   },
                   {
                     title: 'Better Cooling Performance',
-                    desc: 'Clogged ducts restrict airflow. Deep cleaning restores maximum airflow, making your home cool down faster.'
+                    desc: 'Clogged ducts restrict airflow. Deep cleaning restores maximum airflow, making your home cool down faster.',
+                    href: null,
                   },
                   {
                     title: 'Eliminate Bad Odors',
-                    desc: 'Musty smells often come from mold in ducts. Our sanitization process leaves your home smelling fresh and clean.'
+                    desc: 'Musty smells often come from mold in ducts. Our sanitization process leaves your home smelling fresh and clean.',
+                    href: '/steam-deep-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -306,7 +338,13 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -331,9 +369,8 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
 
       {/* Specialized Services */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
-           <Wind className="w-24 h-24 text-[#529e00]" />
+          <Wind className="w-24 h-24 text-[#529e00]" />
         </div>
 
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -403,32 +440,38 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
               {
                 icon: Shield,
                 title: 'Certified Company',
-                desc: 'Trakhees and Dubai Municipality approved AC duct cleaning specialists.'
+                desc: 'Trakhees and Dubai Municipality approved AC duct cleaning specialists.',
+                href: null,
               },
               {
                 icon: Star,
                 title: 'Expert Engineers',
-                desc: 'HVAC qualified technicians who understand the mechanics of your cooling system.'
+                desc: 'HVAC qualified technicians who understand the mechanics of your cooling system.',
+                href: null,
               },
               {
                 icon: Clock,
                 title: 'Timely Execution',
-                desc: 'Efficient cleaning processes that minimize downtime and respect your schedule.'
+                desc: 'Efficient cleaning processes that minimize downtime and respect your schedule.',
+                href: null,
               },
               {
                 icon: CheckCircle2,
                 title: 'Odor Guarantee',
-                desc: 'We guarantee the removal of all organic odors caused by mold and mildew in your ducts.'
+                desc: 'We guarantee the removal of all organic odors caused by mold and mildew in your ducts.',
+                href: null,
               },
               {
                 icon: Sparkles,
                 title: 'Zero Mess Policy',
-                desc: 'We use industrial-grade dust containment so your home stays spotless during the process.'
+                desc: 'We use industrial-grade dust containment so your home stays spotless during the process.',
+                href: null,
               },
               {
                 icon: Wind,
                 title: 'Improved Airflow',
-                desc: 'Scientifically proven increase in air velocity after our deep scrubbing process.'
+                desc: 'Scientifically proven increase in air velocity after our deep scrubbing process.',
+                href: null,
               },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
@@ -476,8 +519,47 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -508,7 +590,7 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
                 a: 'A standard villa usually takes 4-6 hours, depending on the number of AC units and the complexity of the ductwork.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -525,7 +607,7 @@ Improve indoor air quality with our professional AC duct cleaning services in Du
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
