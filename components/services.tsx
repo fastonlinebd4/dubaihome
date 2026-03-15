@@ -47,14 +47,6 @@ const services = [
     href: '/office-deep-cleaning'
   },
   {
-    title: 'Sofa Shampooing',
-    description:
-      'Our professional Sofa Shampooing Services in Dubai remove deep stains, dust, and bad odors to restore a fresh and clean look. We use safe, high-quality shampoo and advanced cleaning methods to ensure a hygienic and long-lasting finish without damaging the fabric.',
-    icon: Sofa,
-    image: '/images/service_sofa.png',
-    href: '/sofa-and-carpet-shampooing'
-  },
-  {
     title: 'AC Duct Cleaning',
     description:
       'Our professional AC Duct Cleaning Services in Dubai improve indoor air quality by removing dust, allergens, and hidden contaminants from your air duct system. Using advanced equipment and safe cleaning methods, we ensure cleaner airflow, better cooling efficiency, and a healthier environment for your home or office.',
@@ -125,6 +117,14 @@ const services = [
     icon: Sparkles,
     image: '/images/service_window.png',
     href: '/carpet-shampooing'
+  },
+  {
+    title: 'Sofa Shampooing',
+    description:
+      'Our professional Sofa Shampooing Services in Dubai remove deep stains, dust, and bad odors to restore a fresh and clean look. We use safe, high-quality shampoo and advanced cleaning methods to ensure a hygienic and long-lasting finish without damaging the fabric.',
+    icon: Sofa,
+    image: '/images/service_sofa.png',
+    href: '/sofa-and-carpet-shampooing'
   },
   {
     title: 'Outside Power Wash',
