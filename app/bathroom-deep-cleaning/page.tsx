@@ -18,7 +18,7 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Droplets // Bathroom cleaning এর জন্য পরিবর্তন করা হয়েছে
+  Droplets
 } from 'lucide-react';
 
 export default function BathroomDeepCleaningPage() {
@@ -52,7 +52,17 @@ export default function BathroomDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap scum, mold, and bacteria buildup from every surface. We thoroughly scrub tiles, grout lines, bathtubs, showers, sinks, mirrors, and toilet areas using powerful yet eco-friendly disinfectants. Hard water stains and mineral deposits are carefully removed to restore shine and hygiene. We focus on hidden corners and drainage areas where germs often accumulate. This service improves cleanliness, removes unpleasant odors, and enhances overall bathroom appearance. Ideal for villas, apartments, hotels, and commercial properties. Our team ensures complete sanitization for a healthier space. Experience a sparkling, fresh, and germ-free bathroom.              </p>
+                Our <strong>bathroom deep cleaning service in Dubai</strong> eliminates{' '}
+                <strong>stubborn limescale, soap scum, mold, and bacteria buildup</strong> from every surface. We thoroughly scrub{' '}
+                <strong>tiles, grout lines, bathtubs, showers, sinks, mirrors, and toilet areas</strong> using powerful yet eco-friendly disinfectants.{' '}
+                <strong>Hard water stains and mineral deposits</strong> are carefully removed to restore shine and hygiene. We focus on{' '}
+                <strong>hidden corners and drainage areas</strong> where germs often accumulate. This service{' '}
+                <strong>improves cleanliness, removes unpleasant odors</strong>, and enhances overall bathroom appearance. Ideal for{' '}
+                <Link href="/villa-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">villas</Link>,{' '}
+                <Link href="/apartment-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">apartments</Link>,
+                {' '}hotels, and commercial properties. Our team ensures{' '}
+                <strong>complete sanitization for a healthier space</strong>. Experience a sparkling, fresh, and germ-free bathroom.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -130,7 +140,6 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
       <section className="py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-[60px] p-8 md:p-12 text-white shadow-2xl overflow-hidden">
-            {/* Top Icon Badge */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-blue-300 to-blue-500 rounded-[28px] border-8 border-white shadow-xl flex items-center justify-center z-10">
               <Droplets className="w-12 h-12 text-white" />
             </div>
@@ -144,17 +153,23 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'Limescale & Hard Water Removal',
-                  'Grout Cleaning & Whitening',
-                  'Floor & Wall Tile Scrubbing',
-                  'Toilet Bowl Disinfection',
-                  'Mirror & Glass Polishing',
+                  { label: 'Limescale & Hard Water Removal', href: null },
+                  { label: 'Grout Cleaning & Whitening', href: null },
+                  { label: 'Floor & Wall Tile Scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Toilet Bowl Disinfection', href: null },
+                  { label: 'Mirror & Glass Polishing', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-blue-600 underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -162,17 +177,23 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'Bathtub & Shower Sanitization',
-                  'Sink & Faucet Polishing',
-                  'Drain Cleaning & Deodorizing',
-                  'Cabinet Cleaning (Exterior)',
-                  'Exhaust Fan & Vent Cleaning',
+                  { label: 'Bathtub & Shower Sanitization', href: null },
+                  { label: 'Sink & Faucet Polishing', href: null },
+                  { label: 'Drain Cleaning & Deodorizing', href: null },
+                  { label: 'Cabinet Cleaning (Exterior)', href: null },
+                  { label: 'Exhaust Fan & Vent Cleaning', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-blue-600 underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -197,66 +218,84 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
             {[
               {
                 title: 'Floor & Tiles',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'Power scrubbing of tiles',
-                  'Removal of soap scum',
-                  'Grout stain treatment',
-                  'Antibacterial mopping',
+                  { label: 'Power scrubbing of tiles', href: null },
+                  { label: 'Removal of soap scum', href: null },
+                  { label: 'Grout stain treatment', href: null },
+                  { label: 'Antibacterial mopping', href: null },
                 ]
               },
               {
                 title: 'Fixtures & Fittings',
+                href: null,
                 items: [
-                  'Faucet & Tap descaling',
-                  'Stainless steel polishing',
-                  'Showerhead deep clean',
-                  'Towel rail cleaning',
+                  { label: 'Faucet & Tap descaling', href: null },
+                  { label: 'Stainless steel polishing', href: null },
+                  { label: 'Showerhead deep clean', href: null },
+                  { label: 'Towel rail cleaning', href: null },
                 ]
               },
               {
                 title: 'Sanitization',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'Full toilet disinfection',
-                  'Rim and base cleaning',
-                  'Seat sanitization',
-                  'Eco-friendly germ killer',
+                  { label: 'Full toilet disinfection', href: null },
+                  { label: 'Rim and base cleaning', href: null },
+                  { label: 'Seat sanitization', href: null },
+                  { label: 'Eco-friendly germ killer', href: null },
                 ]
               },
               {
                 title: 'Glass & Mirrors',
+                href: null,
                 items: [
-                  'Water mark removal',
-                  'Streak-free polishing',
-                  'Shower screen cleaning',
-                  'Frame wiping',
+                  { label: 'Water mark removal', href: null },
+                  { label: 'Streak-free polishing', href: null },
+                  { label: 'Shower screen cleaning', href: null },
+                  { label: 'Frame wiping', href: null },
                 ]
               },
               {
                 title: 'Odor Control',
+                href: null,
                 items: [
-                  'Drainage deodorizing',
-                  'Ventilation cleaning',
-                  'Fresh scent application',
-                  'Mold & mildew removal',
+                  { label: 'Drainage deodorizing', href: null },
+                  { label: 'Ventilation cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Fresh scent application', href: null },
+                  { label: 'Mold & mildew removal', href: null },
                 ]
               },
               {
                 title: 'Full Inspection',
+                href: null,
                 items: [
-                  'Checking all surfaces',
-                  'Final spot treatment',
-                  'Cabinet wiping',
-                  'Customer approval',
+                  { label: 'Checking all surfaces', href: null },
+                  { label: 'Final spot treatment', href: null },
+                  { label: 'Cabinet wiping', href: null },
+                  { label: 'Customer approval', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-blue-600 transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-blue-600 font-semibold underline underline-offset-2 hover:text-blue-800 transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -278,23 +317,28 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
                 {[
                   {
                     title: 'Eliminate Bacteria',
-                    desc: 'Bathrooms are breeding grounds for germs. Our medical-grade disinfectants kill 99.9% of bacteria.'
+                    desc: 'Bathrooms are breeding grounds for germs. Our medical-grade disinfectants kill 99.9% of bacteria.',
+                    href: null,
                   },
                   {
                     title: 'Remove Limescale',
-                    desc: 'Dubai\'s water can leave hard white deposits on taps and glass. We remove them without damaging the surfaces.'
+                    desc: 'Dubai\'s water can leave hard white deposits on taps and glass. We remove them without damaging the surfaces.',
+                    href: null,
                   },
                   {
                     title: 'Mold Prevention',
-                    desc: 'High humidity causes mold in grout. We treat and remove mold to keep your air quality healthy.'
+                    desc: 'High humidity causes mold in grout. We treat and remove mold to keep your air quality healthy.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Saves Time & Effort',
-                    desc: 'Deep cleaning is exhausting. Let our pros handle the heavy scrubbing while you relax.'
+                    desc: 'Deep cleaning is exhausting. Let our pros handle the heavy scrubbing while you relax.',
+                    href: null,
                   },
                   {
                     title: 'Longer Fixture Life',
-                    desc: 'Regular descaling prevents corrosion and keeps your expensive bathroom fittings looking new for years.'
+                    desc: 'Regular descaling prevents corrosion and keeps your expensive bathroom fittings looking new for years.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -302,7 +346,13 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-blue-600 transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -327,7 +377,6 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
 
       {/* Benefits Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Water Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
           <Droplets className="w-32 h-32 text-blue-600" />
         </div>
@@ -396,43 +445,25 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                icon: Shield,
-                title: 'Vetted Staff',
-                desc: 'Background-checked and professionally trained cleaning technicians.'
-              },
-              {
-                icon: Star,
-                title: 'Premium Tools',
-                desc: 'Industrial steam cleaners and power scrubbers for superior results.'
-              },
-              {
-                icon: Clock,
-                title: 'Same Day Service',
-                desc: 'Need it urgently? We offer flexible scheduling for your convenience.'
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Satisfaction Guaranteed',
-                desc: 'If you are not happy with the cleaning, we will make it right.'
-              },
-              {
-                icon: Sparkles,
-                title: 'Anti-Bacterial Wash',
-                desc: 'Focused on killing hidden germs in areas you cannot see.'
-              },
-              {
-                icon: Home,
-                title: 'Residential & Commercial',
-                desc: 'Cleaning bathrooms for villas, apartments, and office buildings.'
-              },
+              { icon: Shield, title: 'Vetted Staff', desc: 'Background-checked and professionally trained cleaning technicians.', href: null },
+              { icon: Star, title: 'Premium Tools', desc: 'Industrial steam cleaners and power scrubbers for superior results.', href: '/steam-deep-cleaning' },
+              { icon: Clock, title: 'Same Day Service', desc: 'Need it urgently? We offer flexible scheduling for your convenience.', href: null },
+              { icon: CheckCircle2, title: 'Satisfaction Guaranteed', desc: 'If you are not happy with the cleaning, we will make it right.', href: null },
+              { icon: Sparkles, title: 'Anti-Bacterial Wash', desc: 'Focused on killing hidden germs in areas you cannot see.', href: null },
+              { icon: Home, title: 'Residential & Commercial', desc: 'Cleaning bathrooms for villas, apartments, and office buildings.', href: '/apartment-deep-cleaning' },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4">
                 <div className="w-12 h-12 bg-blue-600/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  {item.href ? (
+                    <Link href={item.href}>
+                      <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-blue-600 transition-colors">{item.title}</h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-bold text-[#091a33] mb-2">{item.title}</h3>
+                  )}
                   <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -441,8 +472,47 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-blue-600">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Water Tank Cleaning', href: '/water-tank-cleaning-services' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -469,7 +539,7 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
                 a: 'Absolutely. We use hospital-grade yet eco-friendly disinfectants that are non-toxic and safe for all family members.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-blue-600/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -486,7 +556,7 @@ Our bathroom deep cleaning service in Dubai eliminates stubborn limescale, soap 
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
