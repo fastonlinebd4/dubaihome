@@ -15,10 +15,8 @@ import {
   Home,
   ArrowRight,
   Phone,
-  Mail,
-  MapPin,
   CheckCircle2,
-  Gem // Marble এর জন্য লাক্সারি আইকন
+  Gem 
 } from 'lucide-react';
 
 export default function MarblePolishingPage() {
@@ -52,9 +50,10 @@ export default function MarblePolishingPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-  Our marble polishing service restores shine and smoothness to dull or scratched marble floors. Professional polishing machines remove stains and surface damage effectively. We provide high-gloss or matte finishes based on client preference. Polishing enhances durability and protects marble from wear. Ideal for villas, hotels, offices, and luxury spaces. Proper sealing ensures long-lasting protection. Clean and polished marble elevates interior elegance. Experience a premium finish with expert craftsmanship.
-</p>
-<div className="flex flex-wrap gap-4">
+                Our <strong>marble polishing service</strong> restores <strong>shine and smoothness</strong> to dull or scratched marble floors. <strong>Professional polishing machines</strong> remove stains and surface damage effectively. We provide <strong>high-gloss or matte finishes</strong> based on client preference. Polishing enhances <strong>durability</strong> and protects marble from wear. Ideal for <Link href="/villa-deep-cleaning" className="text-[#b8860b] underline underline-offset-2 hover:text-[#8b6508] transition-colors font-bold">villas</Link>, hotels, and <Link href="/office-deep-cleaning" className="text-[#b8860b] underline underline-offset-2 hover:text-[#8b6508] transition-colors font-bold">offices</Link>. Proper sealing ensures long-lasting protection. Clean and polished marble elevates <strong>interior elegance</strong>. Experience a premium finish with expert craftsmanship.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Marble Polishing service"
                   className="inline-flex items-center gap-3 bg-[#b8860b] text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-[#8b6508] transition-all shadow-lg hover:shadow-xl"
@@ -142,34 +141,46 @@ export default function MarblePolishingPage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#fff9e6] to-[#f7e9b8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Deep Surface Cleaning',
-                  'Lippage Removal (Tile Leveling)',
-                  'Diamond Grinding (Scratch Removal)',
-                  'Honing (Surface Smoothing)',
-                  'Grout Cleaning & Repair',
+                  { label: 'Deep Surface Cleaning', href: '/floor-deep-cleaning-services' },
+                  { label: 'Lippage Removal (Tile Leveling)', href: null },
+                  { label: 'Diamond Grinding (Scratch Removal)', href: null },
+                  { label: 'Honing (Surface Smoothing)', href: null },
+                  { label: 'Grout Cleaning & Repair', href: '/bathroom-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#b8860b] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#b8860b] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
 
               <div className="bg-gradient-to-br from-[#fff9e6] to-[#f7e9b8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Mirror Finish Polishing',
-                  'Crystallization (Hardening)',
-                  'Nano-Sealer Application',
-                  'Buffing for Extra Shine',
-                  'Stain Protection Coating',
+                  { label: 'Mirror Finish Polishing', href: null },
+                  { label: 'Crystallization (Hardening)', href: null },
+                  { label: 'Nano-Sealer Application', href: null },
+                  { label: 'Buffing for Extra Shine', href: null },
+                  { label: 'Stain Protection Coating', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#b8860b] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#b8860b] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -194,66 +205,84 @@ export default function MarblePolishingPage() {
             {[
               {
                 title: 'Scratch Removal',
+                href: null,
                 items: [
-                  'Deep grinding with diamond pads',
-                  'Eliminating etch marks',
-                  'Smoothing uneven tiles',
-                  'Restoring damaged surfaces',
+                  { label: 'Deep grinding with diamond pads', href: null },
+                  { label: 'Eliminating etch marks', href: null },
+                  { label: 'Smoothing uneven tiles', href: '/floor-deep-cleaning-services' },
+                  { label: 'Restoring damaged surfaces', href: null },
                 ]
               },
               {
                 title: 'Stain Treatment',
+                href: null,
                 items: [
-                  'Removing coffee & wine stains',
-                  'Oil & grease extraction',
-                  'Safe chemical cleaning',
-                  'Removing deep-seated dirt',
+                  { label: 'Removing coffee & wine stains', href: null },
+                  { label: 'Oil & grease extraction', href: '/kitchen-deep-cleaning' },
+                  { label: 'Safe chemical cleaning', href: null },
+                  { label: 'Removing deep-seated dirt', href: null },
                 ]
               },
               {
                 title: 'Shine Enhancement',
+                href: null,
                 items: [
-                  'High-gloss polishing',
-                  'Crystallization process',
-                  'Color restoration',
-                  'Mechanical buffing',
+                  { label: 'High-gloss polishing', href: null },
+                  { label: 'Crystallization process', href: null },
+                  { label: 'Color restoration', href: null },
+                  { label: 'Mechanical buffing', href: null },
                 ]
               },
               {
                 title: 'Stone Protection',
+                href: null,
                 items: [
-                  'Water-repellent sealing',
-                  'Stain-resistant coating',
-                  'Nano-technology protection',
-                  'Long-lasting durability',
+                  { label: 'Water-repellent sealing', href: null },
+                  { label: 'Stain-resistant coating', href: null },
+                  { label: 'Nano-technology protection', href: null },
+                  { label: 'Long-lasting durability', href: null },
                 ]
               },
               {
                 title: 'Grout Detailing',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Grout deep cleaning',
-                  'Epoxy grout filling',
-                  'Color matching repair',
-                  'Seamless tile look',
+                  { label: 'Grout deep cleaning', href: null },
+                  { label: 'Epoxy grout filling', href: null },
+                  { label: 'Color matching repair', href: null },
+                  { label: 'Seamless tile look', href: null },
                 ]
               },
               {
                 title: 'Edge & Corner Care',
+                href: null,
                 items: [
-                  'Hand-polishing corners',
-                  'Skirting board cleaning',
-                  'Step & riser detailing',
-                  'Wall marble polishing',
+                  { label: 'Hand-polishing corners', href: null },
+                  { label: 'Skirting board cleaning', href: null },
+                  { label: 'Step & riser detailing', href: null },
+                  { label: 'Wall marble polishing', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#b8860b] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#b8860b] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#b8860b] font-semibold underline underline-offset-2 hover:text-[#8b6508] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -275,23 +304,28 @@ export default function MarblePolishingPage() {
                 {[
                   {
                     title: 'Remove Stubborn Scratches',
-                    desc: 'Regular cleaning can’t remove scratches. Our diamond grinding process levels the stone to perfection.'
+                    desc: 'Regular cleaning can’t remove scratches. Our diamond grinding process levels the stone to perfection.',
+                    href: null,
                   },
                   {
                     title: 'Prevent Permanent Staining',
-                    desc: 'Marble is porous. Professional sealing prevents liquids from seeping in and causing permanent damage.'
+                    desc: 'Marble is porous. Professional sealing prevents liquids from seeping in and causing permanent damage.',
+                    href: null,
                   },
                   {
                     title: 'Increase Property Value',
-                    desc: 'A well-maintained, shiny marble floor significantly increases the luxury appeal of your Dubai villa.'
+                    desc: 'A well-maintained, shiny marble floor significantly increases the luxury appeal of your Dubai villa.',
+                    href: '/villa-deep-cleaning',
                   },
                   {
                     title: 'Easier Daily Maintenance',
-                    desc: 'Polished and sealed marble is much easier to mop and stays clean longer than a dull, porous surface.'
+                    desc: 'Polished and sealed marble is much easier to mop and stays clean longer than a dull, porous surface.',
+                    href: '/apartment-deep-cleaning',
                   },
                   {
                     title: 'Restore Natural Beauty',
-                    desc: 'Natural stones lose their vibrance over time. We bring back the original colors and unique vein patterns.'
+                    desc: 'Natural stones lose their vibrance over time. We bring back the original colors and unique vein patterns.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -299,7 +333,13 @@ export default function MarblePolishingPage() {
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#b8860b] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -324,7 +364,6 @@ export default function MarblePolishingPage() {
 
       {/* Advantage Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Shapes */}
         <div className="absolute top-20 left-10 opacity-10">
           <Gem className="w-32 h-32 text-[#b8860b]" />
         </div>
@@ -408,6 +447,43 @@ export default function MarblePolishingPage() {
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#b8860b]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#b8860b] hover:text-[#b8860b] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#b8860b] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
