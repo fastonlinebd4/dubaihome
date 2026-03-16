@@ -49,7 +49,7 @@ export default function Home() {
     };
   }, []);
 
-   return (
+ return (
     <main className="min-h-screen bg-white w-full">
       <Header isScrolled={isScrolled} />
 
@@ -87,10 +87,6 @@ export default function Home() {
 
       <Footer />
       <FloatingWhatsApp />
-    </main>
-  );
-}
-tingWhatsApp />
     </main>
   );
 }
