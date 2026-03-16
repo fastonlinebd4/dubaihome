@@ -18,7 +18,7 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Wind // Added for fresh air/balcony context
+  Wind
 } from 'lucide-react';
 
 export default function BalconyDeepCleaningPage() {
@@ -52,7 +52,17 @@ export default function BalconyDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our balcony deep cleaning service removes dust, sand buildup, bird droppings, and stains caused by Dubai’s climate. We scrub floors, railings, walls, and drainage areas carefully. Special cleaning techniques restore tiles and outdoor surfaces without damage. This service improves hygiene and enhances outdoor comfort. Ideal for high-rise apartments and villas exposed to harsh weather. We ensure proper waste removal and safe cleaning methods. Clean balconies increase property appeal and usability. Enjoy a fresh and well-maintained outdoor space.              </p>
+                Our <strong>balcony deep cleaning service</strong> removes{' '}
+                <strong>dust, sand buildup, bird droppings, and stains</strong> caused by Dubai's climate. We scrub{' '}
+                <strong>floors, railings, walls, and drainage areas</strong> carefully.{' '}
+                <strong>Special cleaning techniques</strong> restore tiles and outdoor surfaces without damage. This service{' '}
+                <strong>improves hygiene and enhances outdoor comfort</strong>. Ideal for{' '}
+                <Link href="/apartment-deep-cleaning" className="text-[#007bff] underline underline-offset-2 hover:text-[#0056b3] transition-colors font-bold">high-rise apartments</Link>{' '}and{' '}
+                <Link href="/villa-deep-cleaning" className="text-[#007bff] underline underline-offset-2 hover:text-[#0056b3] transition-colors font-bold">villas</Link>{' '}
+                exposed to harsh weather. We ensure{' '}
+                <strong>proper waste removal and safe cleaning methods</strong>. Clean balconies{' '}
+                <strong>increase property appeal and usability</strong>. Enjoy a fresh and well-maintained outdoor space.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -143,17 +153,23 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
               {/* Column 1 */}
               <div className="bg-white/10 backdrop-blur-md rounded-[32px] p-8 space-y-4 border border-white/10">
                 {[
-                  'Pressure Washing of Floors',
-                  'Glass Railing & Window Cleaning',
-                  'Wall & Ceiling Dusting',
-                  'Removal of Pigeon Droppings',
-                  'Drain Cleaning & Unblocking',
+                  { label: 'Pressure Washing of Floors', href: '/outside-power-wash' },
+                  { label: 'Glass Railing & Window Cleaning', href: '/outside-window-cleaning' },
+                  { label: 'Wall & Ceiling Dusting', href: null },
+                  { label: 'Removal of Pigeon Droppings', href: null },
+                  { label: 'Drain Cleaning & Unblocking', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#007bff] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-white font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-white font-bold text-base hover:text-[#007bff] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-white font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -161,17 +177,23 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
               {/* Column 2 */}
               <div className="bg-white/10 backdrop-blur-md rounded-[32px] p-8 space-y-4 border border-white/10">
                 {[
-                  'Furniture Dusting & Wiping',
-                  'AC Unit Exterior Cleaning',
-                  'Light Fixtures Sanitization',
-                  'Floor Scrubbing & Polishing',
-                  'Final Disinfection Spray',
+                  { label: 'Furniture Dusting & Wiping', href: null },
+                  { label: 'AC Unit Exterior Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Light Fixtures Sanitization', href: null },
+                  { label: 'Floor Scrubbing & Polishing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Final Disinfection Spray', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#007bff] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-white font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-white font-bold text-base hover:text-[#007bff] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-white font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -196,66 +218,84 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
             {[
               {
                 title: 'Floor Restoration',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'High-pressure water jetting',
-                  'Deep scrubbing of tiles/decks',
-                  'Grout cleaning & whitening',
-                  'Removing oil & rust stains',
+                  { label: 'High-pressure water jetting', href: '/outside-power-wash' },
+                  { label: 'Deep scrubbing of tiles/decks', href: null },
+                  { label: 'Grout cleaning & whitening', href: null },
+                  { label: 'Removing oil & rust stains', href: null },
                 ]
               },
               {
                 title: 'Glass & Railing',
+                href: '/outside-window-cleaning',
                 items: [
-                  'Crystal clear glass cleaning',
-                  'Metal railing polishing',
-                  'Dust removal from crevices',
-                  'Streaks-free finish',
+                  { label: 'Crystal clear glass cleaning', href: null },
+                  { label: 'Metal railing polishing', href: null },
+                  { label: 'Dust removal from crevices', href: null },
+                  { label: 'Streaks-free finish', href: null },
                 ]
               },
               {
                 title: 'Wall & Ceiling',
+                href: null,
                 items: [
-                  'Spider web removal',
-                  'Dusting of painted walls',
-                  'Cleaning of skirting boards',
-                  'Removing outdoor marks',
+                  { label: 'Spider web removal', href: null },
+                  { label: 'Dusting of painted walls', href: null },
+                  { label: 'Cleaning of skirting boards', href: null },
+                  { label: 'Removing outdoor marks', href: null },
                 ]
               },
               {
                 title: 'Pest Debris Removal',
+                href: null,
                 items: [
-                  'Safe pigeon poop removal',
-                  'Nests clearing (if vacant)',
-                  'Disinfecting affected areas',
-                  'Odor elimination',
+                  { label: 'Safe pigeon poop removal', href: null },
+                  { label: 'Nests clearing (if vacant)', href: null },
+                  { label: 'Disinfecting affected areas', href: null },
+                  { label: 'Odor elimination', href: null },
                 ]
               },
               {
                 title: 'Fixtures & AC',
+                href: '/ac-duct-cleaning',
                 items: [
-                  'AC outdoor unit dusting',
-                  'Light switch cleaning',
-                  'Exterior lamp wiping',
-                  'Door frame deep cleaning',
+                  { label: 'AC outdoor unit dusting', href: '/ac-duct-cleaning' },
+                  { label: 'Light switch cleaning', href: null },
+                  { label: 'Exterior lamp wiping', href: null },
+                  { label: 'Door frame deep cleaning', href: null },
                 ]
               },
               {
                 title: 'Furniture Care',
+                href: null,
                 items: [
-                  'Wiping outdoor tables/chairs',
-                  'Cushion surface vacuuming',
-                  'Removing sand from gaps',
-                  'Final detailing check',
+                  { label: 'Wiping outdoor tables/chairs', href: null },
+                  { label: 'Cushion surface vacuuming', href: '/sofa-shampooing' },
+                  { label: 'Removing sand from gaps', href: null },
+                  { label: 'Final detailing check', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#007bff] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#007bff] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#007bff] font-semibold underline underline-offset-2 hover:text-[#0056b3] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -277,19 +317,23 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
                 {[
                   {
                     title: 'Health Risks from Pigeons',
-                    desc: 'Pigeon droppings carry diseases and parasites. We safely remove and sanitize these areas for your protection.'
+                    desc: 'Pigeon droppings carry diseases and parasites. We safely remove and sanitize these areas for your protection.',
+                    href: null,
                   },
                   {
                     title: 'Dubai Dust Accumulation',
-                    desc: 'Frequent sandstorms leave thick layers of dust that regular mopping can\'t fully remove from porous outdoor tiles.'
+                    desc: 'Frequent sandstorms leave thick layers of dust that regular mopping can\'t fully remove from porous outdoor tiles.',
+                    href: '/outside-deep-cleaning',
                   },
                   {
                     title: 'Preserve Your Property',
-                    desc: 'Regular cleaning prevents permanent staining of tiles and corrosion of metal railings caused by the humid salt air.'
+                    desc: 'Regular cleaning prevents permanent staining of tiles and corrosion of metal railings caused by the humid salt air.',
+                    href: '/villa-facade-cleaning-services',
                   },
                   {
                     title: 'Enhanced Leisure Space',
-                    desc: 'Turn your balcony back into a usable space for morning coffee or evening relaxation without the mess.'
+                    desc: 'Turn your balcony back into a usable space for morning coffee or evening relaxation without the mess.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -297,7 +341,13 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#007bff] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -382,6 +432,45 @@ Our balcony deep cleaning service removes dust, sand buildup, bird droppings, an
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#007bff]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Villa Facade Cleaning', href: '/villa-facade-cleaning-services' },
+              { label: 'Outside Deep Cleaning', href: '/outside-deep-cleaning' },
+              { label: 'Outside Power Wash', href: '/outside-power-wash' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Rooftop Cleaning Services', href: '/rooftop-cleaning-services' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Swimming Pool Cleaning', href: '/swimming-pool-cleaning' },
+              { label: 'Artificial Grass Cleaning', href: '/artificial-grass-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#007bff] hover:text-[#007bff] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#007bff] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
