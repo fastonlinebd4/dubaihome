@@ -15,10 +15,8 @@ import {
   Home,
   ArrowRight,
   Phone,
-  Mail,
-  MapPin,
   CheckCircle2,
-  Leaf // Added for relevance
+  Leaf 
 } from 'lucide-react';
 
 export default function ArtificialGrassCleaningPage() {
@@ -52,7 +50,8 @@ export default function ArtificialGrassCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our artificial grass cleaning service removes dust, pet waste, bacteria, and odors. We use safe disinfectants to maintain hygiene without damaging fibers. Deep cleaning restores freshness and natural appearance. Ideal for gardens, playgrounds, and pet areas. Regular cleaning prevents unpleasant smells and bacteria growth. Eco-friendly solutions ensure safety for children and pets. Improve the lifespan and look of your artificial turf. Keep your outdoor space clean and inviting.              </p>
+                Our <strong>artificial grass cleaning service</strong> removes <strong>dust, pet waste, bacteria, and odors</strong>. We use safe disinfectants to maintain hygiene without damaging fibers. Deep cleaning restores freshness and natural appearance. Ideal for <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">gardens</Link>, playgrounds, and pet areas. Regular cleaning prevents unpleasant smells and bacteria growth. <strong>Eco-friendly solutions</strong> ensure safety for children and pets. Improve the <strong>lifespan and look</strong> of your artificial turf. Keep your outdoor space clean and inviting.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -130,7 +129,6 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
       <section className="py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-[#529e00] to-[#3d7700] rounded-[60px] p-8 md:p-12 text-white shadow-2xl overflow-hidden">
-            {/* Top Icon Badge */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-[#c5e899] to-[#a8d96e] rounded-[28px] border-8 border-white shadow-xl flex items-center justify-center z-10">
               <Leaf className="w-12 h-12 text-[#529e00]" />
             </div>
@@ -144,17 +142,23 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Debris & Leaf Removal',
-                  'Deep Vacuuming of Turf',
-                  'Power Brushing to Re-stand Fibers',
-                  'Stain & Spot Treatment',
-                  'Pet Odor Neutralization',
+                  { label: 'Debris & Leaf Removal', href: null },
+                  { label: 'Deep Vacuuming of Turf', href: null },
+                  { label: 'Power Brushing to Re-stand Fibers', href: null },
+                  { label: 'Stain & Spot Treatment', href: null },
+                  { label: 'Pet Odor Neutralization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -162,17 +166,23 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'High-Pressure Rinsing',
-                  'Antimicrobial Sanitization',
-                  'Infill Top-up (if needed)',
-                  'Weed Removal from Edges',
-                  'Final Grooming & Inspection',
+                  { label: 'High-Pressure Rinsing', href: '/outside-power-wash' },
+                  { label: 'Antimicrobial Sanitization', href: '/steam-deep-cleaning' },
+                  { label: 'Infill Top-up (if needed)', href: null },
+                  { label: 'Weed Removal from Edges', href: null },
+                  { label: 'Final Grooming & Inspection', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -197,66 +207,84 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
             {[
               {
                 title: 'Deep Dirt Removal',
+                href: null,
                 items: [
-                  'Removal of dust & sand',
-                  'Clearing organic matter',
-                  'Deep suction vacuuming',
-                  'Edge-to-edge cleaning',
+                  { label: 'Removal of dust & sand', href: null },
+                  { label: 'Clearing organic matter', href: null },
+                  { label: 'Deep suction vacuuming', href: null },
+                  { label: 'Edge-to-edge cleaning', href: null },
                 ]
               },
               {
                 title: 'Fiber Restoration',
+                href: null,
                 items: [
-                  'Mechanical power brushing',
-                  'Restoring pile height',
-                  'Removing matting areas',
-                  'Uniform surface grooming',
+                  { label: 'Mechanical power brushing', href: null },
+                  { label: 'Restoring pile height', href: null },
+                  { label: 'Removing matting areas', href: null },
+                  { label: 'Uniform surface grooming', href: null },
                 ]
               },
               {
                 title: 'Odor Management',
+                href: null,
                 items: [
-                  'Pet urine neutralization',
-                  'Enzyme-based cleaners',
-                  'Eliminating bad smells',
-                  'Long-lasting freshness',
+                  { label: 'Pet urine neutralization', href: null },
+                  { label: 'Enzyme-based cleaners', href: null },
+                  { label: 'Eliminating bad smells', href: null },
+                  { label: 'Long-lasting freshness', href: null },
                 ]
               },
               {
                 title: 'Sanitization',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'Bacteria elimination',
-                  'Mold & moss treatment',
-                  'Eco-safe disinfectants',
-                  'Kid & pet friendly',
+                  { label: 'Bacteria elimination', href: null },
+                  { label: 'Mold & moss treatment', href: null },
+                  { label: 'Eco-safe disinfectants', href: null },
+                  { label: 'Kid & pet friendly', href: null },
                 ]
               },
               {
                 title: 'Stain Treatment',
+                href: null,
                 items: [
-                  'Removing food spills',
-                  'Oil/grease spot removal',
-                  'Safe chemical usage',
-                  'Turf color protection',
+                  { label: 'Removing food spills', href: null },
+                  { label: 'Oil/grease spot removal', href: null },
+                  { label: 'Safe chemical usage', href: null },
+                  { label: 'Turf color protection', href: null },
                 ]
               },
               {
                 title: 'Infill Maintenance',
+                href: null,
                 items: [
-                  'Checking infill levels',
-                  'Leveling uneven areas',
-                  'Adding silica sand (optional)',
-                  'Final inspection report',
+                  { label: 'Checking infill levels', href: null },
+                  { label: 'Leveling uneven areas', href: null },
+                  { label: 'Adding silica sand (optional)', href: null },
+                  { label: 'Final inspection report', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -278,23 +306,28 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
                 {[
                   {
                     title: 'Dust & Sand Accumulation',
-                    desc: 'Dubai\'s desert environment causes sand to settle deep in the fibers, leading to drainage issues if not cleaned.'
+                    desc: 'Dubai\'s desert environment causes sand to settle deep in the fibers, leading to drainage issues if not cleaned.',
+                    href: '/outside-deep-cleaning',
                   },
                   {
                     title: 'Hygiene & Pet Safety',
-                    desc: 'Artificial turf can trap bacteria and odors from pet waste, requiring specialized sanitization for a safe play area.'
+                    desc: 'Artificial turf can trap bacteria and odors from pet waste, requiring specialized sanitization for a safe play area.',
+                    href: null,
                   },
                   {
                     title: 'Extend Turf Lifespan',
-                    desc: 'Regular grooming and cleaning prevent the fibers from flattening and permanent damage, saving you replacement costs.'
+                    desc: 'Regular grooming and cleaning prevent the fibers from flattening and permanent damage, saving you replacement costs.',
+                    href: null,
                   },
                   {
                     title: 'Improved Drainage',
-                    desc: 'Removing debris and fine dust ensures the turf\'s drainage system works perfectly during rare Dubai rains or washdowns.'
+                    desc: 'Removing debris and fine dust ensures the turf\'s drainage system works perfectly during rare Dubai rains or washdowns.',
+                    href: '/water-tank-cleaning-services',
                   },
                   {
                     title: 'Allergen Reduction',
-                    desc: 'Professional cleaning removes pollen and dust mites, making your outdoor space better for allergy sufferers.'
+                    desc: 'Professional cleaning removes pollen and dust mites, making your outdoor space better for allergy sufferers.',
+                    href: '/ac-duct-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -302,7 +335,13 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -327,7 +366,6 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
 
       {/* Benefits Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Leaf Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
           <svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60 10C40 30 20 60 20 90C20 110 35 130 60 130C85 130 100 110 100 90C100 60 80 30 60 10Z" fill="#529e00" opacity="0.3"/>
@@ -470,6 +508,43 @@ Our artificial grass cleaning service removes dust, pet waste, bacteria, and odo
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
