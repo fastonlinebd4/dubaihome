@@ -24,9 +24,8 @@ const GoogleIcon = () => (
 
 export default function Hero() {
   return (
-    <section className="relative pt-24 pb-6 lg:pt-36 lg:pb-12 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-      <div className="max-w-[1300px] mx-auto relative h-[450px] lg:h-[550px] w-full bg-[#f4f2ef] rounded-[40px] overflow-hidden shadow-2xl">
-
+<section className="relative pt-24 pb-0 lg:pt-32 lg:pb-0 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+<div className="max-w-[1300px] mx-auto relative h-[400px] lg:h-[500px] w-full bg-[#f4f2ef] rounded-[40px] overflow-hidden shadow-2xl -mb-2">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/hero_new.png"
