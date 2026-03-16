@@ -18,8 +18,8 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  Wind, // Mattress hygiene icon
-  Waves // Steam cleaning icon
+  Wind,
+  Waves
 } from 'lucide-react';
 
 export default function MattressCleaningPage() {
@@ -53,7 +53,18 @@ export default function MattressCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our mattress cleaning service eliminates dust mites, allergens, bacteria, and stains that accumulate over time. We use steam and extraction methods for deep sanitization. This service improves sleep quality and indoor air hygiene. Ideal for homes, hotels, and furnished apartments. We target odor-causing bacteria and hidden contamination. Eco-friendly solutions ensure fabric protection. Regular cleaning extends mattress lifespan. Enjoy a cleaner, healthier sleeping environment.              </p>
+                Our <strong>mattress cleaning service</strong> eliminates{' '}
+                <strong>dust mites, allergens, bacteria, and stains</strong> that accumulate over time. We use{' '}
+                <strong>steam and extraction methods</strong> for deep sanitization. This service{' '}
+                <strong>improves sleep quality and indoor air hygiene</strong>. Ideal for{' '}
+                <Link href="/apartment-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">homes</Link>,{' '}
+                hotels, and furnished apartments. We target{' '}
+                <strong>odor-causing bacteria and hidden contamination</strong>.{' '}
+                <strong>Eco-friendly solutions</strong> ensure fabric protection. Regular cleaning{' '}
+                <strong>extends mattress lifespan</strong>. Enjoy a cleaner, healthier sleeping environment. This service pairs perfectly with{' '}
+                <Link href="/sofa-shampooing" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">sofa shampooing</Link>{' '}and{' '}
+                <Link href="/steam-deep-cleaning" className="text-blue-600 underline underline-offset-2 hover:text-blue-800 transition-colors font-bold">steam deep cleaning</Link>.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -142,34 +153,46 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'HEPA UV Vacuuming',
-                  'Steam Disinfection',
-                  'Stain Pre-treatment',
-                  'Shampooing & Scrubbing',
-                  'Bacteria Elimination',
+                  { label: 'HEPA UV Vacuuming', href: null },
+                  { label: 'Steam Disinfection', href: '/steam-deep-cleaning' },
+                  { label: 'Stain Pre-treatment', href: null },
+                  { label: 'Shampooing & Scrubbing', href: '/sofa-shampooing' },
+                  { label: 'Bacteria Elimination', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-blue-600 underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-[32px] p-8 space-y-4">
                 {[
-                  'Dust Mite Removal',
-                  'Odor Neutralization',
-                  'Fungi & Mold Treatment',
-                  'Extraction of Dirt',
-                  'Fabric Refreshing',
+                  { label: 'Dust Mite Removal', href: null },
+                  { label: 'Odor Neutralization', href: null },
+                  { label: 'Fungi & Mold Treatment', href: null },
+                  { label: 'Extraction of Dirt', href: null },
+                  { label: 'Fabric Refreshing', href: '/Curtain-uv-and-steam-machine' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-blue-600 underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -194,66 +217,84 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
             {[
               {
                 title: 'Dust Mite Removal',
+                href: null,
                 items: [
-                  'Powerful HEPA vacuuming',
-                  'Micro-dust extraction',
-                  'Allergen elimination',
-                  'Anti-dust mite spray',
+                  { label: 'Powerful HEPA vacuuming', href: null },
+                  { label: 'Micro-dust extraction', href: null },
+                  { label: 'Allergen elimination', href: null },
+                  { label: 'Anti-dust mite spray', href: null },
                 ]
               },
               {
                 title: 'Stain Treatment',
+                href: null,
                 items: [
-                  'Sweat stain removal',
-                  'Spill & spot cleaning',
-                  'Eco-friendly shampoo',
-                  'Safe fabric chemicals',
+                  { label: 'Sweat stain removal', href: null },
+                  { label: 'Spill & spot cleaning', href: null },
+                  { label: 'Eco-friendly shampoo', href: null },
+                  { label: 'Safe fabric chemicals', href: null },
                 ]
               },
               {
                 title: 'Sanitization',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'High-temp steam kill',
-                  'Bacteria disinfection',
-                  'UV-C light treatment',
-                  'Germ protection',
+                  { label: 'High-temp steam kill', href: '/steam-deep-cleaning' },
+                  { label: 'Bacteria disinfection', href: null },
+                  { label: 'UV-C light treatment', href: null },
+                  { label: 'Germ protection', href: null },
                 ]
               },
               {
                 title: 'Odor Control',
+                href: null,
                 items: [
-                  'Urine smell removal',
-                  'Dampness treatment',
-                  'Fresh scent finish',
-                  'Deodorizing spray',
+                  { label: 'Urine smell removal', href: null },
+                  { label: 'Dampness treatment', href: null },
+                  { label: 'Fresh scent finish', href: null },
+                  { label: 'Deodorizing spray', href: null },
                 ]
               },
               {
                 title: 'Dual-Side Clean',
+                href: null,
                 items: [
-                  'Front side deep wash',
-                  'Back side sanitization',
-                  'Border & edge cleaning',
-                  'Surface refreshing',
+                  { label: 'Front side deep wash', href: null },
+                  { label: 'Back side sanitization', href: null },
+                  { label: 'Border & edge cleaning', href: null },
+                  { label: 'Surface refreshing', href: null },
                 ]
               },
               {
                 title: 'Health Protection',
+                href: null,
                 items: [
-                  'Non-toxic products',
-                  'Safe for infants',
-                  'Asthma-friendly care',
-                  'Final quality check',
+                  { label: 'Non-toxic products', href: null },
+                  { label: 'Safe for infants', href: null },
+                  { label: 'Asthma-friendly care', href: '/ac-duct-cleaning' },
+                  { label: 'Final quality check', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-blue-600 transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-blue-600 font-semibold underline underline-offset-2 hover:text-blue-800 transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -275,23 +316,28 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
                 {[
                   {
                     title: 'Eliminate Dust Mites',
-                    desc: 'Millions of dust mites live in your mattress. Professional cleaning is the only way to remove them completely.'
+                    desc: 'Millions of dust mites live in your mattress. Professional cleaning is the only way to remove them completely.',
+                    href: null,
                   },
                   {
                     title: 'Prevent Allergies',
-                    desc: 'Reduce symptoms of asthma, eczema, and sneezing by removing allergens trapped inside the fabric.'
+                    desc: 'Reduce symptoms of asthma, eczema, and sneezing by removing allergens trapped inside the fabric.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Better Sleep Quality',
-                    desc: 'A clean, fresh-smelling mattress leads to deeper sleep and improved overall health.'
+                    desc: 'A clean, fresh-smelling mattress leads to deeper sleep and improved overall health.',
+                    href: null,
                   },
                   {
                     title: 'Remove Hard Stains',
-                    desc: 'Sweat, spills, and body oils create unhygienic stains that require professional extraction.'
+                    desc: 'Sweat, spills, and body oils create unhygienic stains that require professional extraction.',
+                    href: null,
                   },
                   {
                     title: 'Safe for Kids & Pets',
-                    desc: 'We use 100% eco-friendly and non-toxic solutions to ensure your family sleeps in a safe environment.'
+                    desc: 'We use 100% eco-friendly and non-toxic solutions to ensure your family sleeps in a safe environment.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -299,7 +345,13 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-blue-600 transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -399,8 +451,47 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-blue-600">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Sofa Shampooing', href: '/sofa-shampooing' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Water Tank Cleaning', href: '/water-tank-cleaning-services' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -427,7 +518,7 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
                 a: 'Yes, we use 100% organic and non-toxic products that are perfectly safe for infants and sensitive skin.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-blue-600/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -444,7 +535,7 @@ Our mattress cleaning service eliminates dust mites, allergens, bacteria, and st
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
