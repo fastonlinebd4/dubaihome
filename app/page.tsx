@@ -49,23 +49,17 @@ export default function Home() {
     };
   }, []);
 
-  return (
+   return (
     <main className="min-h-screen bg-white w-full">
       <Header isScrolled={isScrolled} />
 
       <div className="w-full">
-        <div className="reveal active">
-          <Hero />
-        </div>
+        {/* এই ৩টি সেকশনে কোনো অ্যানিমেশন নেই, এগুলো সরাসরি লোড হবে */}
+        <Hero />
+        <AboutSection />
+        <Services />
 
-        <div className="reveal">
-          <AboutSection />
-        </div>
-
-        <div className="reveal">
-          <Services />
-        </div>
-
+        {/* নিচের সেকশনগুলোতে অ্যানিমেশন বহাল থাকবে */}
         <div className="reveal">
           <WhyChooseUs />
         </div>
@@ -93,6 +87,10 @@ export default function Home() {
 
       <Footer />
       <FloatingWhatsApp />
+    </main>
+  );
+}
+tingWhatsApp />
     </main>
   );
 }
