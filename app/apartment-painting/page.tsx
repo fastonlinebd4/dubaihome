@@ -15,10 +15,8 @@ import {
   Home,
   ArrowRight,
   Phone,
-  Mail,
-  MapPin,
   CheckCircle2,
-  Paintbrush // Added for relevance, but using original icon set structure
+  Paintbrush 
 } from 'lucide-react';
 
 export default function ApartmentPaintingPage() {
@@ -42,7 +40,7 @@ export default function ApartmentPaintingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">Premium Painting</span>
               </div>
@@ -52,7 +50,8 @@ export default function ApartmentPaintingPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our apartment painting service delivers clean, modern finishes tailored to your style. We prepare walls properly to ensure long-lasting results. Premium paints provide smooth coverage and vibrant color. Ideal for tenants, landlords, and homeowners. We protect furniture and flooring during the painting process. Timely completion ensures convenience. Fresh paint enhances property value and appeal. Transform your apartment with professional painting solutions.              </p>
+                Our <strong>apartment painting service</strong> delivers <strong>clean, modern finishes</strong> tailored to your style. We <strong>prepare walls properly</strong> to ensure <strong>long-lasting results</strong>. <strong>Premium paints</strong> provide <strong>smooth coverage</strong> and vibrant color. Ideal for <Link href="/move-in-move-out-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">tenants</Link>, landlords, and homeowners. We <strong>protect furniture and flooring</strong> during the painting process. <strong>Timely completion</strong> ensures convenience. <strong>Fresh paint</strong> enhances <strong>property value</strong> and appeal. Transform your apartment with <strong>professional painting solutions</strong>.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -144,17 +143,23 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Full Wall Painting',
-                  'Ceiling Painting',
-                  'Door & Window Frame Painting',
-                  'Surface Preparation & Sanding',
-                  'Crack & Hole Filling',
+                  { label: 'Full Wall Painting', href: null },
+                  { label: 'Ceiling Painting', href: null },
+                  { label: 'Door & Window Frame Painting', href: null },
+                  { label: 'Surface Preparation & Sanding', href: null },
+                  { label: 'Crack & Hole Filling', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -162,17 +167,23 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Primer Application',
-                  'Double Coat Painting',
-                  'Edge Trimming & Detailing',
-                  'Furniture Protection Covering',
-                  'Post-Paint Cleanup',
+                  { label: 'Primer Application', href: null },
+                  { label: 'Double Coat Painting', href: null },
+                  { label: 'Edge Trimming & Detailing', href: null },
+                  { label: 'Furniture Protection Covering', href: null },
+                  { label: 'Post-Paint Cleanup', href: '/apartment-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -198,71 +209,84 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
               {
                 title: 'Interior Wall Painting',
                 items: [
-                  'High-quality emulsion paint',
-                  'Smooth finish application',
-                  'Consistent color matching',
-                  'Two-coat coverage',
-                  'Accent wall specialists',
+                  { label: 'High-quality emulsion paint', href: null },
+                  { label: 'Smooth finish application', href: null },
+                  { label: 'Consistent color matching', href: null },
+                  { label: 'Two-coat coverage', href: null },
+                  { label: 'Accent wall specialists', href: null },
                 ]
               },
               {
                 title: 'Surface Preparation',
                 items: [
-                  'Removing old paint/wallpaper',
-                  'Scraping and leveling',
-                  'Filling plaster cracks',
-                  'Wall sanding for smoothness',
-                  'Damp-proof treatment',
+                  { label: 'Removing old paint/wallpaper', href: null },
+                  { label: 'Scraping and leveling', href: null },
+                  { label: 'Filling plaster cracks', href: null },
+                  { label: 'Wall sanding for smoothness', href: null },
+                  { label: 'Damp-proof treatment', href: null },
                 ]
               },
               {
                 title: 'Protective Measures',
                 items: [
-                  'Furniture masking with plastic',
-                  'Floor protection sheets',
-                  'Switchboard taping',
-                  'Door handle wrapping',
-                  'Curtain/blind protection',
+                  { label: 'Furniture masking with plastic', href: null },
+                  { label: 'Floor protection sheets', href: '/floor-deep-cleaning-services' },
+                  { label: 'Switchboard taping', href: null },
+                  { label: 'Door handle wrapping', href: null },
+                  { label: 'Curtain/blind protection', href: '/Curtain-uv-and-steam-machine' },
                 ]
               },
               {
                 title: 'Wood & Metal Work',
                 items: [
-                  'Door and frame polishing',
-                  'Window grill painting',
-                  'Cabinet exterior painting',
-                  'Radiator/Vent painting',
-                  'Gloss or Matte finishes',
+                  { label: 'Door and frame polishing', href: null },
+                  { label: 'Window grill painting', href: null },
+                  { label: 'Cabinet exterior painting', href: '/kitchen-deep-cleaning' },
+                  { label: 'Radiator/Vent painting', href: '/ac-duct-cleaning' },
+                  { label: 'Gloss or Matte finishes', href: null },
                 ]
               },
               {
                 title: 'Ceiling & Trims',
                 items: [
-                  'Ceiling whitening/painting',
-                  'Baseboard & skirting painting',
-                  'Crown molding detailing',
-                  'Corner bead perfection',
-                  'Uniform texture application',
+                  { label: 'Ceiling whitening/painting', href: null },
+                  { label: 'Baseboard & skirting painting', href: null },
+                  { label: 'Crown molding detailing', href: null },
+                  { label: 'Corner bead perfection', href: null },
+                  { label: 'Uniform texture application', href: null },
                 ]
               },
               {
                 title: 'Finishing & Cleanup',
+                href: '/apartment-deep-cleaning',
                 items: [
-                  'Tape removal & touch-ups',
-                  'Paint splatter removal',
-                  'Dust-free floor sweeping',
-                  'Furniture rearrangement',
-                  'Final quality walkthrough',
+                  { label: 'Tape removal & touch-ups', href: null },
+                  { label: 'Paint splatter removal', href: null },
+                  { label: 'Dust-free floor sweeping', href: null },
+                  { label: 'Furniture rearrangement', href: null },
+                  { label: 'Final quality walkthrough', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -284,23 +308,28 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
                 {[
                   {
                     title: 'Enhance Aesthetic Appeal',
-                    desc: 'A fresh coat of paint can completely transform the mood and look of your apartment instantly.'
+                    desc: 'A fresh coat of paint can completely transform the mood and look of your apartment instantly.',
+                    href: null,
                   },
                   {
                     title: 'Increase Rental Value',
-                    desc: 'In Dubai\'s fast-moving market, a freshly painted apartment attracts better tenants and higher rent.'
+                    desc: 'In Dubai\'s fast-moving market, a freshly painted apartment attracts better tenants and higher rent.',
+                    href: '/move-in-move-out-cleaning',
                   },
                   {
                     title: 'Surface Protection',
-                    desc: 'High-quality paint protects walls from humidity, dust, and daily wear and tear.'
+                    desc: 'High-quality paint protects walls from humidity, dust, and daily wear and tear.',
+                    href: null,
                   },
                   {
                     title: 'Mood & Environment',
-                    desc: 'The right colors can make small apartments feel larger and create a more relaxing home atmosphere.'
+                    desc: 'The right colors can make small apartments feel larger and create a more relaxing home atmosphere.',
+                    href: null,
                   },
                   {
                     title: 'Cost-Effective Upgrade',
-                    desc: 'Painting is the most affordable way to renovate your home without major construction work.'
+                    desc: 'Painting is the most affordable way to renovate your home without major construction work.',
+                    href: '/apartment-deep-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -308,7 +337,13 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -333,7 +368,6 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
 
       {/* Specialized Services / Benefits */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Leaf Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
           <svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60 10C40 30 20 60 20 90C20 110 35 130 60 130C85 130 100 110 100 90C100 60 80 30 60 10Z" fill="#529e00" opacity="0.3"/>
@@ -476,6 +510,43 @@ Our apartment painting service delivers clean, modern finishes tailored to your 
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
