@@ -195,30 +195,30 @@ export default function Services() {
                 className="group block rounded-[20px] md:rounded-[28px] overflow-hidden bg-white shadow-sm hover:shadow-2xl transition-all duration-700 border border-gray-100 hover:border-primary/10"
               >
                 {/* Image Section */}
-                <div className="relative h-[160px] md:h-[190px] lg:h-[200px] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    priority={idx < 4}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/0 to-black/25" />
+                <div className="relative overflow-hidden">
+  <Image
+    src={service.image}
+    alt={service.title}
+    width={800}
+    height={600}
+    className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+  />
 
-                  {/* Book Button */}
-                  <button
-                    type="button"
-                    className="absolute top-3 md:top-4 right-3 md:right-4 bg-white/85 hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md border border-white/60 rounded-full px-2.5 md:px-3 py-1 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-900"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      router.push('/get-quote');
-                    }}
-                  >
-                    Book
-                  </button>
-                </div>
+  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/0 to-black/25" />
+
+  {/* Book Button */}
+  <button
+    type="button"
+    className="absolute top-3 md:top-4 right-3 md:right-4 bg-white/85 hover:bg-primary hover:text-white transition-all duration-300 backdrop-blur-md border border-white/60 rounded-full px-2.5 md:px-3 py-1 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-900"
+    onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      router.push('/get-quote');
+    }}
+  >
+    Book
+  </button>
+</div>
 
                 {/* Content Section */}
                 <div className="relative p-4 md:p-5">
