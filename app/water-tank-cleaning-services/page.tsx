@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { 
   Check, 
   Clock, 
   Shield, 
   Star, 
   Sparkles, 
-  Droplets, // Changed from Home for Water context
+  Droplets,
   ArrowRight,
   Phone,
   CheckCircle2,
@@ -39,7 +40,7 @@ export default function WaterTankCleaningPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">Municipal Approved</span>
               </div>
@@ -49,7 +50,8 @@ export default function WaterTankCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Ensure safe and clean water with our professional water tank cleaning services. We remove sludge, bacteria, and contaminants from residential and commercial tanks. Proper sanitization improves water quality and prevents health risks. We follow Dubai Municipality standards for safe cleaning procedures. Tanks are inspected and disinfected thoroughly. Ideal for villas, buildings, and commercial properties. Regular cleaning ensures compliance and hygiene. Protect your family and property with certified tank cleaning.              </p>
+                Ensure safe and clean water with our <strong>professional water tank cleaning services</strong>. We remove <strong>sludge, bacteria, and contaminants</strong> from residential and commercial tanks. Proper sanitization improves water quality and prevents health risks. We follow <strong>Dubai Municipality standards</strong> for safe cleaning procedures. Ideal for <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>, <Link href="/apartment-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">buildings</Link>, and commercial properties. We eliminate <strong>odor and biofilm</strong> buildup. Regular cleaning ensures compliance and hygiene. Protect your family with <strong>certified tank cleaning</strong>.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -127,7 +129,6 @@ Ensure safe and clean water with our professional water tank cleaning services. 
       <section className="py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative bg-gradient-to-br from-[#529e00] to-[#3d7700] rounded-[60px] p-8 md:p-12 text-white shadow-2xl overflow-hidden">
-            {/* Top Icon Badge */}
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-[#c5e899] to-[#a8d96e] rounded-[28px] border-8 border-white shadow-xl flex items-center justify-center z-10">
               <Waves className="w-12 h-12 text-[#529e00]" />
             </div>
@@ -141,17 +142,23 @@ Ensure safe and clean water with our professional water tank cleaning services. 
               {/* Column 1 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Dewatering & Sludge Removal',
-                  'High-Pressure Scrubbing',
-                  'Wall & Floor Sanitization',
-                  'Vacuuming Residual Silt',
-                  'Anti-Bacterial Spray',
+                  { label: 'Dewatering & Sludge Removal', href: null },
+                  { label: 'High-Pressure Scrubbing', href: '/outside-power-wash' },
+                  { label: 'Wall & Floor Sanitization', href: null },
+                  { label: 'Vacuuming Residual Silt', href: null },
+                  { label: 'Anti-Bacterial Spray', href: '/steam-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -159,17 +166,23 @@ Ensure safe and clean water with our professional water tank cleaning services. 
               {/* Column 2 */}
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'UV Radiation Treatment',
-                  'Chlorination Process',
-                  'Float Valve Inspection',
-                  'External Area Cleaning',
-                  'Water Quality Testing',
+                  { label: 'UV Radiation Treatment', href: '/Curtain-uv-and-steam-machine' },
+                  { label: 'Chlorination Process', href: null },
+                  { label: 'Float Valve Inspection', href: null },
+                  { label: 'External Area Cleaning', href: null },
+                  { label: 'Water Quality Testing', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -194,66 +207,84 @@ Ensure safe and clean water with our professional water tank cleaning services. 
             {[
               {
                 title: 'Stage 1: Dewatering',
+                href: null,
                 items: [
-                  'Full tank drainage',
-                  'Surrounding area prep',
-                  'Submersible pump usage',
-                  'Sediment removal',
+                  { label: 'Full tank drainage', href: null },
+                  { label: 'Surrounding area prep', href: null },
+                  { label: 'Submersible pump usage', href: null },
+                  { label: 'Sediment removal', href: null },
                 ]
               },
               {
                 title: 'Stage 2: Sludge Removal',
+                href: null,
                 items: [
-                  'Manual sludge extraction',
-                  'Vacuuming remaining silt',
-                  'Floor debris clearing',
-                  'Internal pipe checking',
+                  { label: 'Manual sludge extraction', href: null },
+                  { label: 'Vacuuming remaining silt', href: null },
+                  { label: 'Floor debris clearing', href: null },
+                  { label: 'Internal pipe checking', href: null },
                 ]
               },
               {
                 title: 'Stage 3: High Pressure',
+                href: '/outside-power-wash',
                 items: [
-                  'Jet pressure cleaning',
-                  'Stain removal from walls',
-                  'Ceiling slab cleaning',
-                  'Removing stubborn algae',
+                  { label: 'Jet pressure cleaning', href: null },
+                  { label: 'Stain removal from walls', href: null },
+                  { label: 'Ceiling slab cleaning', href: null },
+                  { label: 'Removing stubborn algae', href: null },
                 ]
               },
               {
                 title: 'Stage 4: Vacuuming',
+                href: null,
                 items: [
-                  'Industrial vacuum suction',
-                  'Micro-particle removal',
-                  'Dry floor preparation',
-                  'Ensuring zero residue',
+                  { label: 'Industrial vacuum suction', href: null },
+                  { label: 'Micro-particle removal', href: null },
+                  { label: 'Dry floor preparation', href: null },
+                  { label: 'Ensuring zero residue', href: null },
                 ]
               },
               {
                 title: 'Stage 5: Sanitization',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'Approved disinfectant spray',
-                  'Bacterial elimination',
-                  'Odor removal treatment',
-                  'Wall surface coating',
+                  { label: 'Approved disinfectant spray', href: null },
+                  { label: 'Bacterial elimination', href: null },
+                  { label: 'Odor removal treatment', href: null },
+                  { label: 'Wall surface coating', href: null },
                 ]
               },
               {
                 title: 'Stage 6: Testing',
+                href: null,
                 items: [
-                  'pH level check',
-                  'Chlorine balance test',
-                  'Float valve check-up',
-                  'Final safety report',
+                  { label: 'pH level check', href: null },
+                  { label: 'Chlorine balance test', href: null },
+                  { label: 'Float valve check-up', href: null },
+                  { label: 'Final safety report', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -275,23 +306,28 @@ Ensure safe and clean water with our professional water tank cleaning services. 
                 {[
                   {
                     title: 'Prevent Waterborne Diseases',
-                    desc: 'Stagnant water attracts bacteria like Legionella and E. coli. Regular cleaning eliminates health risks.'
+                    desc: 'Stagnant water attracts bacteria like Legionella and E. coli. Regular cleaning eliminates health risks.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Remove Algae & Biofilm',
-                    desc: 'Warm weather in Dubai leads to rapid algae growth inside tanks, which pollutes the entire plumbing system.'
+                    desc: 'Warm weather in Dubai leads to rapid algae growth inside tanks, which pollutes the entire plumbing system.',
+                    href: null,
                   },
                   {
                     title: 'Extend Pipe Longevity',
-                    desc: 'Sediment and sludge buildup can cause corrosion and blockages in your villa\'s internal pipelines.'
+                    desc: 'Sediment and sludge buildup can cause corrosion and blockages in your villa\'s internal pipelines.',
+                    href: '/villa-deep-cleaning',
                   },
                   {
                     title: 'Clean Water for Skin/Hair',
-                    desc: 'Contaminated water can cause skin irritation and hair fall. Pure water ensures better personal hygiene.'
+                    desc: 'Contaminated water can cause skin irritation and hair fall. Pure water ensures better personal hygiene.',
+                    href: null,
                   },
                   {
                     title: 'Compliance with DM Rules',
-                    desc: 'Dubai Municipality recommends professional cleaning every 6 months for residential properties.'
+                    desc: 'Dubai Municipality recommends professional cleaning every 6 months for residential properties.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -299,7 +335,13 @@ Ensure safe and clean water with our professional water tank cleaning services. 
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -324,7 +366,6 @@ Ensure safe and clean water with our professional water tank cleaning services. 
 
       {/* Benefits Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Shapes (Same as original) */}
         <div className="absolute top-20 left-10 opacity-20">
           <svg width="120" height="140" viewBox="0 0 120 140" fill="none">
             <path d="M60 10C40 30 20 60 20 90C20 110 35 130 60 130C85 130 100 110 100 90C100 60 80 30 60 10Z" fill="#529e00" opacity="0.3"/>
@@ -467,6 +508,43 @@ Ensure safe and clean water with our professional water tank cleaning services. 
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
