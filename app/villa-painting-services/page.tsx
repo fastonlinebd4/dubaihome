@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import FloatingWhatsApp from '@/components/floating-whatsapp';
@@ -38,7 +39,7 @@ export default function VillaPaintingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">Premium Finish</span>
               </div>
@@ -46,7 +47,8 @@ export default function VillaPaintingPage() {
                 Top Villa Painting Services In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Upgrade your home with our professional villa painting services in Dubai. We provide high-quality interior and exterior painting using premium, durable paints. Our skilled painters ensure smooth finishes, clean edges, and long-lasting protection. Proper surface preparation guarantees flawless results. Ideal for renovation, property upgrades, or new villas. We protect furniture and floors during the painting process. Timely project completion with minimal disruption. Enhance your villa’s beauty and value with expert painting solutions.              </p>
+                Upgrade your home with our <strong>professional villa painting services</strong> in Dubai. We provide <strong>high-quality interior and exterior painting</strong> using <strong>premium, durable paints</strong>. Our <strong>skilled painters</strong> ensure smooth finishes, clean edges, and long-lasting protection. <strong>Proper surface preparation</strong> guarantees flawless results. Ideal for <Link href="/post-construction-cleaning-in-dubai" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">renovation</Link>, property upgrades, or new <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>. We protect furniture and floors during the process. <strong>Timely project completion</strong> with minimal disruption. Enhance your <strong>villa’s beauty and value</strong> with expert painting solutions.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Villa Painting service"
@@ -129,33 +131,45 @@ Upgrade your home with our professional villa painting services in Dubai. We pro
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Surface Wall Cleaning',
-                  'Filling Cracks & Holes',
-                  'Sanding & Leveling',
-                  'Primer Application',
-                  'Furniture Protection Covering',
+                  { label: 'Surface Wall Cleaning', href: '/deep-cleaning' },
+                  { label: 'Filling Cracks & Holes', href: null },
+                  { label: 'Sanding & Leveling', href: null },
+                  { label: 'Primer Application', href: null },
+                  { label: 'Furniture Protection Covering', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Interior Wall Painting',
-                  'Exterior Villa Painting',
-                  'Ceiling Painting',
-                  'Door & Window Frame Painting',
-                  'Final Quality Touch-ups',
+                  { label: 'Interior Wall Painting', href: null },
+                  { label: 'Exterior Villa Painting', href: '/villa-facade-cleaning-services' },
+                  { label: 'Ceiling Painting', href: null },
+                  { label: 'Door & Window Frame Painting', href: null },
+                  { label: 'Final Quality Touch-ups', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -180,71 +194,84 @@ Upgrade your home with our professional villa painting services in Dubai. We pro
               {
                 title: 'Interior Painting',
                 items: [
-                  'Full room wall painting',
-                  'Ceiling & moldings',
-                  'Accent wall creation',
-                  'Closet & pantry interior',
-                  'Kitchen cabinet painting',
+                  { label: 'Full room wall painting', href: null },
+                  { label: 'Ceiling & moldings', href: null },
+                  { label: 'Accent wall creation', href: null },
+                  { label: 'Closet & pantry interior', href: null },
+                  { label: 'Kitchen cabinet painting', href: '/kitchen-deep-cleaning' },
                 ]
               },
               {
                 title: 'Exterior Painting',
+                href: '/villa-facade-cleaning-services',
                 items: [
-                  'Weatherproof facade coating',
-                  'Boundary wall painting',
-                  'Gate & fence refinishing',
-                  'Roof & parapet painting',
-                  'Texture painting options',
+                  { label: 'Weatherproof facade coating', href: null },
+                  { label: 'Boundary wall painting', href: null },
+                  { label: 'Gate & fence refinishing', href: null },
+                  { label: 'Roof & parapet painting', href: '/rooftop-cleaning-services' },
+                  { label: 'Texture painting options', href: null },
                 ]
               },
               {
                 title: 'Surface Prep',
                 items: [
-                  'Old paint removal',
-                  'Wall putty application',
-                  'Damp-proof treatment',
-                  'Primer/Sealer coating',
-                  'Smoothing & sanding',
+                  { label: 'Old paint removal', href: null },
+                  { label: 'Wall putty application', href: null },
+                  { label: 'Damp-proof treatment', href: null },
+                  { label: 'Primer/Sealer coating', href: null },
+                  { label: 'Smoothing & sanding', href: null },
                 ]
               },
               {
                 title: 'Wood & Metal Work',
                 items: [
-                  'Door varnishing/polishing',
-                  'Window frame painting',
-                  'Railing & grill painting',
-                  'Pergola staining',
-                  'Metal gate anti-rust coating',
+                  { label: 'Door varnishing/polishing', href: null },
+                  { label: 'Window frame painting', href: '/outside-window-cleaning' },
+                  { label: 'Railing & grill painting', href: null },
+                  { label: 'Pergola staining', href: null },
+                  { label: 'Metal gate anti-rust coating', href: null },
                 ]
               },
               {
                 title: 'Protection & Safety',
                 items: [
-                  'Flooring masking',
-                  'Furniture plastic covering',
-                  'Switch/Socket taping',
-                  'Non-toxic paint options',
-                  'On-site safety measures',
+                  { label: 'Flooring masking', href: '/floor-deep-cleaning-services' },
+                  { label: 'Furniture plastic covering', href: null },
+                  { label: 'Switch/Socket taping', href: null },
+                  { label: 'Non-toxic paint options', href: null },
+                  { label: 'On-site safety measures', href: null },
                 ]
               },
               {
                 title: 'After-Service',
                 items: [
-                  'De-masking & tape removal',
-                  'Floor cleaning & sweeping',
-                  'Paint splash removal',
-                  'Leftover paint handover',
-                  'Final inspection walkthrough',
+                  { label: 'De-masking & tape removal', href: null },
+                  { label: 'Floor cleaning & sweeping', href: null },
+                  { label: 'Paint splash removal', href: null },
+                  { label: 'Leftover paint handover', href: null },
+                  { label: 'Final inspection walkthrough', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -266,23 +293,28 @@ Upgrade your home with our professional villa painting services in Dubai. We pro
                 {[
                   {
                     title: 'Extreme Heat Protection',
-                    desc: 'Dubai\'s harsh sun can fade exterior paint. We use UV-resistant paints to keep your villa looking new.'
+                    desc: 'Dubai\'s harsh sun can fade exterior paint. We use UV-resistant paints to keep your villa looking new.',
+                    href: '/villa-facade-cleaning-services',
                   },
                   {
                     title: 'Enhance Aesthetic Appeal',
-                    desc: 'A fresh coat of paint instantly modernizes your home and reflects your personal style.'
+                    desc: 'A fresh coat of paint instantly modernizes your home and reflects your personal style.',
+                    href: null,
                   },
                   {
                     title: 'Increase Property Value',
-                    desc: 'Freshly painted villas attract higher prices in Dubai\'s real estate market whether for sale or rent.'
+                    desc: 'Freshly painted villas attract higher prices in Dubai\'s real estate market whether for sale or rent.',
+                    href: '/villa-deep-cleaning',
                   },
                   {
                     title: 'Prevent Wall Decay',
-                    desc: 'Proper painting seals walls against moisture and dust, preventing long-term structural issues.'
+                    desc: 'Proper painting seals walls against moisture and dust, preventing long-term structural issues.',
+                    href: null,
                   },
                   {
                     title: 'Hygienic Environment',
-                    desc: 'Modern paints contain anti-microbial properties that prevent mold growth in humid areas.'
+                    desc: 'Modern paints contain anti-microbial properties that prevent mold growth in humid areas.',
+                    href: '/steam-deep-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -290,7 +322,13 @@ Upgrade your home with our professional villa painting services in Dubai. We pro
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -445,6 +483,43 @@ Upgrade your home with our professional villa painting services in Dubai. We pro
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
