@@ -52,7 +52,15 @@ export default function ShopDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                Make your retail space shine and attract more customers. Al Rukam provides professional deep cleaning for shops, boutiques, and showrooms using commercial-grade equipment.
+                Make your <strong>retail space shine and attract more customers</strong>. Dubai Home Cleaning Services provides{' '}
+                <strong>professional deep cleaning for shops, boutiques, and showrooms</strong> using commercial-grade equipment. We thoroughly clean{' '}
+                <strong>display areas, floors, trial rooms, glass entrances, storage areas, and high-touch surfaces</strong> to create a{' '}
+                <strong>spotless, hygienic, and welcoming environment</strong> for your customers and staff. Our{' '}
+                <strong>eco-friendly, non-toxic cleaning solutions</strong> are safe for all inventory types. This service is ideal for{' '}
+                <Link href="/office-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">commercial spaces</Link>,
+                {' '}retail outlets, and{' '}
+                <Link href="/deep-cleaning-of-restaurant" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">F&B establishments</Link>.
+                {' '}We work around your schedule to ensure <strong>zero business disruption</strong>.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -142,34 +150,46 @@ export default function ShopDeepCleaningPage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Display Area & Shelves',
-                  'Cash Counter Sanitization',
-                  'Trial Room Deep Cleaning',
-                  'Glass Entrance & Windows',
-                  'Storage Area Organization',
+                  { label: 'Display Area & Shelves', href: null },
+                  { label: 'Cash Counter Sanitization', href: null },
+                  { label: 'Trial Room Deep Cleaning', href: null },
+                  { label: 'Glass Entrance & Windows', href: '/outside-window-cleaning' },
+                  { label: 'Storage Area Organization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
 
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Commercial Floor Scrubbing',
-                  'Ceiling & Wall Dusting',
-                  'AC Vent & Grill Cleaning',
-                  'Signage & Logo Polishing',
-                  'Disinfection of High-Touch Points',
+                  { label: 'Commercial Floor Scrubbing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Ceiling & Wall Dusting', href: null },
+                  { label: 'AC Vent & Grill Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Signage & Logo Polishing', href: null },
+                  { label: 'Disinfection of High-Touch Points', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -194,77 +214,96 @@ export default function ShopDeepCleaningPage() {
             {[
               {
                 title: 'Showroom Detailing',
+                href: null,
                 items: [
-                  'Mannequin & stand dusting',
-                  'Rack & hanger sanitization',
-                  'Mirror streak-free polishing',
-                  'Spotlight & fixture cleaning',
-                  'Display glass treatment',
+                  { label: 'Mannequin & stand dusting', href: null },
+                  { label: 'Rack & hanger sanitization', href: null },
+                  { label: 'Mirror streak-free polishing', href: null },
+                  { label: 'Spotlight & fixture cleaning', href: null },
+                  { label: 'Display glass treatment', href: null },
                 ]
               },
               {
                 title: 'Floor Care',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'Tile grout deep cleaning',
-                  'Marble polishing (if any)',
-                  'Carpet vacuuming/shampoo',
-                  'Baseboard deep wiping',
+                  { label: 'Tile grout deep cleaning', href: null },
+                  { label: 'Marble polishing (if any)', href: '/marble-polishing-services' },
+                  { label: 'Carpet vacuuming/shampoo', href: '/carpet-shampooing' },
+                  { label: 'Baseboard deep wiping', href: null },
                 ]
               },
               {
                 title: 'Customer Zones',
+                href: null,
                 items: [
-                  'Trial room curtain/door wash',
-                  'Seating area sanitization',
-                  'Waiting lounge cleaning',
-                  'Magazine rack dusting',
-                  'Entrance mat cleaning',
+                  { label: 'Trial room curtain/door wash', href: '/Curtain-uv-and-steam-machine' },
+                  { label: 'Seating area sanitization', href: '/sofa-shampooing' },
+                  { label: 'Waiting lounge cleaning', href: null },
+                  { label: 'Magazine rack dusting', href: null },
+                  { label: 'Entrance mat cleaning', href: null },
                 ]
               },
               {
                 title: 'Back Office & Storage',
+                href: '/office-deep-cleaning',
                 items: [
-                  'Inventory shelf dusting',
-                  'Office desk cleaning',
-                  'Computer & POS sanitization',
-                  'Staff pantry cleaning',
-                  'File cabinet wiping',
+                  { label: 'Inventory shelf dusting', href: null },
+                  { label: 'Office desk cleaning', href: null },
+                  { label: 'Computer & POS sanitization', href: null },
+                  { label: 'Staff pantry cleaning', href: '/kitchen-deep-cleaning' },
+                  { label: 'File cabinet wiping', href: null },
                 ]
               },
               {
                 title: 'Hygiene & Washroom',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Commercial toilet scrubbing',
-                  'Sink & faucet polishing',
-                  'Exhaust fan cleaning',
-                  'Soap/Tissue holder refill',
+                  { label: 'Commercial toilet scrubbing', href: null },
+                  { label: 'Sink & faucet polishing', href: null },
+                  { label: 'Exhaust fan cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Soap/Tissue holder refill', href: null },
                 ]
               },
               {
                 title: 'Final Touches',
+                href: null,
                 items: [
-                  'Exterior signage wash',
-                  'Window frame detailing',
-                  'Odor removal treatment',
-                  'Trash removal & bin wash',
-                  'Quality supervisor check',
+                  { label: 'Exterior signage wash', href: null },
+                  { label: 'Window frame detailing', href: '/outside-window-cleaning' },
+                  { label: 'Odor removal treatment', href: null },
+                  { label: 'Trash removal & bin wash', href: null },
+                  { label: 'Quality supervisor check', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -286,19 +325,23 @@ export default function ShopDeepCleaningPage() {
                 {[
                   {
                     title: 'Customer Attraction',
-                    desc: 'A spotless shop creates an inviting atmosphere that encourages customers to stay longer and buy more.'
+                    desc: 'A spotless shop creates an inviting atmosphere that encourages customers to stay longer and buy more.',
+                    href: null,
                   },
                   {
                     title: 'Brand Reputation',
-                    desc: 'Cleanliness reflects your brand values. A dusty shop can drive away premium customers.'
+                    desc: 'Cleanliness reflects your brand values. A dusty shop can drive away premium customers.',
+                    href: null,
                   },
                   {
                     title: 'Employee Productivity',
-                    desc: 'A clean and organized work environment boosts staff morale and helps them focus on sales.'
+                    desc: 'A clean and organized work environment boosts staff morale and helps them focus on sales.',
+                    href: '/office-deep-cleaning',
                   },
                   {
                     title: 'Inventory Protection',
-                    desc: 'Regular deep cleaning prevents dust build-up on your products, keeping your inventory in "new" condition.'
+                    desc: 'Regular deep cleaning prevents dust build-up on your products, keeping your inventory in "new" condition.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -306,7 +349,13 @@ export default function ShopDeepCleaningPage() {
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -356,8 +405,47 @@ export default function ShopDeepCleaningPage() {
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Deep Cleaning of Restaurant', href: '/deep-cleaning-of-restaurant' },
+              { label: 'Deep Cleaning of Warehouse', href: '/deep-cleaning-of-warehouse' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Sofa Shampooing', href: '/sofa-shampooing' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Outside Window Cleaning', href: '/outside-window-cleaning' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -380,7 +468,7 @@ export default function ShopDeepCleaningPage() {
                 a: 'Our team is trained to handle sensitive retail environments. we use dust-free vacuuming and eco-friendly products that are safe for all inventory types.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#529e00]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -397,7 +485,7 @@ export default function ShopDeepCleaningPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-[#e8c600] to-[#d4b600] rounded-3xl p-8 md:p-12 text-center shadow-2xl">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
