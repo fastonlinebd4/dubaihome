@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import FloatingWhatsApp from '@/components/floating-whatsapp';
@@ -38,7 +39,7 @@ export default function SwimmingPoolCleaningPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">Expert Maintenance</span>
               </div>
@@ -46,7 +47,8 @@ export default function SwimmingPoolCleaningPage() {
                 Top Swimming Pool <span className="text-[#529e00]">Cleaning</span> Services In Dubai
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our swimming pool cleaning service maintains crystal-clear, hygienic water for safe swimming. We remove debris, algae, and bacteria from pool surfaces and filtration systems. Chemical levels are balanced to ensure safe water quality. Regular maintenance prevents costly repairs and contamination. Ideal for villas, hotels, and residential communities. We inspect filters and pumps for optimal performance. Clean pools enhance property value and enjoyment. Enjoy a safe, refreshing swimming experience.              </p>
+                Our <strong>swimming pool cleaning service</strong> maintains <strong>crystal-clear, hygienic water</strong> for safe swimming. We remove debris, algae, and bacteria from pool surfaces and filtration systems. Chemical levels are balanced to ensure safe water quality. Ideal for <Link href="/villa-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">villas</Link>, hotels, and residential communities. We inspect filters and pumps for optimal performance. Clean pools enhance property value and enjoyment. This service complements our <Link href="/water-tank-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">water tank cleaning</Link> for total water hygiene. Enjoy a safe, refreshing swimming experience.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Swimming Pool Cleaning service"
@@ -129,33 +131,45 @@ Our swimming pool cleaning service maintains crystal-clear, hygienic water for s
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Skimming Surface Debris',
-                  'Wall & Floor Brushing',
-                  'Vacuuming the Pool Floor',
-                  'Cleaning Skimmer Baskets',
-                  'Tile Line Cleaning',
+                  { label: 'Skimming Surface Debris', href: null },
+                  { label: 'Wall & Floor Brushing', href: '/floor-deep-cleaning-services' },
+                  { label: 'Vacuuming the Pool Floor', href: null },
+                  { label: 'Cleaning Skimmer Baskets', href: null },
+                  { label: 'Tile Line Cleaning', href: '/bathroom-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Water Chemistry Testing',
-                  'Chemical Balancing (pH/Chlorine)',
-                  'Filter Backwashing',
-                  'Pump Basket Cleaning',
-                  'Equipment Inspection',
+                  { label: 'Water Chemistry Testing', href: null },
+                  { label: 'Chemical Balancing (pH/Chlorine)', href: null },
+                  { label: 'Filter Backwashing', href: null },
+                  { label: 'Pump Basket Cleaning', href: null },
+                  { label: 'Equipment Inspection', href: '/ac-duct-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -179,72 +193,90 @@ Our swimming pool cleaning service maintains crystal-clear, hygienic water for s
             {[
               {
                 title: 'Debris Removal',
+                href: null,
                 items: [
-                  'Surface leaf skimming',
-                  'Floor debris vacuuming',
-                  'Bottom sediment removal',
-                  'Stray object retrieval',
-                  'Deck area sweeping',
+                  { label: 'Surface leaf skimming', href: null },
+                  { label: 'Floor debris vacuuming', href: null },
+                  { label: 'Bottom sediment removal', href: null },
+                  { label: 'Stray object retrieval', href: null },
+                  { label: 'Deck area sweeping', href: '/outside-deep-cleaning' },
                 ]
               },
               {
                 title: 'Chemical Balancing',
+                href: null,
                 items: [
-                  'pH level adjustment',
-                  'Chlorine level testing',
-                  'Alkalinity stabilization',
-                  'Shock treatment (if needed)',
-                  'Algaecide application',
+                  { label: 'pH level adjustment', href: null },
+                  { label: 'Chlorine level testing', href: null },
+                  { label: 'Alkalinity stabilization', href: null },
+                  { label: 'Shock treatment (if needed)', href: null },
+                  { label: 'Algaecide application', href: null },
                 ]
               },
               {
                 title: 'System Maintenance',
+                href: '/ac-duct-cleaning',
                 items: [
-                  'Filter cleaning & backwash',
-                  'Pump strainer inspection',
-                  'Skimmer basket emptying',
-                  'Valve position checking',
-                  'Leak detection walkthrough',
+                  { label: 'Filter cleaning & backwash', href: null },
+                  { label: 'Pump strainer inspection', href: null },
+                  { label: 'Skimmer basket emptying', href: null },
+                  { label: 'Valve position checking', href: null },
+                  { label: 'Leak detection walkthrough', href: null },
                 ]
               },
               {
                 title: 'Surface Detailing',
+                href: '/bathroom-deep-cleaning',
                 items: [
-                  'Tile waterline scrubbing',
-                  'Grout stain treatment',
-                  'Ladder & handrail wiping',
-                  'Pool light cleaning',
-                  'Step & corner brushing',
+                  { label: 'Tile waterline scrubbing', href: null },
+                  { label: 'Grout stain treatment', href: null },
+                  { label: 'Ladder & handrail wiping', href: null },
+                  { label: 'Pool light cleaning', href: null },
+                  { label: 'Step & corner brushing', href: null },
                 ]
               },
               {
                 title: 'Water Clarity',
+                href: '/water-tank-cleaning-services',
                 items: [
-                  'Cloudy water treatment',
-                  'Flocculant application',
-                  'Sand filter inspection',
-                  'Water level topping',
-                  'Total dissolved solids check',
+                  { label: 'Cloudy water treatment', href: null },
+                  { label: 'Flocculant application', href: null },
+                  { label: 'Sand filter inspection', href: null },
+                  { label: 'Water level topping', href: null },
+                  { label: 'Total dissolved solids check', href: null },
                 ]
               },
               {
                 title: 'Safety Check',
+                href: null,
                 items: [
-                  'Drain cover inspection',
-                  'Gate & fence checking',
-                  'Water temperature check',
-                  'Lighting safety check',
-                  'Monthly health report',
+                  { label: 'Drain cover inspection', href: null },
+                  { label: 'Gate & fence checking', href: null },
+                  { label: 'Water temperature check', href: null },
+                  { label: 'Lighting safety check', href: null },
+                  { label: 'Monthly health report', href: null },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -266,23 +298,28 @@ Our swimming pool cleaning service maintains crystal-clear, hygienic water for s
                 {[
                   {
                     title: 'Dust & Sand Accumulation',
-                    desc: 'Dubai\'s frequent sandstorms quickly contaminate pool water, requiring professional filtration and cleaning.'
+                    desc: 'Dubai\'s frequent sandstorms quickly contaminate pool water, requiring professional filtration and cleaning.',
+                    href: '/villa-facade-cleaning-services',
                   },
                   {
                     title: 'Algae Prevention',
-                    desc: 'Intense heat accelerates algae growth. Our chemical experts ensure your water stays blue and clear.'
+                    desc: 'Intense heat accelerates algae growth. Our chemical experts ensure your water stays blue and clear.',
+                    href: null,
                   },
                   {
                     title: 'Skin & Eye Protection',
-                    desc: 'Improper chemical balance causes irritation. We maintain perfect levels for a comfortable swim.'
+                    desc: 'Improper chemical balance causes irritation. We maintain perfect levels for a comfortable swim.',
+                    href: null,
                   },
                   {
                     title: 'Equipment Longevity',
-                    desc: 'Regular maintenance prevents expensive pump and filter failures caused by calcium buildup or debris.'
+                    desc: 'Regular maintenance prevents expensive pump and filter failures caused by calcium buildup or debris.',
+                    href: null,
                   },
                   {
                     title: 'Bacterial Control',
-                    desc: 'We sanitize your water to eliminate harmful bacteria and pathogens, keeping your family safe.'
+                    desc: 'We sanitize your water to eliminate harmful bacteria and pathogens, keeping your family safe.',
+                    href: '/steam-deep-cleaning',
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -290,7 +327,13 @@ Our swimming pool cleaning service maintains crystal-clear, hygienic water for s
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -445,6 +488,43 @@ Our swimming pool cleaning service maintains crystal-clear, hygienic water for s
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
