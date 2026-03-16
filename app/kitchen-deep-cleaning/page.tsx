@@ -18,7 +18,7 @@ import {
   Mail,
   MapPin,
   CheckCircle2,
-  UtensilsCrossed // Representing kitchen context
+  UtensilsCrossed
 } from 'lucide-react';
 
 export default function KitchenDeepCleaningPage() {
@@ -52,7 +52,17 @@ export default function KitchenDeepCleaningPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our kitchen deep cleaning service targets grease buildup, food residue, and hidden bacteria. We clean cabinets, countertops, backsplashes, appliances, and exhaust areas thoroughly. Degreasing and sanitization ensure a hygienic cooking environment. Ideal for residential and commercial kitchens requiring food-safe standards. We remove stubborn oil stains from tiles and surfaces. Appliances are cleaned inside and outside for maximum freshness. Eco-friendly products protect surfaces while ensuring deep disinfection. Enjoy a sparkling clean and odor-free kitchen.              </p>
+                Our <strong>kitchen deep cleaning service</strong> targets{' '}
+                <strong>grease buildup, food residue, and hidden bacteria</strong>. We clean{' '}
+                <strong>cabinets, countertops, backsplashes, appliances, and exhaust areas</strong> thoroughly.{' '}
+                <strong>Degreasing and sanitization</strong> ensure a hygienic cooking environment. Ideal for{' '}
+                <Link href="/apartment-deep-cleaning" className="text-[#ff9900] underline underline-offset-2 hover:text-[#e68a00] transition-colors font-bold">residential</Link>{' '}and{' '}
+                <Link href="/deep-cleaning-of-restaurant" className="text-[#ff9900] underline underline-offset-2 hover:text-[#e68a00] transition-colors font-bold">commercial kitchens</Link>{' '}
+                requiring food-safe standards. We remove{' '}
+                <strong>stubborn oil stains from tiles and surfaces</strong>. Appliances are cleaned{' '}
+                <strong>inside and outside for maximum freshness</strong>.{' '}
+                <strong>Eco-friendly products</strong> protect surfaces while ensuring deep disinfection. Enjoy a <strong>sparkling clean and odor-free kitchen</strong>.
+              </p>
 
               <div className="flex flex-wrap gap-4">
                 <a
@@ -143,17 +153,23 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
               {/* Column 1 */}
               <div className="bg-white/10 backdrop-blur-md rounded-[32px] p-8 space-y-4 border border-white/10">
                 {[
-                  'Stove & Hob Degreasing',
-                  'Exhaust Fan & Hood Cleaning',
-                  'Countertop & Backsplash Scrubbing',
-                  'Cabinet Interior & Exterior Wiping',
-                  'Sink & Tap Sanitization',
+                  { label: 'Stove & Hob Degreasing', href: null },
+                  { label: 'Exhaust Fan & Hood Cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Countertop & Backsplash Scrubbing', href: null },
+                  { label: 'Cabinet Interior & Exterior Wiping', href: null },
+                  { label: 'Sink & Tap Sanitization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#ff9900] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-white font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-white font-bold text-base hover:text-[#ff9900] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-white font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -161,17 +177,23 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
               {/* Column 2 */}
               <div className="bg-white/10 backdrop-blur-md rounded-[32px] p-8 space-y-4 border border-white/10">
                 {[
-                  'Oven & Microwave Deep Clean',
-                  'Refrigerator Exterior & Dusting',
-                  'Floor Scrubbing & Stain Removal',
-                  'Wall Tile Steam Cleaning',
-                  'Drain Odor Neutralization',
+                  { label: 'Oven & Microwave Deep Clean', href: null },
+                  { label: 'Refrigerator Exterior & Dusting', href: null },
+                  { label: 'Floor Scrubbing & Stain Removal', href: '/floor-deep-cleaning-services' },
+                  { label: 'Wall Tile Steam Cleaning', href: '/steam-deep-cleaning' },
+                  { label: 'Drain Odor Neutralization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#ff9900] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-white font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-white font-bold text-base hover:text-[#ff9900] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-white font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -196,72 +218,91 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
             {[
               {
                 title: 'Heavy Degreasing',
+                href: null,
                 items: [
-                  'Removal of thick oil layers',
-                  'Hood filter cleaning',
-                  'Cooktop deep scrubbing',
-                  'Grime removal from knobs',
+                  { label: 'Removal of thick oil layers', href: null },
+                  { label: 'Hood filter cleaning', href: '/ac-duct-cleaning' },
+                  { label: 'Cooktop deep scrubbing', href: null },
+                  { label: 'Grime removal from knobs', href: null },
                 ]
               },
               {
                 title: 'Appliance Cleaning',
+                href: null,
                 items: [
-                  'Microwave interior/exterior',
-                  'Oven burnt residue removal',
-                  'Fridge rubber seal cleaning',
-                  'Dishwasher exterior wiping',
+                  { label: 'Microwave interior/exterior', href: null },
+                  { label: 'Oven burnt residue removal', href: null },
+                  { label: 'Fridge rubber seal cleaning', href: null },
+                  { label: 'Dishwasher exterior wiping', href: null },
                 ]
               },
               {
                 title: 'Storage & Surfaces',
+                href: null,
                 items: [
-                  'Inside kitchen cabinets',
-                  'Polishing granite/marble',
-                  'Backsplash steam clean',
-                  'Shelf reorganization dusting',
+                  { label: 'Inside kitchen cabinets', href: null },
+                  { label: 'Polishing granite/marble', href: '/marble-polishing-services' },
+                  { label: 'Backsplash steam clean', href: '/steam-deep-cleaning' },
+                  { label: 'Shelf reorganization dusting', href: null },
                 ]
               },
               {
                 title: 'Sanitization',
+                href: '/steam-deep-cleaning',
                 items: [
-                  'Killing bacteria on counters',
-                  'Sink lime-scale removal',
-                  'Disinfecting handles/switches',
-                  'Food-safe cleaning agents',
+                  { label: 'Killing bacteria on counters', href: null },
+                  { label: 'Sink lime-scale removal', href: null },
+                  { label: 'Disinfecting handles/switches', href: null },
+                  { label: 'Food-safe cleaning agents', href: null },
                 ]
               },
               {
                 title: 'Floor & Walls',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                  'Wall tile grout cleaning',
-                  'Removing sticky residues',
-                  'Skirting board wiping',
+                  { label: 'Wall tile grout cleaning', href: null },
+                  { label: 'Removing sticky residues', href: null },
+                  { label: 'Skirting board wiping', href: null },
                 ]
               },
               {
                 title: 'Waste & Hygiene',
+                href: null,
                 items: [
-                  'Bin area sanitization',
-                  'Drainage pipe flushing',
-                  'Eliminating kitchen odors',
-                  'Pest-prevention cleaning',
+                  { label: 'Bin area sanitization', href: null },
+                  { label: 'Drainage pipe flushing', href: null },
+                  { label: 'Eliminating kitchen odors', href: null },
+                  { label: 'Pest-prevention cleaning', href: null },
                 ]
               },
-			    {
+              {
                 title: 'Floor Deep Cleaning',
+                href: '/floor-deep-cleaning-services',
                 items: [
-                 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleane by vacuum mopping.',
-				  'Deep Cleaning of marble-type floors and stairs using a vacuum and  mopping',
+                  { label: 'Deep Cleaning of vinyl floors, concrete tiles, ceramic tiles using a scrubbing machine and wooden floors will be cleaned by vacuum mopping.', href: null },
+                  { label: 'Deep Cleaning of marble-type floors and stairs using a vacuum and mopping', href: '/marble-polishing-services' },
                 ]
               },
             ].map((service, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#ff9900] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#ff9900] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#ff9900] font-semibold underline underline-offset-2 hover:text-[#e68a00] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -283,19 +324,23 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
                 {[
                   {
                     title: 'Fire Safety',
-                    desc: 'Accumulated grease in exhaust hoods is a major fire hazard. Our deep degreasing reduces this risk significantly.'
+                    desc: 'Accumulated grease in exhaust hoods is a major fire hazard. Our deep degreasing reduces this risk significantly.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Bacterial Protection',
-                    desc: 'Kitchens are breeding grounds for E. coli and Salmonella. We use hospital-grade disinfectants to keep you safe.'
+                    desc: 'Kitchens are breeding grounds for E. coli and Salmonella. We use hospital-grade disinfectants to keep you safe.',
+                    href: '/steam-deep-cleaning',
                   },
                   {
                     title: 'Remove Stubborn Odors',
-                    desc: 'Old grease and food particles cause lingering smells. We neutralize odors at the source for a fresh kitchen.'
+                    desc: 'Old grease and food particles cause lingering smells. We neutralize odors at the source for a fresh kitchen.',
+                    href: null,
                   },
                   {
                     title: 'Extend Appliance Life',
-                    desc: 'Regularly cleaned ovens and hobs work more efficiently and last longer when free from carbon buildup.'
+                    desc: 'Regularly cleaned ovens and hobs work more efficiently and last longer when free from carbon buildup.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -303,7 +348,13 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#ff9900] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -372,8 +423,47 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
         </div>
       </section>
 
+      {/* Related Services Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#ff9900]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer a wide range of professional cleaning solutions across Dubai.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Deep Cleaning of Restaurant', href: '/deep-cleaning-of-restaurant' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'Floor Deep Cleaning', href: '/floor-deep-cleaning-services' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Marble Polishing Services', href: '/marble-polishing-services' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Post Construction Cleaning', href: '/post-construction-cleaning-in-dubai' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-[#fcfcfc] border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#ff9900] hover:text-[#ff9900] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#ff9900] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#fcfcfc]">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
@@ -400,7 +490,7 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
                 a: 'Absolutely. We use professional-grade, food-safe detergents that leave no harmful residues on your counters or stovetops.'
               },
             ].map((faq, idx) => (
-              <details key={idx} className="group bg-[#fcfcfc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+              <details key={idx} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                   <span className="font-bold text-[#091a33]">{faq.q}</span>
                   <div className="w-8 h-8 bg-[#ff9900]/10 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform">
@@ -417,7 +507,7 @@ Our kitchen deep cleaning service targets grease buildup, food residue, and hidd
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#fcfcfc]">
+      <section className="py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#ff9900] rounded-3xl p-8 md:p-12 text-center shadow-2xl text-white">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
