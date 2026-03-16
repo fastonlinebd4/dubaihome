@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import FloatingWhatsApp from '@/components/floating-whatsapp';
@@ -36,7 +37,7 @@ export default function CarpetShampooingPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">
                   Deep Carpet Care
@@ -48,7 +49,7 @@ export default function CarpetShampooingPage() {
               </h1>
 
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                Restore the freshness and cleanliness of your carpets with our professional carpet shampooing services in Dubai. We deep clean carpets and rugs to remove embedded dirt, stubborn stains, food spills, pet hair, and unpleasant odors. Our powerful injection-extraction machines penetrate deep into carpet fibers without damaging texture or color. We eliminate allergens, bacteria, and dust mites to improve indoor air quality—ideal for homes with children or allergy-sensitive family members. From wall-to-wall carpets to decorative rugs and high-traffic areas, we clean with precision and care. Quick-drying methods reduce waiting time so your carpets are ready to use faster. Enjoy visibly brighter, softer, and long-lasting freshness in every room.
+                Restore the freshness and cleanliness of your floors with our <strong>professional carpet shampooing services</strong> in Dubai. We <strong>deep clean carpets and rugs</strong> to remove embedded dirt, stubborn stains, and allergens. Our <strong>injection-extraction method</strong> ensures thorough cleaning without damaging fibers. Ideal for <Link href="/apartment-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">homes</Link>, offices, and commercial spaces. We eliminate <strong>dust mites and bacteria</strong>, improving indoor air quality. This service pairs perfectly with <Link href="/sofa-shampooing" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">sofa shampooing</Link> and <Link href="/mattress-cleaning-services" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">mattress cleaning</Link>. Enjoy <strong>quick-drying results</strong> and a healthier environment.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -139,34 +140,46 @@ export default function CarpetShampooingPage() {
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Wall-to-Wall Carpet Shampooing',
-                  'Area Rug Deep Cleaning',
-                  'Stain & Spot Treatment',
-                  'Pet Hair Removal',
-                  'Odor Neutralization',
+                  { label: 'Wall-to-Wall Carpet Shampooing', href: null },
+                  { label: 'Area Rug Deep Cleaning', href: null },
+                  { label: 'Stain & Spot Treatment', href: null },
+                  { label: 'Pet Hair & Dander Removal', href: null },
+                  { label: 'Odor Neutralization', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
 
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Deep Fiber Extraction',
-                  'High-Traffic Area Focus',
-                  'Allergen Removal',
-                  'Steam Sanitization',
-                  'Quick Dry Technology',
+                  { label: 'Deep Fiber Extraction', href: null },
+                  { label: 'High-Traffic Area Focus', href: null },
+                  { label: 'Allergen Removal', href: '/mattress-cleaning-services' },
+                  { label: 'Steam Sanitization', href: '/steam-deep-cleaning' },
+                  { label: 'Quick Dry Technology', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -192,62 +205,68 @@ export default function CarpetShampooingPage() {
             {[
               {
                 title: 'Carpet Deep Clean',
+                href: null,
                 items: [
-                  'Carpet assessment',
-                  'Dry vacuuming (Dusting)',
-                  'Shampoo injection',
-                  'Mechanical scrubbing',
-                  'Dirt extraction',
+                  { label: 'Carpet assessment', href: null },
+                  { label: 'Dry vacuuming (Dusting)', href: null },
+                  { label: 'Shampoo injection', href: null },
+                  { label: 'Mechanical scrubbing', href: null },
+                  { label: 'Dirt extraction', href: null },
                 ]
               },
               {
                 title: 'Rug Cleaning',
+                href: null,
                 items: [
-                  'Area rug shampooing',
-                  'Rug fringe cleaning',
-                  'Gentle fiber care',
-                  'Deep dirt removal',
-                  'Fabric fluffing',
+                  { label: 'Area rug shampooing', href: null },
+                  { label: 'Rug fringe cleaning', href: null },
+                  { label: 'Gentle fiber care', href: null },
+                  { label: 'Deep dirt removal', href: null },
+                  { label: 'Fabric fluffing', href: null },
                 ]
               },
               {
                 title: 'High-Traffic Areas',
+                href: null,
                 items: [
-                  'Entryway focus',
-                  'Hallway deep clean',
-                  'Stair carpet care',
-                  'Extra agitation',
-                  'Fiber lifting',
+                  { label: 'Entryway focus', href: null },
+                  { label: 'Hallway deep clean', href: null },
+                  { label: 'Stair carpet care', href: null },
+                  { label: 'Extra agitation', href: null },
+                  { label: 'Fiber lifting', href: null },
                 ]
               },
               {
                 title: 'Stain Treatment',
+                href: null,
                 items: [
-                  'Coffee & tea spots',
-                  'Ink & oil removal',
-                  'Food stain treatment',
-                  'Old stain lifting',
-                  'Color protection',
+                  { label: 'Coffee & tea spots', href: null },
+                  { label: 'Ink & oil removal', href: null },
+                  { label: 'Food stain treatment', href: null },
+                  { label: 'Old stain lifting', href: null },
+                  { label: 'Color protection', href: null },
                 ]
               },
               {
                 title: 'Allergen Removal',
+                href: '/ac-duct-cleaning',
                 items: [
-                  'Dust mite extraction',
-                  'Pet dander removal',
-                  'Deodorizing rinse',
-                  'Sanitizing treatment',
-                  'Improved air quality',
+                  { label: 'Dust mite extraction', href: '/mattress-cleaning-services' },
+                  { label: 'Pet dander removal', href: null },
+                  { label: 'Deodorizing rinse', href: null },
+                  { label: 'Sanitizing treatment', href: '/steam-deep-cleaning' },
+                  { label: 'Improved air quality', href: null },
                 ]
               },
               {
                 title: 'Final Touches',
+                href: null,
                 items: [
-                  'Deodorizing spray',
-                  'Carpet grooming',
-                  'Drying fan setup',
-                  'Color revival',
-                  'Quality check',
+                  { label: 'Deodorizing spray', href: null },
+                  { label: 'Carpet grooming', href: null },
+                  { label: 'Drying fan setup', href: null },
+                  { label: 'Color revival', href: null },
+                  { label: 'Quality check', href: null },
                 ]
               },
             ].map((service, idx) => (
@@ -255,12 +274,24 @@ export default function CarpetShampooingPage() {
                 key={idx}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all"
               >
-                <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                {service.href ? (
+                  <Link href={service.href}>
+                    <h3 className="text-xl font-black text-[#091a33] mb-4 hover:text-[#529e00] transition-colors">{service.title}</h3>
+                  </Link>
+                ) : (
+                  <h3 className="text-xl font-black text-[#091a33] mb-4">{service.title}</h3>
+                )}
                 <ul className="space-y-3">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -283,23 +314,28 @@ export default function CarpetShampooingPage() {
                 {[
                   {
                     title: 'Eliminate Indoor Allergens',
-                    desc: 'Carpets trap dust mites and pollen. Our deep shampooing removes these triggers for better respiratory health.'
+                    desc: 'Carpets trap dust mites and pollen. Our deep shampooing removes these triggers for better respiratory health.',
+                    href: '/ac-duct-cleaning',
                   },
                   {
                     title: 'Prolong Carpet Life',
-                    desc: 'Gritty dirt acts like sandpaper on fibers. Regular cleaning prevents wear and keeps colors vibrant.'
+                    desc: 'Gritty dirt acts like sandpaper on fibers. Regular cleaning prevents wear and keeps colors vibrant.',
+                    href: null,
                   },
                   {
                     title: 'Professional Odor Removal',
-                    desc: 'Cooking smells and pet odors can linger in carpet fibers. We neutralize odors at the source rather than masking them.'
+                    desc: 'Cooking smells and pet odors can linger in carpet fibers. We neutralize odors at the source rather than masking them.',
+                    href: null,
                   },
                   {
                     title: 'Stain Prevention',
-                    desc: 'Treating spots early prevents them from becoming permanent marks that ruin your carpet’s look.'
+                    desc: 'Treating spots early prevents them from becoming permanent marks that ruin your carpet’s look.',
+                    href: '/sofa-shampooing',
                   },
                   {
                     title: 'Improves Air Quality',
-                    desc: 'Clean carpets mean less airborne dust, creating a significantly fresher atmosphere inside your Dubai home.'
+                    desc: 'Clean carpets mean less airborne dust, creating a significantly fresher atmosphere inside your Dubai home.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -307,7 +343,13 @@ export default function CarpetShampooingPage() {
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -465,6 +507,43 @@ export default function CarpetShampooingPage() {
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
