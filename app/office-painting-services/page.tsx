@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import FloatingWhatsApp from '@/components/floating-whatsapp';
@@ -38,7 +39,7 @@ export default function OfficePaintingServicesPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e8c600]/10 border border-[#e8c600]/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#529e00]/10 border border-[#529e00]/20 rounded-full">
                 <Sparkles className="w-4 h-4 text-[#529e00]" />
                 <span className="text-[#091a33] font-bold text-[10px] tracking-widest uppercase">Premium Commercial Service</span>
               </div>
@@ -46,7 +47,8 @@ export default function OfficePaintingServicesPage() {
                 Top Office Painting Services In <span className="text-[#529e00]">Dubai</span>
               </h1>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-Our office painting services provide professional interior and exterior painting solutions. We use premium paints that ensure smooth, durable finishes. Proper surface preparation guarantees flawless results. Ideal for corporate offices, retail spaces, and commercial buildings. Fresh paint improves brand image and workspace atmosphere. We minimize disruption to business operations. Clean and precise workmanship is guaranteed. Upgrade your office environment with expert painters.              </p>
+                Our <strong>office painting services</strong> provide <strong>professional interior and exterior painting solutions</strong>. We use <strong>premium paints</strong> that ensure smooth, durable finishes. Proper surface preparation guarantees <strong>flawless results</strong>. Ideal for <Link href="/office-deep-cleaning" className="text-[#529e00] underline underline-offset-2 hover:text-[#3d7700] transition-colors font-bold">corporate offices</Link>, retail spaces, and commercial buildings. Fresh paint improves <strong>brand image</strong> and workspace atmosphere. We minimize disruption to business operations. Clean and precise workmanship is guaranteed. Upgrade your office environment with <strong>expert painters</strong>.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://wa.me/971565429198?text=I need Office Painting service"
@@ -130,33 +132,45 @@ Our office painting services provide professional interior and exterior painting
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Interior Wall Painting',
-                  'Ceiling Painting & Repair',
-                  'Feature Wall Design',
-                  'Woodwork & Door Painting',
-                  'Metal & Trim Painting',
+                  { label: 'Interior Wall Painting', href: null },
+                  { label: 'Ceiling Painting & Repair', href: null },
+                  { label: 'Feature Wall Design', href: null },
+                  { label: 'Woodwork & Door Painting', href: null },
+                  { label: 'Metal & Trim Painting', href: null },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
               <div className="bg-gradient-to-br from-[#e8f5d8] to-[#d4eab8] rounded-[32px] p-8 space-y-4">
                 {[
-                  'Surface Crack Repair',
-                  'Wall Putty & Sanding',
-                  'Furniture Protection',
-                  'Eco-friendly Low VOC Paint',
-                  'Post-Paint Deep Cleaning',
+                  { label: 'Surface Crack Repair', href: null },
+                  { label: 'Wall Putty & Sanding', href: null },
+                  { label: 'Furniture Protection', href: null },
+                  { label: 'Eco-friendly Low VOC Paint', href: null },
+                  { label: 'Post-Paint Deep Cleaning', href: '/office-deep-cleaning' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-[#529e00] rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
                       <Check className="w-4 h-4 text-white stroke-[3]" />
                     </div>
-                    <p className="text-[#091a33] font-bold text-base">{item}</p>
+                    {item.href ? (
+                      <Link href={item.href} className="text-[#091a33] font-bold text-base hover:text-[#529e00] underline underline-offset-2 transition-colors">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p className="text-[#091a33] font-bold text-base">{item.label}</p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -181,61 +195,61 @@ Our office painting services provide professional interior and exterior painting
               {
                 title: 'Workspace Preparation',
                 items: [
-                  'Moving & covering furniture',
-                  'Floor protection with sheets',
-                  'Taping of glass & fixtures',
-                  'Wall surface assessment',
-                  'Removing old wall coverings',
+                  { label: 'Moving & covering furniture', href: null },
+                  { label: 'Floor protection with sheets', href: '/floor-deep-cleaning-services' },
+                  { label: 'Taping of glass & fixtures', href: null },
+                  { label: 'Wall surface assessment', href: null },
+                  { label: 'Removing old wall coverings', href: null },
                 ]
               },
               {
                 title: 'Surface Correction',
                 items: [
-                  'Filling holes and cracks',
-                  'Skimming and sanding',
-                  'Priming new surfaces',
-                  'Damp-proofing treatment',
-                  'Smoothing rough textures',
+                  { label: 'Filling holes and cracks', href: null },
+                  { label: 'Skimming and sanding', href: null },
+                  { label: 'Priming new surfaces', href: null },
+                  { label: 'Damp-proofing treatment', href: null },
+                  { label: 'Smoothing rough textures', href: null },
                 ]
               },
               {
                 title: 'Expert Application',
                 items: [
-                  'Multi-coat paint application',
-                  'Precision edging and corners',
-                  'Texture painting (optional)',
-                  'Uniform color distribution',
-                  'Quick-dry technology use',
+                  { label: 'Multi-coat paint application', href: null },
+                  { label: 'Precision edging and corners', href: null },
+                  { label: 'Texture painting (optional)', href: null },
+                  { label: 'Uniform color distribution', href: null },
+                  { label: 'Quick-dry technology use', href: null },
                 ]
               },
               {
                 title: 'Detailed Areas',
                 items: [
-                  'Conference room focus',
-                  'Reception area detailing',
-                  'Executive office finishing',
-                  'Door frames and skirtings',
-                  'Window sill painting',
+                  { label: 'Conference room focus', href: null },
+                  { label: 'Reception area detailing', href: null },
+                  { label: 'Executive office finishing', href: null },
+                  { label: 'Door frames and skirtings', href: null },
+                  { label: 'Window sill painting', href: '/outside-window-cleaning' },
                 ]
               },
               {
                 title: 'Color Consultancy',
                 items: [
-                  'Corporate color matching',
-                  'Modern palette suggestions',
-                  'Accent wall planning',
-                  'Light-enhancing finishes',
-                  'Branding integration',
+                  { label: 'Corporate color matching', href: null },
+                  { label: 'Modern palette suggestions', href: null },
+                  { label: 'Accent wall planning', href: null },
+                  { label: 'Light-enhancing finishes', href: null },
+                  { label: 'Branding integration', href: null },
                 ]
               },
               {
                 title: 'Final Handover',
                 items: [
-                  'Painters tape removal',
-                  'Furniture rearrangement',
-                  'Thorough floor cleaning',
-                  'Paint touch-up check',
-                  'Manager walkthrough',
+                  { label: 'Painters tape removal', href: null },
+                  { label: 'Furniture rearrangement', href: null },
+                  { label: 'Thorough floor cleaning', href: '/office-deep-cleaning' },
+                  { label: 'Paint touch-up check', href: null },
+                  { label: 'Manager walkthrough', href: null },
                 ]
               },
             ].map((service, idx) => (
@@ -245,7 +259,13 @@ Our office painting services provide professional interior and exterior painting
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#529e00] flex-shrink-0 mt-1" />
-                      <span className="text-sm text-gray-600 font-medium">{item}</span>
+                      {item.href ? (
+                        <Link href={item.href} className="text-sm text-[#529e00] font-semibold underline underline-offset-2 hover:text-[#3d7700] transition-colors">
+                          {item.label}
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-600 font-medium">{item.label}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -267,23 +287,28 @@ Our office painting services provide professional interior and exterior painting
                 {[
                   {
                     title: 'Brand Image',
-                    desc: 'A fresh, well-painted office leaves a lasting positive impression on clients and visitors.'
+                    desc: 'A fresh, well-painted office leaves a lasting positive impression on clients and visitors.',
+                    href: null,
                   },
                   {
                     title: 'Employee Productivity',
-                    desc: 'The right colors can significantly boost morale, energy levels, and efficiency in the workplace.'
+                    desc: 'The right colors can significantly boost morale, energy levels, and efficiency in the workplace.',
+                    href: null,
                   },
                   {
                     title: 'Professional Finish',
-                    desc: 'Professional painters ensure smooth walls and sharp lines that DIY or cheap labor cannot achieve.'
+                    desc: 'Professional painters ensure smooth walls and sharp lines that DIY or cheap labor cannot achieve.',
+                    href: null,
                   },
                   {
                     title: 'Maintenance & Durability',
-                    desc: 'Quality paints protect your walls from the high traffic and humidity typical in Dubai commercial spaces.'
+                    desc: 'Quality paints protect your walls from the high traffic and humidity typical in Dubai commercial spaces.',
+                    href: '/office-deep-cleaning',
                   },
                   {
                     title: 'Minimal Disruption',
-                    desc: 'Our experts work around your schedule, including weekends/after-hours, to minimize business downtime.'
+                    desc: 'Our experts work around your schedule, including weekends/after-hours, to minimize business downtime.',
+                    href: null,
                   },
                 ].map((point, idx) => (
                   <div key={idx} className="flex gap-4">
@@ -291,7 +316,13 @@ Our office painting services provide professional interior and exterior painting
                       <span className="text-white font-black text-sm">{idx + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      {point.href ? (
+                        <Link href={point.href}>
+                          <h3 className="text-lg font-bold text-[#091a33] mb-2 hover:text-[#529e00] transition-colors">{point.title}</h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-lg font-bold text-[#091a33] mb-2">{point.title}</h3>
+                      )}
                       <p className="text-gray-600 text-sm leading-relaxed">{point.desc}</p>
                     </div>
                   </div>
@@ -315,7 +346,6 @@ Our office painting services provide professional interior and exterior painting
 
       {/* Benefits Section */}
       <section className="py-20 bg-[#fcfcfc] relative overflow-hidden">
-        {/* Decorative Shapes */}
         <div className="absolute top-20 left-10 opacity-20">
           <svg width="120" height="140" viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60 10C40 30 20 60 20 90C20 110 35 130 60 130C85 130 100 110 100 90C100 60 80 30 60 10Z" fill="#529e00" opacity="0.3"/>
@@ -452,6 +482,43 @@ Our office painting services provide professional interior and exterior painting
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 bg-[#fcfcfc]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black text-[#091a33] mb-4">
+              Explore Our Other <span className="text-[#529e00]">Cleaning Services</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">We offer a wide range of professional cleaning solutions across Dubai.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { label: 'Mattress Cleaning Services', href: '/mattress-cleaning-services' },
+              { label: 'Carpet Shampooing', href: '/carpet-shampooing' },
+              { label: 'Curtain UV & Steam Machine', href: '/Curtain-uv-and-steam-machine' },
+              { label: 'Steam Deep Cleaning', href: '/steam-deep-cleaning' },
+              { label: 'Apartment Deep Cleaning', href: '/apartment-deep-cleaning' },
+              { label: 'Villa Deep Cleaning', href: '/villa-deep-cleaning' },
+              { label: 'Office Deep Cleaning', href: '/office-deep-cleaning' },
+              { label: 'Bathroom Deep Cleaning', href: '/bathroom-deep-cleaning' },
+              { label: 'AC Duct Cleaning', href: '/ac-duct-cleaning' },
+              { label: 'Move In Move Out Cleaning', href: '/move-in-move-out-cleaning' },
+              { label: 'Kitchen Deep Cleaning', href: '/kitchen-deep-cleaning' },
+              { label: 'Balcony Deep Cleaning', href: '/balcony-deep-cleaning' },
+            ].map((service, idx) => (
+              <Link
+                key={idx}
+                href={service.href}
+                className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm font-semibold text-[#091a33] hover:border-[#529e00] hover:text-[#529e00] hover:shadow-md transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 text-[#529e00] group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                {service.label}
+              </Link>
             ))}
           </div>
         </div>
