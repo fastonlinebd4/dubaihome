@@ -155,15 +155,17 @@ const services = [
 export default function Services() {
   const router = useRouter();
 
-  return (
-    <section id="services" className="py-12 md:py-20 bg-[#fafbfc] relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute -top-24 -right-24 w-[320px] md:w-[520px] h-[320px] md:h-[520px] bg-primary/5 rounded-full blur-[110px] pointer-events-none" />
-      <div className="absolute -bottom-28 -left-28 w-[320px] md:w-[520px] h-[320px] md:h-[520px] bg-black/5 rounded-full blur-[120px] pointer-events-none" />
+ return (
+    // pt-0 dile upor theke kono extra space thakbe na
+    <section id="services" className="pt-6 pb-12 md:pb-20 bg-[#fafbfc] relative overflow-hidden">      
+      
+      {/* Background Decorations - Proyojon hole ekhaneo ektu top alignment thik kora jay */}
+      <div className="absolute -top-32 -right-24 w-[320px] md:w-[520px] h-[320px] md:h-[520px] bg-primary/5 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16 space-y-3 md:space-y-4">
+        
+        {/* Header Section - Header er sathe laganor jonno mt-8 ba mt-10 use korte paren jodi header stick thake */}
+        <div className="text-center max-w-2xl mx-auto pt-8 mb-8 md:mb-12 space-y-3 md:space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-100 rounded-full shadow-sm">
             <Waves className="w-3.5 h-3.5 text-primary" />
             <span className="text-gray-900 font-bold text-[9px] tracking-[0.2em] uppercase font-heading">
@@ -195,7 +197,7 @@ export default function Services() {
                 className="group block rounded-[20px] md:rounded-[28px] overflow-hidden bg-white shadow-sm hover:shadow-2xl transition-all duration-700 border border-gray-100 hover:border-primary/10"
               >
                 {/* Image Section */}
-                <div className="relative overflow-hidden">
+               <div className="relative overflow-hidden">
   <Image
     src={service.image}
     alt={service.title}
