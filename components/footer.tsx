@@ -157,7 +157,7 @@ export default function Footer() {
             <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><Mail size={20} /></div>
             <div>
               <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-0.5">Email Support</p>
-              <p className="text-white font-bold text-[14px]">info.dhclean@gmail.com</p>
+              <p className="text-white font-bold text-[14px]">info.dhcsclean@gmail.com</p>
             </div>
           </div>
         </div>
