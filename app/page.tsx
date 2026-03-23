@@ -57,7 +57,9 @@ export default function Home() {
         {/* এই ৩টি সেকশনে কোনো অ্যানিমেশন নেই, এগুলো সরাসরি লোড হবে */}
         <Hero />
         <AboutSection />
+		<QuoteSection />
         <Services />
+               
 
         {/* নিচের সেকশনগুলোতে অ্যানিমেশন বহাল থাকবে */}
         <div className="reveal">
@@ -70,10 +72,6 @@ export default function Home() {
 
         <div className="reveal">
           <Testimonials />
-        </div>
-
-        <div className="reveal">
-          <QuoteSection />
         </div>
 
         <div className="reveal">
