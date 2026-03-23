@@ -65,9 +65,9 @@ export default function ContactUs() {
                                 },
                                 {
                                     title: 'Email Address',
-                                    value: 'dubaihomecleaningservices@gmail.com',
+                                    value: 'info.dhcsclean@gmail.com',
                                     icon: Mail,
-                                    href: 'mailto:dubaihomecleaningservices@gmail.com',
+                                    href: 'mailto:info.dhcsclean@gmail.com',
                                     color: 'text-orange-500',
                                     bg: 'bg-orange-50'
                                 },
